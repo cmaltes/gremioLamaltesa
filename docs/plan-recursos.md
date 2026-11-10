@@ -1,7 +1,7 @@
 # Plan: imágenes, personajes, miniaturas, muñecos, mapas y PDFs
 
 Se hace **de uno en uno**, en este orden. Cada paso termina con commit, publicación y revisión en móvil.
-Estado: **nada de esto está hecho todavía** (solo existen el PDF de la pantalla del master y el PDF original del guion).
+Estado: **Paso 0 hecho**; el resto pendiente (solo existen el PDF de la pantalla del master y el PDF original del guion).
 
 ## Decisiones tomadas (10-nov-2026)
 
@@ -29,6 +29,7 @@ Estado: **nada de esto está hecho todavía** (solo existen el PDF de la pantall
 - Crear `tools/` con `requirements.txt` y un entorno virtual (no se sube): opencv-python, numpy, pillow, rembg, realesrgan (o alternativa), pymupdf o reportlab.
 - Guardar los originales en `_originales/` (ignorado por git) antes de tocar nada.
 - **Hecho cuando:** un script de prueba limpia una imagen y genera un PDF.
+- **Estado: HECHO (10-nov-2026).** `tools/.venv` con opencv-headless, numpy, pillow, pymupdf y rembg[cpu] (856 MB, ignorado por git); `tools/prueba.py` limpia la esquina por inpainting y crea un PDF A4. Originales copiados a `_originales/` (ignorado). **Pendiente al llegar al Paso 1:** instalar Real-ESRGAN (necesita torch; el disco tiene solo ~10 GB libres, así que instalar torch con CUDA ~3 GB solo entonces). El modelo de rembg (~170 MB) se descarga la primera vez que se use (Paso 2).
 
 ### Paso 1 · Limpiar y unificar las 9 imágenes
 - Quitar la marca ✦ (relleno por inpainting o recorte de esquina; revisar a ojo cada una).
