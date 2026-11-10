@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
-# Crea o actualiza en GitHub las etiquetas de .github/labels.yml  (requiere gh y python3)
+# Crea o actualiza en GitHub las etiquetas de .github/labels.yml  (requiere gh)
 set -euo pipefail
-python3 - <<'PY' | while IFS=$'\t' read -r nombre color desc; do
+grep -E '^- \{' .github/labels.yml | while IFS= read -r l; do
+  nombre=$(sed -E 's/.*name: "([^"]+)".*/\1/' <<<"$l")
+  color=$(sed -E 's/.*color: "([^"]+)".*/\1/' <<<"$l")
+  desc=$(sed -E 's/.*description: "([^"]*)".*/\1/' <<<"$l")
   gh label create "$nombre" --color "$color" --description "$desc" --force
 done
-import re
-for l in open('.github/labels.yml'):
-    m = re.search(r'name: "([^"]+)", color: "([^"]+)", description: "([^"]*)"', l)
-    if m: print('\t'.join(m.groups()))
-PY
