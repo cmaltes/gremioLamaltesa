@@ -1,7 +1,7 @@
 # Plan: imágenes, personajes, miniaturas, muñecos, mapas y PDFs
 
 Se hace **de uno en uno**, en este orden. Cada paso termina con commit, publicación y revisión en móvil.
-Estado: **Pasos 0 y 1 hechos**; el resto pendiente (solo existen el PDF de la pantalla del master y el PDF original del guion).
+Estado: **Pasos 0 y 1 hechos, 2 a medias**; el resto pendiente (solo existen el PDF de la pantalla del master y el PDF original del guion).
 
 ## Decisiones tomadas (10-nov-2026)
 
@@ -43,7 +43,8 @@ Estado: **Pasos 0 y 1 hechos**; el resto pendiente (solo existen el PDF de la pa
 - Con lo que hay: recortar a Glitch, Gart, Zash y Mizzen de sus escenas (fondo transparente) y sacar un retrato cuadrado de cada uno.
 - Para Alarico, Aerion (humano y guiverno), Fliflas y el Oso Lechuza: escribir prompts en `docs/prompts-imagenes.md` (cuerpo completo, de frente, fondo liso, mismo estilo). El usuario los genera; yo los proceso igual.
 - Guardar en `public/aventuras/<slug>/personajes/<personaje>.png` y `<personaje>-retrato.jpg`; actualizar `pnj[].imagen` y la sección Personajes de la web.
-- **Hecho cuando:** los 11 PNJ de la aventura tienen retrato y recorte, y se ven en la web.
+- **Hecho cuando:** los PNJ de la aventura tienen retrato y recorte, y se ven en la web. (Son 9 personajes: Alarico, Aerion humano, Aerion guiverno, Fliflas, Oso Lechuza y los 4 kobolds. No son 11.)
+- **Estado: PARCIAL (10-nov-2026).** Hechos Glitch, Gart, Zash y Mizzen: `public/aventuras/<slug>/personajes/<n>.png` (recorte con rembg `isnet-general-use`) y `<n>-retrato.jpg` (512²); ya salen en la web (`pnj[].imagen` apunta al retrato). Scripts: `tools/personajes.py` (recortes y limpiezas a mano por personaje) y `tools/retratos.py`. Mizzen es un busto (está tras el mostrador). **Faltan Alarico, Aerion (humano y guiverno), Fliflas y Oso Lechuza: prompts listos en `docs/prompts-imagenes.md`; esperan a que Fernando genere las imágenes** (guardarlas en `_originales/personajes/`). Al llegar, añadirlos a `PJ` de `personajes.py` (o recortarlos enteros, con fondo liso es directo) y a `pnj` del frontmatter (Oso Lechuza y Aerion guiverno no están aún).
 
 ### Paso 3 · Miniaturas (fichas redondas, «tokens»)
 - Hoja de tokens con el retrato de cada personaje: redondos de **25 mm** (pequeños y medianos) y **50 mm** (Oso Lechuza, Guiverno), con borde de color según sean aliados o enemigos y el nombre.
@@ -57,6 +58,7 @@ Estado: **Pasos 0 y 1 hechos**; el resto pendiente (solo existen el PDF de la pa
 - **Hecho cuando:** un PDF se imprime, se recorta y se tiene de pie sobre un mapa.
 
 ### Paso 5 · Mapas en A4 y A3 con la cuadrícula bien
+- **Antes de la cuadrícula: unificar la estética de los árboles.** Ahora son muy distintos en cada mapa (bosque-emboscada: árboles de pixel-art grandes y coloridos; feria y encrucijada: copas de acuarela con contorno; cueva: sin árboles). Elegir un estilo de referencia (probablemente el de la feria, que es el de las atracciones), y o bien (a) repintar las copas de los mapas discrepantes con prompts de IA («mismo estilo que feria.jpg») y retocar, o (b) pedir a Gemini una versión del bosque en ese estilo; comprobar que las copas encajan en cuadrícula de 25 mm (un árbol = 2-3 casillas).
 - Medir la cuadrícula real de cada mapa (detección de líneas, no a ojo); anotar píxeles por casilla y número de casillas.
 - Si la cuadrícula de la IA no es regular, dibujar una cuadrícula propia en vectorial de 25 mm encima (y, si hace falta, atenuar la original).
 - PDF a escala 1 casilla = 25 mm en mosaico, en dos versiones: hojas A4 y hojas A3, con solapes, marcas de corte y numeración de hojas.

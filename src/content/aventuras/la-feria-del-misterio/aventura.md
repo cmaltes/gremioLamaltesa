@@ -22,19 +22,19 @@ pnj:
   - nombre: Glitch, la Listilla
     rol: Kobold · Pista 1
     descripcion: Dirige la Diana del Saber. Entrega la Poción Solvente Místico. Acompaña a Alarico al final.
-    imagen: /aventuras/la-feria-del-misterio/img/diana-glitch-min.jpg
+    imagen: /aventuras/la-feria-del-misterio/personajes/glitch-retrato.jpg
   - nombre: Gart, el Fuerte
     rol: Kobold · Pista 2
     descripcion: Maneja la Noria de los Versos Perdidos (y presume de músculos rellenos). Da el Mapa Escondido.
-    imagen: /aventuras/la-feria-del-misterio/img/noria-gart-min.jpg
+    imagen: /aventuras/la-feria-del-misterio/personajes/gart-retrato.jpg
   - nombre: Zash, la Rápida
     rol: Kobold · Pista 3
     descripcion: Nerviosa cobradora del Carrusel de los Contrasentidos. Entrega el Pergamino de Dormir.
-    imagen: /aventuras/la-feria-del-misterio/img/carrusel-zash-min.jpg
+    imagen: /aventuras/la-feria-del-misterio/personajes/zash-retrato.jpg
   - nombre: Mizzen, el Acaparador
     rol: Kobold · Pista 4
     descripcion: Dueño de la Tienda de Curiosidades. Vende la Llave del Cofre del Tesoro y ama el brillo.
-    imagen: /aventuras/la-feria-del-misterio/img/tienda-mizzen-min.jpg
+    imagen: /aventuras/la-feria-del-misterio/personajes/mizzen-retrato.jpg
   - nombre: Fliflas, el Juglar
     rol: Pista sutil
     descripcion: Humano melancólico con un laúd desafinado. Canta «La Balada del Señor Perdido», que resume la trama.
