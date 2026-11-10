@@ -3,16 +3,16 @@
 Se hace **de uno en uno**, en este orden. Cada paso termina con commit, publicación y revisión en móvil.
 Estado: **nada de esto está hecho todavía** (solo existen el PDF de la pantalla del master y el PDF original del guion).
 
-## Decisiones a confirmar antes de empezar
+## Decisiones tomadas (10-nov-2026)
 
-| Tema | Propuesta |
+| Tema | Decisión |
 |---|---|
-| Escala de la cuadrícula | **1 casilla = 25 mm** (1 pulgada, sirve para miniaturas de 25-28 mm). Alternativa: 20 mm si se quiere gastar menos papel. |
-| Mapas | Dos versiones por mapa: **a escala real en mosaico de hojas** (A4 y A3, con marcas de corte) y **ajustado a una sola hoja** (con la escala impresa). |
+| Escala de la cuadrícula | **1 casilla = 25 mm** (1 pulgada, para miniaturas de 25-28 mm). |
+| Mapas | **A escala real en mosaico de hojas** (versiones A4 y A3, con marcas de corte y solapes). No se hace la versión «ajustada a una hoja», salvo que se pida más adelante. |
+| PDFs generados | **Se suben al repo** (en `public/aventuras/<slug>/descargas/`). Vigilar el peso total y no subir PDF intermedios. |
 | Estilo común | El de las ilustraciones actuales: pintura digital cálida de feria nocturna, con luces. Los personajes nuevos se piden con ese mismo estilo. |
 | Personajes que faltan | **No puedo generar imágenes.** Escribo prompts con el mismo estilo (`docs/prompts-imagenes.md`) para generarlos con Gemini u otra IA, y yo los proceso (recorte, color, tamaño). |
 | Herramientas | Entorno Python aparte (`tools/`, fuera de la web) con OpenCV, rembg (modelo de ~170 MB), Real-ESRGAN (la GPU GTX 1650 de 4 GB sirve con tiles) y una librería de PDF. |
-| PDFs generados | Decidir si se suben al repo (simple, pesa) o se generan en GitHub Actions con Chrome al publicar (más limpio). |
 
 ## Lo que hay ahora (para no volver a investigarlo)
 
@@ -57,8 +57,8 @@ Estado: **nada de esto está hecho todavía** (solo existen el PDF de la pantall
 ### Paso 5 · Mapas en A4 y A3 con la cuadrícula bien
 - Medir la cuadrícula real de cada mapa (detección de líneas, no a ojo); anotar píxeles por casilla y número de casillas.
 - Si la cuadrícula de la IA no es regular, dibujar una cuadrícula propia en vectorial de 25 mm encima (y, si hace falta, atenuar la original).
-- PDF A: a escala 1 casilla = 25 mm en mosaico A4 (y A3), con solapes, marcas de corte y numeración de hojas.
-- PDF B: ajustado a una sola hoja A4 y A3, con «1 casilla = X mm» y una regla impresa.
+- PDF a escala 1 casilla = 25 mm en mosaico, en dos versiones: hojas A4 y hojas A3, con solapes, marcas de corte y numeración de hojas.
+- Incluir una regla de 5 casillas (125 mm) impresa en cada hoja para comprobar la escala.
 - Tener en cuenta el margen no imprimible (5-10 mm).
 - **Hecho cuando:** cada mapa tiene sus PDFs, con una ficha de «tamaño, casillas y hojas», y se comprueba que 25 mm miden 25 mm al imprimir.
 
@@ -66,7 +66,7 @@ Estado: **nada de esto está hecho todavía** (solo existen el PDF de la pantall
 - Guion completo: nueva vista imprimible `/aventuras/<slug>/imprimir/` (con imágenes y bloques del master) → PDF. Sustituir el PDF original de 3,6 MB.
 - Fichas de héroe: una hoja A4 por clase + hoja de reglas.
 - Reunir en `descargas` del frontmatter: guion, pantalla del master, fichas, mapas (A4/A3), tokens, muñecos.
-- Ampliar `scripts/generar-pdfs.sh` o pasarlo a GitHub Actions.
+- Ampliar `scripts/generar-pdfs.sh` (los PDF se suben al repo).
 - **Hecho cuando:** todo se descarga desde la página de la aventura y coincide con la versión actual de la web.
 
 ## Retomar después de `/clear`
