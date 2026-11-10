@@ -124,7 +124,7 @@ descargas:
 El objetivo es que los héroes visiten las cuatro atracciones principales para reunir los objetos necesarios: **Mapa, Poción Solvente, Llave del Cofre y Pergamino**. Pueden hacerlo en cualquier orden.
 
 > [!REGLA]
-> **Examinar objetos.** Cada objeto que reciben puede examinarlo cada héroe una vez. Si supera la tirada, léele el texto de éxito; si falla, el de fallo (y otro héroe puede intentarlo). Ningún fallo bloquea la aventura: los objetos funcionan igual aunque no sepan para qué sirven.
+> **Examinar objetos.** Cada objeto que reciben puede examinarlo cada héroe una vez. Las dificultades están pensadas para que un solo héroe de nivel 1 lo logre con suerte, pero con todo el grupo probando suele salir. Si supera la tirada, léele el texto de éxito; si falla, el de fallo (y otro héroe puede intentarlo). Ningún fallo bloquea la aventura: los objetos funcionan igual aunque no sepan para qué sirven.
 
 ### Bienvenida del Maestro Alarico
 
@@ -174,20 +174,18 @@ Un hombre llamado Fliflas toca un laúd desafinado cerca de la jaula de la Besti
 - **Tiro al centro (opcional):** Destreza **DC 15**, un dardo por 1 PO. Si lo consigue, gana 2 PO (dobla su apuesta).
 
 > [!PISTA]
-> Si se atascan, cualquier héroe puede tirar Inteligencia (investigación) **DC 10** mirando las letras. Éxito: «¡Estas letras se pueden ordenar para formar una palabra!». Con **DC 15** además recuerda la balada de Fliflas: «Cura la piedra…». Quienes escucharon la balada ya tienen una pista.
+> Si se atascan, cualquier héroe puede tirar Inteligencia (investigación) **DC 12** mirando las letras. Éxito: «¡Estas letras se pueden ordenar para formar una palabra!». Con **DC 16** además recuerda la balada de Fliflas: «Cura la piedra…». Quienes escucharon la balada ya tienen una pista.
 
 > [!REGLA]
 > **Fallo:** si la tirada falla (al centro o a una letra incorrecta o fuera de secuencia), el dardo golpea una fruta cercana y esta se convierte en una estatua de piedra. Si se golpea una letra incorrecta, el progreso se pierde y hay que empezar de nuevo.
 
-**Recompensa:** Poción Solvente Místico (cura la petrificación de la trampa del cofre). Etiqueta con rima:
+**Recompensa:** Poción Solvente Místico (cura la petrificación de la trampa del cofre). Los héroes la reciben sin explicación.
 
-> «Si ves estatua, gris y fría, / Devuélvele pronto su día.»
+**Examinar la Poción Solvente Místico** · Inteligencia (arcanos) **DC 13**
 
-**Examinar la Poción Solvente Místico** · Inteligencia (arcanos) **DC 10**
+> Es un frasquito de líquido verde que burbujea suavemente. Reconoces el brillo: es un solvente místico, un remedio contra la piedra mágica. En la etiqueta, con letra diminuta, se lee: «Si ves estatua, gris y fría, / devuélvele pronto su día». Un sorbo, o un chorrito sobre quien se haya vuelto de piedra, lo devuelve a la normalidad. Solo alcanza para una persona.
 
-> Es un frasquito de líquido verde que burbujea suavemente. Reconoces el brillo: es un solvente místico, un remedio contra la piedra mágica. Un sorbo, o un chorrito sobre quien se haya vuelto de piedra, lo devuelve a la normalidad. Solo alcanza para una persona.
-
-**Si falla:** es una poción verde que huele a hierbabuena. No sabéis para qué sirve.
+**Si falla:** es una poción verde que huele a hierbabuena. La etiqueta está borrosa y no se entiende. No sabéis para qué sirve.
 
 ### Pista 2: la Noria de los Versos Perdidos (el Mapa Escondido)
 
@@ -247,7 +245,7 @@ Un hombre llamado Fliflas toca un laúd desafinado cerca de la jaula de la Besti
 
 **Recompensa:** Mapa Escondido (conduce a «La Boca del Búho»).
 
-**Examinar el Mapa Escondido** · Sabiduría (supervivencia) **DC 10**
+**Examinar el Mapa Escondido** · Sabiduría (supervivencia) **DC 13**
 
 > Entre los garabatos reconoces una roca con forma de búho en mitad del bosque y una línea de puntos que sale de la feria. Es el camino a la Boca del Búho: con este mapa no os perderéis. Junto a la roca hay dibujadas unas garras enormes… quizá allí viva algo que no quiere visitas.
 
@@ -257,13 +255,13 @@ Un hombre llamado Fliflas toca un laúd desafinado cerca de la jaula de la Besti
 
 ![El Carrusel de los Contrasentidos, con Zash](/aventuras/la-feria-del-misterio/img/carrusel-zash-min.jpg)
 
-**Atracción:** «Carrusel de los Contrasentidos». Un carrusel con cinco figuras mitológicas de madera pintadas: **1.** el Grifo Alado, **2.** la Mantícora Sonriente, **3.** el Buhochú Veloz, **4.** el Hipogrifo Noble y **5.** el Espectador Brumoso. Los postes de cada figura parecen extrañamente manchados.
+**Atracción:** «Carrusel de los Contrasentidos». Un carrusel con cinco figuras mitológicas de madera pintadas: **1.** el Grifo Alado, **2.** la Mantícora Sonriente, **3.** el Buhochú Veloz, **4.** el Hipogrifo Noble y **5.** el Espectador Brumoso.
 
 **Guardián:** Zash, la Rápida (kobold nerviosa).
 
 **Diálogo clave (Zash)**
 
-> Zash da pequeños saltitos nerviosos, contando rápidamente las monedas. «¡Súbete, súbete! ¡Un viaje, solo 1 pieza de oro (PO)! ¡Rápido, rápido, que no se pare! ¡No sé nada de las figuras, solo sé cobrar, así que no me preguntes! ¡Rápido!»
+> Zash da pequeños saltitos nerviosos, contando rápidamente las monedas. «¡Súbete, súbete! ¡Un viaje, solo 1 pieza de oro (PO)! ¡Rápido, rápido, que no se pare, que hoy hay mucha cola!»
 
 **Mecánica del reto**
 
@@ -293,7 +291,7 @@ Un hombre llamado Fliflas toca un laúd desafinado cerca de la jaula de la Besti
 
 **Recompensa:** Pergamino de Dormir.
 
-**Examinar el Pergamino de Dormir** · Inteligencia (arcanos) **DC 10**
+**Examinar el Pergamino de Dormir** · Inteligencia (arcanos) **DC 13**
 
 > Las letras plateadas brillan al mirarlas: es un hechizo de Sueño. Si se lee en voz alta señalando a un enemigo, los que tengan pocas fuerzas caen dormidos un buen rato. Solo sirve una vez: al terminar, el pergamino se convierte en polvo.
 
@@ -309,7 +307,7 @@ Un hombre llamado Fliflas toca un laúd desafinado cerca de la jaula de la Besti
 
 **Diálogo clave (Mizzen)**
 
-> Mizzen, sentado detrás del puesto, cuenta monedas con obsesión. «¡Saludos, jóvenes viajeros! ¡Si tienes monedas o algo brillante, Mizzen lo vende! ¡Sí, sí! ¿Buscas joyas? ¿Mágicas? ¡Tengo de todo! ¡Mira, tengo un tenedor que brilla, perfecto para comer! ¡Y una botella que hace sonidos de pájaros! ¡La llave de color dorado brillante… ah, esa es especial, la de la Avaricia. Es muy útil si quieres el oro! ¡10 piezas de oro por ella, y ni un cobre menos!»
+> Mizzen, sentado detrás del puesto, cuenta monedas con obsesión. «¡Saludos, jóvenes viajeros! ¡Si tienes monedas o algo brillante, Mizzen lo vende! ¡Sí, sí! ¿Buscas joyas? ¿Mágicas? ¡Tengo de todo! ¡Mira, tengo un tenedor que brilla, perfecto para comer! ¡Y una botella que hace sonidos de pájaros! ¡Y esa llave de color dorado brillante… ah, esa es especial! ¡10 piezas de oro por ella, y ni un cobre menos!»
 
 **Objeto clave:** la Llave del Cofre del Tesoro.
 
@@ -331,11 +329,11 @@ Un hombre llamado Fliflas toca un laúd desafinado cerca de la jaula de la Besti
 
 **Examinar la Llave del Cofre del Tesoro** · Inteligencia (investigación)
 
-- **DC 10:**
+- **DC 13:**
 
   > Es una llave dorada con un búho grabado en el mango, de un cofre pequeño y antiguo. Pesa más de lo normal.
 
-- **DC 15 (además):**
+- **DC 16 (además):**
 
   > Mirando de cerca el extremo de la llave ves un polvo gris pegado. Huele a piedra mojada: es polvo de petrificación. El cofre que abra esta llave puede convertir en estatua a quien lo abra. Convendría tener un remedio a mano…
 
@@ -433,7 +431,7 @@ Alarico, Glitch y Mizzen atacan a los héroes.
 
 ### El rescate final
 
-**Examinar la Llave de la Jaula** · Inteligencia (investigación) **DC 5**
+**Examinar la Llave de la Jaula** · Inteligencia (investigación) **DC 8**
 
 > Es una llave pequeña de hierro oscuro con un dragón grabado en el mango. Seguro que abre la jaula de la Bestia.
 
