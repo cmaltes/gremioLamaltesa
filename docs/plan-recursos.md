@@ -1,7 +1,7 @@
 # Plan: imágenes, personajes, miniaturas, muñecos, mapas y PDFs
 
 Se hace **de uno en uno**, en este orden. Cada paso termina con commit, publicación y revisión en móvil.
-Estado: **Paso 0 hecho**; el resto pendiente (solo existen el PDF de la pantalla del master y el PDF original del guion).
+Estado: **Pasos 0 y 1 hechos**; el resto pendiente (solo existen el PDF de la pantalla del master y el PDF original del guion).
 
 ## Decisiones tomadas (10-nov-2026)
 
@@ -16,7 +16,7 @@ Estado: **Paso 0 hecho**; el resto pendiente (solo existen el PDF de la pantalla
 
 ## Lo que hay ahora (para no volver a investigarlo)
 
-- 9 imágenes de Gemini en `public/aventuras/la-feria-del-misterio/`: 4 ilustraciones de atracciones con su kobold (`img/`) y 5 mapas (`mapas/`). Todas llevan la marca ✦ de Gemini abajo a la derecha. Se guardaron como JPG q84 a su tamaño original (1024², 1408×736 y 2048²), con `-min.jpg` de 640 px.
+- (Antes del paso 1) 9 imágenes de Gemini en `public/aventuras/la-feria-del-misterio/`: 4 ilustraciones de atracciones con su kobold (`img/`) y 5 mapas (`mapas/`). Todas llevan la marca ✦ de Gemini abajo a la derecha. Se guardaron como JPG q84 a su tamaño original (1024², 1408×736 y 2048²), con `-min.jpg` de 640 px.
 - No existen imágenes de Alarico, Aerion (humano ni guiverno), Fliflas ni el Oso Lechuza.
 - Los originales en alta (PNG de hasta 11 MB) siguen dentro del `.docx` de la carpeta del proyecto, fuera de git (`/*.docx`).
 - Las cuadrículas de los mapas son de IA: puede que no sean regulares ni del mismo tamaño en todos. El análisis rápido que hice por frecuencias fue **inconcluyente** (dio periodos incoherentes); hay que medirlas bien en el paso 5.
@@ -37,6 +37,7 @@ Estado: **Paso 0 hecho**; el resto pendiente (solo existen el PDF de la pantalla
 - Unificar color: misma temperatura, contraste y saturación entre las 4 escenas; mapas entre sí.
 - Regenerar `-min.jpg`, vigilar el peso (objetivo < 1,5 MB por imagen).
 - **Hecho cuando:** ninguna imagen tiene marca, se ven nítidas al hacer zoom y las 4 escenas parecen de la misma serie.
+- **Estado: HECHO (10-nov-2026).** Fuente: los PNG sin pérdida del `.docx` (misma resolución que los JPG que había). `tools/paso1.py` (usa `tools/marca.py`): la marca es un blanco al 50 % en posición fija (-80 px de la esquina, -160 en 2048); en escenas se deshace la mezcla (recupera la textura) y en mapas se hace inpainting (quedan pequeños borrones en la esquina, que el paso 5 tapa con su cuadrícula). Real-ESRGAN: binario **ncnn-vulkan** en `tools/bin/` (ignorado; sin torch), ×4 y vuelta a ×2; modelo `x4plus` en escenas y `x4plus-anime` en mapas. Colores de las 4 escenas acercados al promedio (60 %). `bosque-emboscada` ya era de 2048 y solo se limpió. Resultado: escenas 2048², mapas 2816×1472 (y 2048² cueva y bosque), todo < 1,3 MB; `-min.jpg` de 640 px. Para repetirlo: `tools/.venv/bin/python tools/paso1.py <word/media del docx> <salida>`.
 
 ### Paso 2 · Personajes aparte
 - Con lo que hay: recortar a Glitch, Gart, Zash y Mizzen de sus escenas (fondo transparente) y sacar un retrato cuadrado de cada uno.
