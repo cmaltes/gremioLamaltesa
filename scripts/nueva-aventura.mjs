@@ -67,6 +67,6 @@ descargas: []
 > Texto que el master lee en voz alta a los jugadores.
 
 > [!REGLA]
-> Tirada de Ingenio **DC 10** para…
+> Tirada de Inteligencia **DC 10** para…
 `);
 console.log(`Listo. Edita ${contenido}/aventura.md y mete los archivos en ${publico}/ (guía: docs/anadir-aventura.md).`);

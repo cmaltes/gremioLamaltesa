@@ -3,7 +3,7 @@
 // tabla con el número FINAL que suma en cada tirada, nivel por nivel.
 // Para añadir o ajustar una clase, edita solo este archivo (ver docs/fichas.md).
 
-export type TalentoId = 'fuerza' | 'agilidad' | 'ingenio' | 'corazon';
+export type TalentoId = 'fuerza' | 'destreza' | 'constitucion' | 'inteligencia' | 'sabiduria' | 'carisma';
 export type Rango = 'fuerte' | 'bueno' | 'normal' | 'flojo';
 export type Uso = 'siempre' | 'combate' | 'aventura';
 
@@ -11,12 +11,14 @@ export const NIVELES = [1, 2, 3, 4, 5] as const;
 
 export const TALENTOS: { id: TalentoId; nombre: string; emoji: string; sirve: string }[] = [
   { id: 'fuerza', nombre: 'Fuerza', emoji: '💪', sirve: 'Golpear de cerca, empujar, romper cosas, trepar, levantar peso.' },
-  { id: 'agilidad', nombre: 'Agilidad', emoji: '🏃', sirve: 'Disparar, esquivar, esconderse, equilibrio, juegos de manos.' },
-  { id: 'ingenio', nombre: 'Ingenio', emoji: '🧠', sirve: 'Acertijos, magia, fijarse en detalles, recordar, abrir cerraduras.' },
-  { id: 'corazon', nombre: 'Corazón', emoji: '❤️', sirve: 'Convencer, animar a los amigos, calmar animales, ser valiente.' },
+  { id: 'destreza', nombre: 'Destreza', emoji: '🤸', sirve: 'Disparar, esquivar, esconderse, mantener el equilibrio, juegos de manos.' },
+  { id: 'constitucion', nombre: 'Constitución', emoji: '🧱', sirve: 'Aguantar el cansancio, el frío, el veneno y los golpes duros.' },
+  { id: 'inteligencia', nombre: 'Inteligencia', emoji: '🧠', sirve: 'Resolver acertijos, recordar cosas, investigar, magia de libros.' },
+  { id: 'sabiduria', nombre: 'Sabiduría', emoji: '🦉', sirve: 'Fijarse en detalles, rastrear, intuir, calmar animales, curar.' },
+  { id: 'carisma', nombre: 'Carisma', emoji: '🗣️', sirve: 'Convencer, animar a los amigos, cantar, ser valiente.' },
 ];
 
-/** Número que se suma en cada nivel (1 a 5) según lo bueno que seas en un talento. */
+/** Número que se suma en cada nivel (1 a 5) según lo bueno que seas en una habilidad. */
 export const SUMA: Record<Rango, number[]> = {
   fuerte: [3, 3, 4, 4, 5],
   bueno: [2, 2, 2, 3, 3],
@@ -74,11 +76,11 @@ export const clases: Clase[] = [
     slug: 'guerrero', nombre: 'Guerrero', emoji: '🛡️', color: '#3b82f6', rol: 'Protector del grupo', dificultad: 1,
     frase: '¡Detrás de mí, amigos!',
     resumen: 'Aguanta muchos golpes y protege al grupo. El mejor para empezar.',
-    talentos: { fuerza: 'fuerte', agilidad: 'normal', ingenio: 'flojo', corazon: 'bueno' },
+    talentos: { fuerza: 'fuerte', destreza: 'normal', constitucion: 'bueno', inteligencia: 'flojo', sabiduria: 'flojo', carisma: 'normal' },
     vida: [14, 5], defensa: 16,
     armas: [
       { nombre: 'Espada ancha', emoji: '⚔️', dado: 'd8', alcance: 'cuerpo', talento: 'fuerza', nota: 'Tu golpe de siempre.' },
-      { nombre: 'Jabalina', emoji: '🔱', dado: 'd6', alcance: 'distancia', talento: 'agilidad', nota: 'Se lanza lejos. Luego hay que recogerla.' },
+      { nombre: 'Jabalina', emoji: '🔱', dado: 'd6', alcance: 'distancia', talento: 'destreza', nota: 'Se lanza lejos. Luego hay que recogerla.' },
     ],
     poderes: [
       { nivel: 1, nombre: '¡Detrás de mí!', texto: 'Un amigo a tu lado iba a recibir un golpe: te lo llevas tú, y el daño se reduce a la mitad.', uso: 'combate' },
@@ -91,11 +93,11 @@ export const clases: Clase[] = [
     slug: 'barbaro', nombre: 'Bárbaro', emoji: '🪓', color: '#ef4444', rol: 'Gran golpeador', dificultad: 1,
     frase: '¡¡RAAAAAH!!',
     resumen: 'Pega más fuerte que nadie y casi no se cansa. Poca cabeza, mucho corazón.',
-    talentos: { fuerza: 'fuerte', agilidad: 'bueno', ingenio: 'flojo', corazon: 'normal' },
+    talentos: { fuerza: 'fuerte', destreza: 'normal', constitucion: 'bueno', inteligencia: 'flojo', sabiduria: 'normal', carisma: 'flojo' },
     vida: [15, 5], defensa: 13,
     armas: [
       { nombre: 'Hachón a dos manos', emoji: '🪓', dado: 'd10', alcance: 'cuerpo', talento: 'fuerza', nota: 'El daño más alto de todos.' },
-      { nombre: 'Hachas pequeñas', emoji: '🪃', dado: 'd6', alcance: 'distancia', talento: 'agilidad', nota: 'Las lanzas y vuelven a tu cinturón.' },
+      { nombre: 'Hachas pequeñas', emoji: '🪃', dado: 'd6', alcance: 'distancia', talento: 'fuerza', nota: 'Las lanzas con fuerza y vuelven a tu cinturón.' },
     ],
     poderes: [
       { nivel: 1, nombre: '¡Rugido de furia!', texto: 'Durante 3 turnos tus golpes hacen +2 de daño.', uso: 'combate' },
@@ -108,11 +110,11 @@ export const clases: Clase[] = [
     slug: 'explorador', nombre: 'Explorador', emoji: '🏹', color: '#16a34a', rol: 'Tirador', dificultad: 2,
     frase: 'Hay huellas frescas por aquí…',
     resumen: 'Dispara desde lejos y encuentra el camino. Ojo de halcón.',
-    talentos: { fuerza: 'normal', agilidad: 'fuerte', ingenio: 'bueno', corazon: 'flojo' },
+    talentos: { fuerza: 'normal', destreza: 'fuerte', constitucion: 'normal', inteligencia: 'flojo', sabiduria: 'bueno', carisma: 'flojo' },
     vida: [11, 4], defensa: 14,
     armas: [
-      { nombre: 'Arco largo', emoji: '🏹', dado: 'd8', alcance: 'distancia', talento: 'agilidad', nota: 'Dispara a lo lejos.' },
-      { nombre: 'Cuchillo de caza', emoji: '🔪', dado: 'd6', alcance: 'cuerpo', talento: 'agilidad', nota: 'Para cuando te alcanzan.' },
+      { nombre: 'Arco largo', emoji: '🏹', dado: 'd8', alcance: 'distancia', talento: 'destreza', nota: 'Dispara a lo lejos.' },
+      { nombre: 'Cuchillo de caza', emoji: '🔪', dado: 'd6', alcance: 'cuerpo', talento: 'destreza', nota: 'Para cuando te alcanzan.' },
     ],
     poderes: [
       { nivel: 1, nombre: 'Ojo de halcón', texto: 'Repites un ataque con el arco que hayas fallado y te quedas con el mejor dado.', uso: 'combate' },
@@ -125,11 +127,11 @@ export const clases: Clase[] = [
     slug: 'picaro', nombre: 'Pícaro', emoji: '🗡️', color: '#6366f1', rol: 'Sigilo y trucos', dificultad: 3,
     frase: '¿Quién? ¿Yo? Yo no he sido.',
     resumen: 'Se esconde, abre cerraduras y golpea por sorpresa. Frágil pero astuto.',
-    talentos: { fuerza: 'flojo', agilidad: 'fuerte', ingenio: 'bueno', corazon: 'normal' },
+    talentos: { fuerza: 'flojo', destreza: 'fuerte', constitucion: 'flojo', inteligencia: 'bueno', sabiduria: 'normal', carisma: 'normal' },
     vida: [10, 4], defensa: 14,
     armas: [
-      { nombre: 'Daga', emoji: '🗡️', dado: 'd6', alcance: 'cuerpo', talento: 'agilidad', nota: 'Rápida y silenciosa.' },
-      { nombre: 'Honda', emoji: '🪨', dado: 'd4', alcance: 'distancia', talento: 'agilidad', nota: 'Piedras para atacar sin ser visto.' },
+      { nombre: 'Daga', emoji: '🗡️', dado: 'd6', alcance: 'cuerpo', talento: 'destreza', nota: 'Rápida y silenciosa.' },
+      { nombre: 'Honda', emoji: '🪨', dado: 'd4', alcance: 'distancia', talento: 'destreza', nota: 'Piedras para atacar sin ser visto.' },
     ],
     poderes: [
       { nivel: 1, nombre: 'Golpe a traición', texto: 'Si un amigo está pegado al enemigo, tu golpe hace +3 de daño.', uso: 'siempre' },
@@ -142,11 +144,11 @@ export const clases: Clase[] = [
     slug: 'mago', nombre: 'Mago', emoji: '🔮', color: '#a855f7', rol: 'Hechizos', dificultad: 3,
     frase: '¡Abracadabra… y un poco de suerte!',
     resumen: 'Poca vida pero muchísimo poder. Lanza chispas y resuelve acertijos.',
-    talentos: { fuerza: 'flojo', agilidad: 'normal', ingenio: 'fuerte', corazon: 'bueno' },
+    talentos: { fuerza: 'flojo', destreza: 'normal', constitucion: 'normal', inteligencia: 'fuerte', sabiduria: 'bueno', carisma: 'flojo' },
     vida: [8, 3], defensa: 11,
     armas: [
-      { nombre: 'Varita de chispas', emoji: '🪄', dado: 'd8', alcance: 'distancia', talento: 'ingenio', nota: 'Lanza chispas mágicas. Nunca se acaban.' },
-      { nombre: 'Bastón brillante', emoji: '🔆', dado: 'd6', alcance: 'cuerpo', talento: 'ingenio', nota: 'Golpea con magia: usa tu Ingenio.' },
+      { nombre: 'Varita de chispas', emoji: '🪄', dado: 'd8', alcance: 'distancia', talento: 'inteligencia', nota: 'Lanza chispas mágicas. Nunca se acaban.' },
+      { nombre: 'Bastón brillante', emoji: '🔆', dado: 'd6', alcance: 'cuerpo', talento: 'inteligencia', nota: 'Golpea con magia: usa tu Inteligencia.' },
     ],
     poderes: [
       { nivel: 1, nombre: 'Escudo mágico', texto: 'Un golpe que te iban a dar: tu Defensa sube +4 solo contra ese golpe.', uso: 'combate' },
@@ -159,11 +161,11 @@ export const clases: Clase[] = [
     slug: 'clerigo', nombre: 'Clérigo', emoji: '✨', color: '#f59e0b', rol: 'Sanador y apoyo', dificultad: 2,
     frase: 'Tranquilo, ya estoy aquí.',
     resumen: 'Cura a los amigos y brilla contra la oscuridad. Todo grupo lo quiere.',
-    talentos: { fuerza: 'normal', agilidad: 'flojo', ingenio: 'bueno', corazon: 'fuerte' },
+    talentos: { fuerza: 'normal', destreza: 'flojo', constitucion: 'bueno', inteligencia: 'flojo', sabiduria: 'fuerte', carisma: 'normal' },
     vida: [11, 4], defensa: 14,
     armas: [
       { nombre: 'Maza de luz', emoji: '🔨', dado: 'd6', alcance: 'cuerpo', talento: 'fuerza', nota: 'Una maza que brilla al golpear.' },
-      { nombre: 'Rayo de luz', emoji: '🌟', dado: 'd6', alcance: 'distancia', talento: 'corazon', nota: 'Sale de tus manos. Nunca se acaba.' },
+      { nombre: 'Rayo de luz', emoji: '🌟', dado: 'd6', alcance: 'distancia', talento: 'sabiduria', nota: 'Sale de tus manos. Nunca se acaba.' },
     ],
     poderes: [
       { nivel: 1, nombre: 'Manos de luz', texto: 'Tocas a un amigo y recupera 5 vidas.', uso: 'combate', veces: 2 },
@@ -176,11 +178,11 @@ export const clases: Clase[] = [
     slug: 'druida', nombre: 'Druida', emoji: '🌿', color: '#65a30d', rol: 'Magia de la naturaleza', dificultad: 3,
     frase: '¿Oyes eso? Es el bosque hablando.',
     resumen: 'Habla con los animales y se convierte en oso. Un poco mago, un poco fiera.',
-    talentos: { fuerza: 'bueno', agilidad: 'flojo', ingenio: 'normal', corazon: 'fuerte' },
+    talentos: { fuerza: 'bueno', destreza: 'flojo', constitucion: 'normal', inteligencia: 'normal', sabiduria: 'fuerte', carisma: 'flojo' },
     vida: [10, 4], defensa: 12,
     armas: [
       { nombre: 'Bastón florido', emoji: '🌱', dado: 'd8', alcance: 'cuerpo', talento: 'fuerza', nota: 'Del tamaño de un remo.' },
-      { nombre: 'Semillas espinosas', emoji: '🌰', dado: 'd6', alcance: 'distancia', talento: 'corazon', nota: 'El bosque te obedece: usa tu Corazón.' },
+      { nombre: 'Semillas espinosas', emoji: '🌰', dado: 'd6', alcance: 'distancia', talento: 'sabiduria', nota: 'El bosque te obedece: usa tu Sabiduría.' },
     ],
     poderes: [
       { nivel: 1, nombre: 'Amigo del bosque', texto: 'Hablas con los animales. Un pájaro distrae a un enemigo: falla su siguiente ataque.', uso: 'combate' },
@@ -193,11 +195,11 @@ export const clases: Clase[] = [
     slug: 'bardo', nombre: 'Bardo', emoji: '🎶', color: '#ec4899', rol: 'Músico y animador', dificultad: 2,
     frase: '¡Y ahora, un cuentito!',
     resumen: 'Canta, anima y deja con la boca abierta a los enemigos. El alma del grupo.',
-    talentos: { fuerza: 'flojo', agilidad: 'bueno', ingenio: 'normal', corazon: 'fuerte' },
+    talentos: { fuerza: 'flojo', destreza: 'bueno', constitucion: 'normal', inteligencia: 'normal', sabiduria: 'flojo', carisma: 'fuerte' },
     vida: [10, 4], defensa: 13,
     armas: [
-      { nombre: 'Estoque', emoji: '🤺', dado: 'd6', alcance: 'cuerpo', talento: 'agilidad', nota: 'Una espada fina y elegante.' },
-      { nombre: 'Cuchillos de malabar', emoji: '🤹', dado: 'd4', alcance: 'distancia', talento: 'agilidad', nota: 'Los lanzas y los recoges al vuelo.' },
+      { nombre: 'Estoque', emoji: '🤺', dado: 'd6', alcance: 'cuerpo', talento: 'destreza', nota: 'Una espada fina y elegante.' },
+      { nombre: 'Cuchillos de malabar', emoji: '🤹', dado: 'd4', alcance: 'distancia', talento: 'destreza', nota: 'Los lanzas y los recoges al vuelo.' },
     ],
     poderes: [
       { nivel: 1, nombre: 'Canción de ánimo', texto: 'Un amigo suma +3 a su siguiente tirada.', uso: 'combate', veces: 2 },
@@ -210,10 +212,10 @@ export const clases: Clase[] = [
     slug: 'monje', nombre: 'Monje', emoji: '🥋', color: '#0d9488', rol: 'Luchador veloz', dificultad: 2,
     frase: 'Primero respira. Después, ¡pum!',
     resumen: 'Sin armadura, pero tan rápido que casi nadie le toca. Pega con puños y bastón.',
-    talentos: { fuerza: 'bueno', agilidad: 'fuerte', ingenio: 'normal', corazon: 'flojo' },
+    talentos: { fuerza: 'bueno', destreza: 'fuerte', constitucion: 'normal', inteligencia: 'flojo', sabiduria: 'normal', carisma: 'flojo' },
     vida: [11, 4], defensa: 15,
     armas: [
-      { nombre: 'Puños veloces', emoji: '👊', dado: 'd6', alcance: 'cuerpo', talento: 'agilidad', nota: 'No necesitas llevar nada.' },
+      { nombre: 'Puños veloces', emoji: '👊', dado: 'd6', alcance: 'cuerpo', talento: 'destreza', nota: 'No necesitas llevar nada.' },
       { nombre: 'Bastón largo', emoji: '🥢', dado: 'd8', alcance: 'cuerpo', talento: 'fuerza', nota: 'Llega a 2 casillas de distancia.' },
     ],
     poderes: [
@@ -227,11 +229,11 @@ export const clases: Clase[] = [
     slug: 'paladin', nombre: 'Paladín', emoji: '⚜️', color: '#eab308', rol: 'Caballero de la luz', dificultad: 2,
     frase: '¡Por la luz y por mis amigos!',
     resumen: 'Guerrero valiente con poderes de luz. Golpea fuerte y da ánimos con su ejemplo.',
-    talentos: { fuerza: 'fuerte', agilidad: 'flojo', ingenio: 'normal', corazon: 'bueno' },
+    talentos: { fuerza: 'fuerte', destreza: 'flojo', constitucion: 'normal', inteligencia: 'flojo', sabiduria: 'normal', carisma: 'bueno' },
     vida: [13, 5], defensa: 16,
     armas: [
       { nombre: 'Espada sagrada', emoji: '⚔️', dado: 'd8', alcance: 'cuerpo', talento: 'fuerza', nota: 'Brilla suavemente cuando hay peligro.' },
-      { nombre: 'Lanza de luz', emoji: '🔱', dado: 'd6', alcance: 'distancia', talento: 'corazon', nota: 'La lanzas y vuelve a tu mano.' },
+      { nombre: 'Lanza de luz', emoji: '🔱', dado: 'd6', alcance: 'distancia', talento: 'carisma', nota: 'La lanzas y vuelve a tu mano.' },
     ],
     poderes: [
       { nivel: 1, nombre: 'Golpe sagrado', texto: 'Tu siguiente golpe que acierte brilla y hace +4 de daño.', uso: 'combate' },

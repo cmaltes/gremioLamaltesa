@@ -36,7 +36,7 @@ Markdown normal (títulos `##` y `###`, listas, tablas). Para destacar tipos de 
 > Nota solo para el master.
 
 > [!REGLA]
-> Tirada de Ingenio **DC 10**.
+> Tirada de Inteligencia **DC 10**.
 
 > [!PISTA]
 > Si se atascan, di que…

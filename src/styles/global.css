@@ -220,7 +220,7 @@ details.indice li.h3 a { color: var(--muted); }
 .nivel-sel button { flex: 1; min-height: 52px; border-radius: 12px; border: 2px solid var(--border); background: var(--surface); color: var(--text); font: 900 1.2rem Nunito, sans-serif; cursor: pointer; }
 .nivel-sel button[aria-pressed="true"] { background: var(--c); border-color: var(--c); color: #fff; }
 .numeros { display: grid; gap: 10px; grid-template-columns: repeat(2, 1fr); }
-@media (min-width: 640px) { .numeros { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 640px) { .numeros { grid-template-columns: repeat(3, 1fr); } }
 .num { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 12px; text-align: center; }
 .num .e { font-size: 1.5rem; }
 .num .n { display: block; font: 900 2.6rem/1.1 Nunito, sans-serif; color: var(--c); }

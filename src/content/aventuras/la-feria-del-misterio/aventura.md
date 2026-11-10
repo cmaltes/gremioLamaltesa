@@ -105,7 +105,7 @@ descargas:
 > **La aventura en un minuto.** Los héroes visitan las cuatro atracciones de la feria. Cada kobold guarda un objeto: una Poción, un Mapa, un Pergamino y una Llave. Con el mapa salen al bosque, se enfrentan a dos kobolds en una emboscada y a un Oso Lechuza en su cueva, y abren el cofre del tesoro (con trampa de petrificación). Al volver, el Maestro Alarico los ataca: al derrotarlo, el dragón enjaulado vuelve a ser el Príncipe Aerion.
 
 > [!REGLA]
-> **Fichas del Gremio:** Destreza = Agilidad · Sabiduría e Inteligencia = Ingenio · Carisma = Corazón. Las dificultades (DC) se usan tal cual. Un héroe del Gremio de nivel 1 suma entre +0 y +3.
+> **Fichas del Gremio:** las habilidades de esta aventura (Fuerza, Destreza, Constitución, Inteligencia, Sabiduría y Carisma) son las mismas de las fichas de héroe. Un héroe de nivel 1 suma entre +0 y +3 a cada tirada.
 
 ## 2. Personajes importantes (PNJ)
 
@@ -122,6 +122,9 @@ descargas:
 ## 3. Capítulo 1: el festival y las pistas
 
 El objetivo es que los héroes visiten las cuatro atracciones principales para reunir los objetos necesarios: **Mapa, Poción Solvente, Llave del Cofre y Pergamino**. Pueden hacerlo en cualquier orden.
+
+> [!REGLA]
+> **Examinar objetos.** Cada objeto que reciben puede examinarlo cada héroe una vez. Si supera la tirada, léele el texto de éxito; si falla, el de fallo (y otro héroe puede intentarlo). Ningún fallo bloquea la aventura: los objetos funcionan igual aunque no sepan para qué sirven.
 
 ### Bienvenida del Maestro Alarico
 
@@ -155,20 +158,23 @@ Un hombre llamado Fliflas toca un laúd desafinado cerca de la jaula de la Besti
 
 ![La Diana del Saber, con Glitch](/aventuras/la-feria-del-misterio/img/diana-glitch-min.jpg)
 
-**Atracción:** «Diana del Saber». Una diana de madera muy pintada, con muchas secciones y un centro brillante. Alrededor del centro hay seis letras grandes y desordenadas: **R, D, E, P, A, I**. Está rodeada de cinco pequeños barriles con dardos. Al lado hay un cuenco con fruta fresca.
+**Atracción:** «Diana del Saber». Una diana de madera muy pintada, con muchas secciones y un centro brillante. Alrededor del centro hay seis letras grandes pintadas: **R, D, E, P, A, I**. Está rodeada de cinco pequeños barriles con dardos. Al lado hay un cuenco con fruta fresca.
 
 **Guardián:** Glitch, la Listilla (kobold supervisora).
 
 **Diálogo clave (Glitch)**
 
-> Glitch ríe con su voz chillona. «¡Bienvenidos, valientes! ¡Buscáis el Solvente, que deshace el gris! ¡Sí, sí! ¡Hay una manera de jugar que es segura para ganar oro! ¡Apuntad al centro! Si lo lográis con un dardo (DC 15), ¡doblaréis vuestra apuesta! Y… (señala las letras) ¿veis esas letras desordenadas (R, D, E, P, A, I)? Forman una palabra clave, una palabra sobre lo que el Solvente deshace. Si descifráis el secreto de esas letras, quizás pase algo más… ¡quizás ganéis el Solvente! Cada tiro cuesta 1 PO. ¡Pero cuidado! Si falláis el tiro, el dardo golpea una fruta y ¡la fruta se vuelve de piedra, ja, ja, ja!»
+> Glitch ríe con su voz chillona. «¡Bienvenidos, valientes! ¿Buscáis algo que deshaga el gris? ¡Sí, sí, aquí se juega para ganar oro! ¡Apuntad al centro! Si lo lográis con un dardo (DC 15), ¡doblaréis vuestra apuesta! Cada tiro cuesta 1 PO. ¡Pero cuidado! Si falláis el tiro, el dardo golpea una fruta y ¡la fruta se vuelve de piedra, ja, ja, ja!»
 
 **Mecánica del reto**
 
-- **Reto principal (secreto):** descifrar la palabra **PIEDRA** y golpear las letras en el orden **P-I-E-D-R-A**.
-  - **Tiro a las letras:** Agilidad (acrobacias o juego de manos) **DC 5**. Cada héroe puede hacer un tiro por 1 PO. Debe anunciar a qué letra tira.
+- **Reto principal (secreto):** los héroes deben darse cuenta por sí solos de que las letras forman la palabra **PIEDRA** y golpearlas en el orden **P-I-E-D-R-A**. Glitch no lo dice ni lo insinúa.
+  - **Tiro a las letras:** Destreza (acrobacias o juego de manos) **DC 5**. Cada héroe puede hacer un tiro por 1 PO. Debe anunciar a qué letra tira.
   - **Éxito (secuencia completa):** la diana se ilumina con una luz verde suave. Un zumbido místico llena el aire y, con un destello, la **Poción Solvente Místico** aparece en la mano del héroe que dijo la última letra.
-- **Tiro al centro (opcional):** Agilidad **DC 15**, un dardo por 1 PO. Si lo consigue, gana 2 PO (dobla su apuesta).
+- **Tiro al centro (opcional):** Destreza **DC 15**, un dardo por 1 PO. Si lo consigue, gana 2 PO (dobla su apuesta).
+
+> [!PISTA]
+> Si se atascan, cualquier héroe puede tirar Inteligencia (investigación) **DC 10** mirando las letras. Éxito: «¡Estas letras se pueden ordenar para formar una palabra!». Con **DC 15** además recuerda la balada de Fliflas: «Cura la piedra…». Quienes escucharon la balada ya tienen una pista.
 
 > [!REGLA]
 > **Fallo:** si la tirada falla (al centro o a una letra incorrecta o fuera de secuencia), el dardo golpea una fruta cercana y esta se convierte en una estatua de piedra. Si se golpea una letra incorrecta, el progreso se pierde y hay que empezar de nuevo.
@@ -177,25 +183,35 @@ Un hombre llamado Fliflas toca un laúd desafinado cerca de la jaula de la Besti
 
 > «Si ves estatua, gris y fría, / Devuélvele pronto su día.»
 
+**Examinar la Poción Solvente Místico** · Inteligencia (arcanos) **DC 10**
+
+> Es un frasquito de líquido verde que burbujea suavemente. Reconoces el brillo: es un solvente místico, un remedio contra la piedra mágica. Un sorbo, o un chorrito sobre quien se haya vuelto de piedra, lo devuelve a la normalidad. Solo alcanza para una persona.
+
+**Si falla:** es una poción verde que huele a hierbabuena. No sabéis para qué sirve.
+
 ### Pista 2: la Noria de los Versos Perdidos (el Mapa Escondido)
 
 ![La Noria de los Versos Perdidos, con Gart](/aventuras/la-feria-del-misterio/img/noria-gart-min.jpg)
 
-**Atracción:** «Noria de los Versos Perdidos». Una noria pequeña de madera con ocho cabinas. Cada una tiene el nombre de un dragón pintado con colores vivos: Rojo, Azul, Verde, Negro, Blanco, Bronce, Plata y Oro. Además, cada cabina lleva escondido un trozo de verso en un cartel diminuto.
+**Atracción:** «Noria de los Versos Perdidos». Una noria pequeña de madera con ocho cabinas. Cada una tiene el nombre de un dragón pintado con colores vivos: Rojo, Azul, Verde, Negro, Blanco, Bronce, Plata y Oro.
 
 **Guardián:** Gart, el Fuerte (kobold con relleno).
 
 **Diálogo clave (Gart)**
 
-> Gart, inflando el pecho (donde se oye el relleno crujir). «¡Soy Gart, el Fuerte, y esta es la Noria de los Ocho Dragones! ¡Ocho cabinas, ocho colores mágicos! Pagas 1 pieza de oro (PO) y te subes. Yo muevo la noria lentamente, para que puedas ver el interior de cada cabina: Dragón Rojo, Azul, Verde, Negro, Blanco, Bronce, Plata y Oro. ¡Pero cuidado! El Maestro Alarico dice que cada cabina tiene un secreto muy pequeño que solo los que tienen ojos de águila (Percepción DC 5) pueden ver en el tiempo que la cabina está parada.»
+> Gart, inflando el pecho (donde se oye el relleno crujir). «¡Soy Gart, el Fuerte, y esta es la Noria de los Ocho Dragones! ¡Ocho cabinas, ocho colores mágicos! Pagas 1 pieza de oro (PO), te subes y yo muevo la noria lentamente: Dragón Rojo, Azul, Verde, Negro, Blanco, Bronce, Plata y Oro. ¡Disfruta del paseo!»
 
 **Mecánica del reto**
 
-- **Coste:** 1 PO por montar y por cada intento de búsqueda.
-- **Reto 1, encontrar los versos:** por cada una de las 8 cabinas, el héroe hace una tirada de Ingenio (percepción) **DC 5**.
-  - **Éxito:** encuentra y lee un fragmento del verso.
-  - **Fallo:** no encuentra el cartel. Debe pagar 1 PO más para dar otra vuelta, o que otro héroe intente encontrar el fragmento que falta.
+- **Coste:** 1 PO por montar y por cada vuelta.
+- **Reto 1, encontrar los versos** (secreto): Gart no dice nada. En cada cabina hay un cartel diminuto con un trozo de verso, y los héroes lo descubren **solos**: al subir, cada héroe describe qué mira o toca en la cabina en la que se detiene.
+  - Para fijarse hace falta una tirada de Sabiduría (percepción) **DC 5**, y se puede hacer en cada cabina.
+  - **Éxito:** encuentra y lee el fragmento de verso (dáselo tal cual está en la tabla).
+  - **Fallo:** solo ve pintura y madera. Debe pagar 1 PO más para dar otra vuelta, o que otro héroe pruebe en esa cabina.
 - **Reto 2, resolver el verso oculto:** ordenar los 8 fragmentos de rima correctamente.
+
+> [!PISTA]
+> Si no se les ocurre mirar en las cabinas, anímalos con preguntas: «¿Qué miráis?», «¿Tocáis las paredes?». Si alguien le pregunta por los carteles, Gart se sorprende: «¿Qué carteles? ¡Yo solo muevo la noria!».
 
 **Mapa de cabinas y versos (para el master)**
 
@@ -223,13 +239,19 @@ Un hombre llamado Fliflas toca un laúd desafinado cerca de la jaula de la Besti
 
 **Resolución**
 
-- **Tirada de solución:** Ingenio (investigación) **DC 10**, una vez reunidos los carteles.
+- **Tirada de solución:** Inteligencia (investigación) **DC 10**, una vez reunidos los carteles.
 - **Éxito (DC 10+):** la noria hace un chasquido y de una cabina cae un objeto pequeño. Gart lo recoge y se lo da a los héroes.
 - **Fallo (DC 9 o menos):** Gart sacude la cabeza. «¡No tiene sentido! ¡Ese verso es un desastre! Inténtalo otra vez, pero yo no te daré más pistas.»
 
 > «¡Ajá! ¡Algo se cayó! ¡Esto se ve importante! El mapa al tesoro está en la piedra que tiene forma de búho, ¡la Boca del Búho! ¡Venga, llévatelo antes de que el Maestro Alarico se dé cuenta!»
 
 **Recompensa:** Mapa Escondido (conduce a «La Boca del Búho»).
+
+**Examinar el Mapa Escondido** · Sabiduría (supervivencia) **DC 10**
+
+> Entre los garabatos reconoces una roca con forma de búho en mitad del bosque y una línea de puntos que sale de la feria. Es el camino a la Boca del Búho: con este mapa no os perderéis. Junto a la roca hay dibujadas unas garras enormes… quizá allí viva algo que no quiere visitas.
+
+**Si falla:** es un mapa lleno de rayas y dibujos de búhos. La línea de puntos sale de la feria hacia el bosque, pero no sabéis a dónde lleva.
 
 ### Pista 3: el Carrusel de los Contrasentidos (el Pergamino de Dormir)
 
@@ -246,9 +268,9 @@ Un hombre llamado Fliflas toca un laúd desafinado cerca de la jaula de la Besti
 **Mecánica del reto**
 
 - **Coste:** 1 PO por montar y por cada intento de búsqueda.
-- **Reto 1, notar lo raro:** los héroes pueden hacer una tirada de Ingenio (percepción) **DC 10** en cualquier momento mientras observan el carrusel.
+- **Reto 1, notar lo raro:** los héroes pueden hacer una tirada de Sabiduría (percepción) **DC 10** en cualquier momento mientras observan el carrusel.
   - **Éxito:** se dan cuenta de que hay letras muy débiles, casi invisibles, pintadas en la base de los postes. Solo se detectan cuando la figura se detiene justo enfrente.
-- **Reto 2, encontrar las palabras:** una vez montados, el carrusel se detiene en cada figura por turno. El héroe montado tira Ingenio (percepción) **DC 5** para encontrar la palabra oculta.
+- **Reto 2, encontrar las palabras:** una vez montados, el carrusel se detiene en cada figura por turno. El héroe montado tira Sabiduría (percepción) **DC 5** para encontrar la palabra oculta.
 - **Reto 3, resolver los antónimos:** el héroe debe gritar una palabra en voz alta cuando encuentra el cartel.
   - Si grita la **palabra oculta** (por ejemplo RUIDO): las letras brillan un segundo y se apagan. No hay progreso.
   - Si grita el **antónimo correcto** (por ejemplo SILENCIO): las letras del antónimo brillan y se quedan fijas. Cuenta como 1 de 5 palabras correctas.
@@ -267,9 +289,15 @@ Un hombre llamado Fliflas toca un laúd desafinado cerca de la jaula de la Besti
 
 - **Activación:** cuando las 5 palabras antónimas (SILENCIO, COBARDE, ENEMIGO, RÁPIDO, BLANDO) están fijas y brillantes, el carrusel se detiene y gira hacia arriba muy rápido sobre su eje. Una luz dorada envuelve la figura del Espectador Brumoso.
 - **Éxito:** la luz dorada se concentra en la mano del héroe más cercano (o del que dijo la última palabra correcta). Con un sonido de campana suave, el **Pergamino de Dormir** (hechizo Sueño) aparece en su mano. Zash grita asustada y huye por un momento.
-- **Fallo:** si dicen una palabra incorrecta, Zash grita con frustración. El carrusel se sacude y el héroe hace una salvación de Agilidad **DC 10** para evitar que le golpee la figura que tiene al lado.
+- **Fallo:** si dicen una palabra incorrecta, Zash grita con frustración. El carrusel se sacude y el héroe hace una salvación de Destreza **DC 10** para evitar que le golpee la figura que tiene al lado.
 
 **Recompensa:** Pergamino de Dormir.
+
+**Examinar el Pergamino de Dormir** · Inteligencia (arcanos) **DC 10**
+
+> Las letras plateadas brillan al mirarlas: es un hechizo de Sueño. Si se lee en voz alta señalando a un enemigo, los que tengan pocas fuerzas caen dormidos un buen rato. Solo sirve una vez: al terminar, el pergamino se convierte en polvo.
+
+**Si falla:** la tinta plateada se mueve sola y huele a lavanda. Parece un hechizo, pero no sabéis cuál.
 
 ### Pista 4: la Tienda de Curiosidades (la Llave del Cofre del Tesoro)
 
@@ -285,9 +313,9 @@ Un hombre llamado Fliflas toca un laúd desafinado cerca de la jaula de la Besti
 
 **Objeto clave:** la Llave del Cofre del Tesoro.
 
-**Negociación:** una tirada de Corazón (persuasión) **DC 10** baja el precio de la llave de 10 PO a 5 PO.
+**Negociación:** una tirada de Carisma (persuasión) **DC 10** baja el precio de la llave de 10 PO a 5 PO.
 
-**Inventario y robo.** Mizzen está muy atento y rodeado de objetos que hacen ruido. La dificultad de robar cada objeto varía según su tamaño y valor (Agilidad, juego de manos).
+**Inventario y robo.** Mizzen está muy atento y rodeado de objetos que hacen ruido. La dificultad de robar cada objeto varía según su tamaño y valor (Destreza, juego de manos).
 
 | Objeto | Precio (PO) | Tirada para robar | Relevancia |
 |---|---|---|---|
@@ -297,9 +325,21 @@ Un hombre llamado Fliflas toca un laúd desafinado cerca de la jaula de la Besti
 | Botas de Siete Leguas (solo una bota) | 5 | DC 14 | Baratija |
 
 > [!REGLA]
-> **Fallo al robar:** Mizzen lo ve y grita «¡Ladrón! ¡Llamaré al Maestro Alarico!». Si el héroe no huye de inmediato (Agilidad, acrobacias, DC 12), Mizzen atrae a otros kobolds y el héroe tiene **desventaja** en sus próximas tiradas de interacción.
+> **Fallo al robar:** Mizzen lo ve y grita «¡Ladrón! ¡Llamaré al Maestro Alarico!». Si el héroe no huye de inmediato (Destreza, acrobacias, DC 12), Mizzen atrae a otros kobolds y el héroe tiene **desventaja** en sus próximas tiradas de interacción.
 
 **Recompensa:** Llave del Cofre del Tesoro (por compra o con un robo de DC 15 o más).
+
+**Examinar la Llave del Cofre del Tesoro** · Inteligencia (investigación)
+
+- **DC 10:**
+
+  > Es una llave dorada con un búho grabado en el mango, de un cofre pequeño y antiguo. Pesa más de lo normal.
+
+- **DC 15 (además):**
+
+  > Mirando de cerca el extremo de la llave ves un polvo gris pegado. Huele a piedra mojada: es polvo de petrificación. El cofre que abra esta llave puede convertir en estatua a quien lo abra. Convendría tener un remedio a mano…
+
+**Si falla:** es una llave dorada muy brillante. Sirve para abrir algo.
 
 ### Encuentro de transición: emboscada kobold
 
@@ -309,7 +349,7 @@ Una vez que los héroes tienen los cuatro objetos (Poción Solvente Místico, Ma
 
 > Os adentráis en el bosque, siguiendo el mapa. De repente, escucháis un par de gruñidos forzados y chillones. Dos figuras pequeñas saltan hacia el camino con dagas listas. Sus rostros os recuerdan a Gart, el Fuerte, y a Zash, la Rápida. ¡Parece que son los kobolds que atendían la noria y el carrusel, y han estado vigilando la salida para robar vuestro botín!
 
-**Sorpresa:** para evitar ser sorprendidos, todos los héroes hacen una tirada de Ingenio (percepción) **DC 15**. Si fallan, los kobolds actúan en la primera ronda antes que ellos.
+**Sorpresa:** para evitar ser sorprendidos, todos los héroes hacen una tirada de Sabiduría (percepción) **DC 15**. Si fallan, los kobolds actúan en la primera ronda antes que ellos.
 
 | Kobold emboscador (cada uno) | Valor |
 |---|---|
@@ -348,7 +388,7 @@ Una vez que los héroes tienen los cuatro objetos (Poción Solvente Místico, Ma
 ### El tesoro del enigma
 
 - **Cofre:** se abre con la Llave del Cofre del Tesoro.
-- **Trampa:** al abrir, la llave activa un chorro de polvo de petrificación. Salvación de Agilidad **DC 12**; si falla, el héroe queda petrificado.
+- **Trampa:** al abrir, la llave activa un chorro de polvo de petrificación. Salvación de Destreza **DC 12**; si falla, el héroe queda petrificado.
 - **Curación:** usar la Poción Solvente Místico sobre la víctima.
 - **Contenido del tesoro (botín de nivel 2):**
   - 200 piezas de oro (PO)
@@ -392,6 +432,10 @@ Alarico, Glitch y Mizzen atacan a los héroes.
 > **Recompensa.** Los héroes encuentran la **Llave de la Jaula** en los restos del lodo del Farsante.
 
 ### El rescate final
+
+**Examinar la Llave de la Jaula** · Inteligencia (investigación) **DC 5**
+
+> Es una llave pequeña de hierro oscuro con un dragón grabado en el mango. Seguro que abre la jaula de la Bestia.
 
 **Liberación:** usar la Llave de la Jaula.
 
