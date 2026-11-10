@@ -1,0 +1,16 @@
+name: Comprobar
+on:
+  pull_request:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npm run build
+      - name: Archivos demasiado pesados
+        run: |
+          find public -type f -size +15M -print | tee pesados.txt
+          test ! -s pesados.txt

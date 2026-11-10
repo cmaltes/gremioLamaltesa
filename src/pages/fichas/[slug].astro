@@ -1,0 +1,97 @@
+---
+import Base from '../../layouts/Base.astro';
+import { clases, porSlug, TALENTOS, NIVELES, RANGO_TEXTO, USO_TEXTO, suma, vida, defensa, extraDano, ataqueArma } from '../../data/clases';
+
+export function getStaticPaths() { return clases.map((c) => ({ params: { slug: c.slug }, props: { c } })); }
+const { c } = Astro.props;
+const por = (f: (n: number) => string | number) => Object.fromEntries(NIVELES.map((n) => [`data-n${n}`, String(f(n))]));
+const mejora = ['Empiezas tu aventura', '+1 de daño y más vidas', 'Nuevo poder y mejoran tus sumas', 'Defensa +1', 'Superpoder y mejoran tus sumas'];
+const mas = (n: number) => `+${n}`;
+---
+<Base titulo={`${c.nombre}, ficha de héroe`} descripcion={`${c.nombre}: ${c.resumen} Ficha del nivel 1 al 5 con dos armas y los números que sumar en cada tirada.`} clase="fichas-pag">
+  <section data-ficha={c.slug} style={`--c:${c.color}`}>
+    <p class="meta no-imprimir"><a href="/fichas/">← todas las fichas</a></p>
+    <div class="hoja-cab">
+      <span class="gran" aria-hidden="true">{c.emoji}</span>
+      <div><h1>{c.nombre}</h1><p class="meta" style="margin:0">{c.rol} · “{c.frase}”</p></div>
+    </div>
+    <p>{c.resumen}</p>
+    <p class="solo-imprimir"><strong>Nombre del héroe:</strong> ______________________________ <strong>Nivel:</strong> ____</p>
+
+    <div class="nivel-sel" role="group" aria-label="Elige tu nivel">
+      {NIVELES.map((n) => <button type="button" data-nivel={n} aria-pressed={n === 1 ? 'true' : 'false'}>Nivel {n}</button>)}
+    </div>
+
+    <div class="vitales">
+      <div class="vital v"><span class="n" {...por((n) => vida(c, n))}>{vida(c, 1)}</span><span>❤️ Vidas</span></div>
+      <div class="vital d"><span class="n" {...por((n) => defensa(c, n))}>{defensa(c, 1)}</span><span>🛡️ Defensa</span></div>
+    </div>
+
+    <h2>Lo que sumas a cada dado</h2>
+    <p class="meta">tira un d20 y suma este número</p>
+    <div class="numeros">
+      {TALENTOS.map((t) => (
+        <div class="num">
+          <span class="e">{t.emoji}</span>
+          <span class="t">{t.nombre}</span>
+          <span class="n" {...por((n) => suma(c, t.id, n))}>{suma(c, t.id, 1)}</span>
+          <small>{RANGO_TEXTO[c.talentos[t.id]]} · {t.sirve.split(',')[0].toLowerCase()}</small>
+        </div>
+      ))}
+    </div>
+
+    <h2 style="margin-top:28px">Tus dos armas</h2>
+    <div class="armas">
+      {c.armas.map((a) => {
+        const tal = TALENTOS.find((t) => t.id === a.talento)!;
+        return (
+          <article class="arma">
+            <h3>{a.emoji} {a.nombre}</h3>
+            <p class="meta" style="margin:0">{a.alcance === 'cuerpo' ? 'cuerpo a cuerpo' : 'a distancia'} · usa {tal.emoji} {tal.nombre}</p>
+            <div class="tirada">
+              <div><small>1º Atacar</small><strong>d20 <b>+<span {...por((n) => ataqueArma(c, a, n))}>{ataqueArma(c, a, 1)}</span></b></strong></div>
+              <div><small>2º Si aciertas</small><strong>{a.dado} <b>+<span {...por((n) => extraDano(n))}>{extraDano(1)}</span></b></strong></div>
+            </div>
+            <p class="nota">{a.nota}</p>
+          </article>
+        );
+      })}
+    </div>
+
+    <h2 style="margin-top:28px">Tus poderes</h2>
+    {c.poderes.map((p) => (
+      <div class="poder" data-desde={p.nivel}>
+        <span class="uso">Nivel {p.nivel} · {USO_TEXTO(p.uso, p.veces)}</span>
+        <h3>{p.nombre}</h3>
+        <p>{p.texto}</p>
+      </div>
+    ))}
+
+    <h2 style="margin-top:28px">De nivel en nivel</h2>
+    <div class="scroll-x">
+      <table class="tabla-sencilla">
+        <thead><tr><th>Nivel</th><th>Vidas</th><th>Def.</th>{TALENTOS.map((t) => <th>{t.emoji}</th>)}<th>Daño</th><th>Qué mejora</th></tr></thead>
+        <tbody>
+          {NIVELES.map((n) => (
+            <tr data-fila={n}>
+              <td>{n}</td><td>{vida(c, n)}</td><td>{defensa(c, n)}</td>
+              {TALENTOS.map((t) => <td>{mas(suma(c, t.id, n))}</td>)}
+              <td>{mas(extraDano(n))}</td><td style="min-width:200px">{mejora[n - 1]}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <h2 style="margin-top:28px">Tu equipo</h2>
+    <ul class="equipo">{c.equipo.map((e) => <li>{e}</li>)}</ul>
+
+    <h3 style="margin-top:20px">Mis vidas <small class="meta">(tacha al perderlas)</small></h3>
+    <div class="casillas solo-imprimir">{Array.from({ length: vida(c, 5) }).map(() => <i />)}</div>
+
+    <div class="fila no-imprimir" style="margin-top:24px">
+      <button class="boton" type="button" data-imprimir>🖨️ Imprimir esta ficha</button>
+      <a class="boton fantasma" href="/fichas/">Elegir otro héroe</a>
+    </div>
+  </section>
+</Base>

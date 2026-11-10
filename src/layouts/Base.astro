@@ -1,0 +1,52 @@
+---
+import '../styles/global.css';
+interface Props { titulo?: string; descripcion?: string; imagen?: string; ruta?: string; clase?: string }
+const { titulo, descripcion = 'El Gremio: partidas de rol listas para jugar, para niños y adultos. Guiones, mapas, música y fichas para que el master solo tenga que disfrutar.', imagen = '/aventuras/la-feria-del-misterio/portada.jpg', ruta = Astro.url.pathname, clase = '' } = Astro.props;
+const t = titulo ? `${titulo} · El Gremio` : 'El Gremio · Partidas de rol listas para jugar';
+const canonica = new URL(ruta, Astro.site).href;
+const og = new URL(imagen, Astro.site).href;
+---
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{t}</title>
+  <meta name="description" content={descripcion}>
+  <meta name="theme-color" content="#0d9488">
+  <link rel="canonical" href={canonica}>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content={t}>
+  <meta property="og:description" content={descripcion}>
+  <meta property="og:image" content={og}>
+  <meta property="og:url" content={canonica}>
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;700&family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
+</head>
+<body class={clase}>
+  <a class="salto" href="#contenido">Saltar al contenido</a>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="El Gremio, inicio">
+      <picture>
+        <source srcset="/img/lamaltesa-horizontal-positivo.svg" media="(prefers-color-scheme: light)">
+        <img src="/img/lamaltesa-horizontal-negativo.svg" alt="" width="112" height="51">
+      </picture>
+      <span class="brand-sub">/ gremio</span>
+    </a>
+    <nav aria-label="Principal">
+      <a href="/#partidas">Partidas</a>
+      <a href="/fichas/">Fichas</a>
+    </nav>
+  </header>
+  <main id="contenido"><slot /></main>
+  <footer>
+    <p><a href="https://lamaltesa.dev">lamaltesa.dev</a> · El Gremio · hecho con cariño en Cantabria · <a href="https://github.com/cmaltes/gremioLamaltesa">código en GitHub</a></p>
+  </footer>
+  <script>import '../scripts/ui.ts';</script>
+</body>
+</html>

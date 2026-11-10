@@ -1,0 +1,17 @@
+# Etiquetas del repositorio. Se aplican con scripts/sincronizar-etiquetas.sh
+- { name: "tipo:aventura", color: "0d9488", description: "Partida nueva o cambios en una partida" }
+- { name: "tipo:recurso", color: "0f766e", description: "Mapa, música, ilustración, miniatura, PDF" }
+- { name: "tipo:fichas", color: "a855f7", description: "Fichas de héroe y reglas del Gremio" }
+- { name: "tipo:web", color: "3b82f6", description: "Mejora de la web" }
+- { name: "tipo:fallo", color: "ef4444", description: "Algo no funciona" }
+- { name: "tipo:docs", color: "6b7280", description: "Documentación" }
+- { name: "público:niños", color: "f59e0b", description: "Para peques" }
+- { name: "público:adultos", color: "92400e", description: "Para adultos" }
+- { name: "público:familia", color: "16a34a", description: "Para toda la familia" }
+- { name: "estado:idea", color: "e5e7eb", description: "Solo una idea" }
+- { name: "estado:lista", color: "bbf7d0", description: "Preparada para trabajar" }
+- { name: "estado:en-curso", color: "fde68a", description: "Alguien está en ello" }
+- { name: "estado:bloqueada", color: "fecaca", description: "Espera algo" }
+- { name: "área:móvil", color: "38bdf8", description: "Diseño en móvil y tableta" }
+- { name: "área:música", color: "f472b6", description: "Audio y canciones" }
+- { name: "área:miniaturas", color: "fb923c", description: "Figuras y fichas recortables" }

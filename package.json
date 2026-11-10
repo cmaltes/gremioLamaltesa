@@ -1,0 +1,21 @@
+{
+  "name": "gremio-lamaltesa",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "El Gremio: partidas de rol listas para jugar, para niños y adultos. gremio.lamaltesa.dev",
+  "scripts": {
+    "dev": "astro dev --host",
+    "build": "astro build",
+    "preview": "astro preview --host",
+    "nueva": "node scripts/nueva-aventura.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^5.18.2",
+    "unist-util-visit": "^5.2.0"
+  }
+}

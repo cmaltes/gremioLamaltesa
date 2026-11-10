@@ -1,0 +1,60 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { clases } from '../data/clases';
+const aventuras = (await getCollection('aventuras')).filter((a) => a.data.estado === 'publicada').sort((a, b) => +b.data.fecha - +a.data.fecha);
+const PUBLICO = { ninos: 'Niños', adultos: 'Adultos', familia: 'Familia' } as const;
+---
+<Base>
+  <section class="hero">
+    <h1>Partidas de rol listas para jugar.</h1>
+    <p class="lead">Guion, mapas, música, personajes y fichas en un solo sitio, para que el master solo tenga que disfrutar. Para niños, para adultos o para toda la familia. Se leen en el móvil o se descargan en PDF.</p>
+    <p class="prompt">&gt; {aventuras.length} {aventuras.length === 1 ? 'partida' : 'partidas'} · más en camino<span aria-hidden="true">_</span></p>
+  </section>
+
+  <section id="partidas">
+    <h2>Partidas</h2>
+    <div class="fila no-imprimir" role="group" aria-label="Filtrar por público" style="margin-bottom:16px">
+      <button class="chip" data-filtro="todas" aria-pressed="true" type="button">Todas</button>
+      <button class="chip" data-filtro="ninos" aria-pressed="false" type="button">👧 Niños</button>
+      <button class="chip" data-filtro="adultos" aria-pressed="false" type="button">🧙 Adultos</button>
+    </div>
+    <div class="rejilla">
+      {aventuras.map((a) => (
+        <a class="tarjeta" href={`/aventuras/${a.id}/`} data-publico={a.data.publico}>
+          <div class="foto">
+            <img src={a.data.portada} alt="" loading="lazy" width="1200" height="675">
+            <span class="insignia">{PUBLICO[a.data.publico]} · {a.data.edad}</span>
+          </div>
+          <div class="cuerpo">
+            <p class="meta">nivel {a.data.nivel} · {a.data.jugadores} jugadores · {a.data.duracion}</p>
+            <h3>{a.data.titulo}</h3>
+            <p>{a.data.resumen}</p>
+            <div class="fila">{a.data.etiquetas.slice(0, 4).map((e) => <span class="etiqueta">{e}</span>)}</div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <h2>Todo lo que trae cada partida</h2>
+    <ul class="ventajas">
+      <li><span>📜</span><b>Guion</b>Se lee online con letra grande y pantalla encendida, o en PDF.</li>
+      <li><span>🗺️</span><b>Mapas</b>Con zoom en el móvil y listos para imprimir.</li>
+      <li><span>🎵</span><b>Música</b>Canciones y ambiente para cada escena.</li>
+      <li><span>🧙</span><b>Personajes</b>Todos los PNJ con su dibujo y sus frases.</li>
+      <li><span>🧸</span><b>Miniaturas</b>Figuras y fichas para la mesa.</li>
+      <li><span>🎲</span><b>Fichas</b>Héroes sencillos para jugar nada más sentarse.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Fichas de héroe</h2>
+    <p class="lead">10 tipos de héroe del nivel 1 al 5, con dos armas fáciles cada uno y el número que sumar en cada tirada. Sin calcular nada.</p>
+    <div class="fila" style="margin-bottom:16px">
+      {clases.map((c) => <a class="chip" href={`/fichas/${c.slug}/`}>{c.emoji} {c.nombre}</a>)}
+    </div>
+    <a class="boton" href="/fichas/">Ver las fichas</a>
+  </section>
+</Base>

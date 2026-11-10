@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.astro/
+.DS_Store
+# Originales pesados (Word, audio en bruto): se guardan fuera del repo; en public/ va la versión optimizada
+/*.docx
+/*.mp3
+/_originales/

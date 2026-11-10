@@ -1,0 +1,66 @@
+---
+import Base from '../../layouts/Base.astro';
+import { clases, TALENTOS, SUMA, EXTRA_DANO, NIVELES, RANGO_TEXTO, vida } from '../../data/clases';
+---
+<Base titulo="Fichas de héroe" descripcion="10 héroes sencillos del nivel 1 al 5 con dos armas fáciles cada uno y el número exacto que sumar en cada tirada. Para niños que empiezan a jugar a rol." clase="fichas-pag">
+  <section class="hero">
+    <p class="meta">reglas del gremio · nivel 1 a 5</p>
+    <h1>Fichas de héroe</h1>
+    <p class="lead">Elige un héroe, apunta tu nombre y juega. En cada ficha está el número exacto que sumas a cada dado: nada de calcular.</p>
+  </section>
+
+  <section>
+    <h2>Cómo se juega en 6 pasos</h2>
+    <ol class="reglas-lista">
+      <li><strong>Un dado para todo.</strong> Cuando quieras hacer algo difícil, tira un dado de 20 caras (d20) y <strong>suma el número de tu ficha</strong>.</li>
+      <li><strong>¿Llegas?</strong> El master dice una dificultad (5 fácil, 10 normal, 15 difícil, 20 heroico). Si tu resultado la iguala o la supera, ¡lo consigues!</li>
+      <li><strong>Atacar.</strong> Tira d20 + el número de tu arma. Si igualas o superas la <em>Defensa</em> del enemigo, le das. Entonces tira el dado del arma (d4, d6, d8, d10) y <strong>suma tu extra de daño</strong>. Quita esa cantidad a sus vidas.</li>
+      <li><strong>Un 20 es crítico, un 1 es pifia.</strong> Con un 20 en el dado, tiras el dado del arma dos veces. Con un 1, ¡algo gracioso sale mal!</li>
+      <li><strong>Tu turno.</strong> Te mueves y haces una cosa: atacar, usar un poder, ayudar a un amigo, esconderte, curar… Si un amigo te ayuda, tiras dos d20 y te quedas con el más alto.</li>
+      <li><strong>Vidas.</strong> Si llegas a 0 vidas no pasa nada grave: te quedas dormido. Un amigo puede despertarte con cuidados, o al acabar el combate vuelves con 1 vida. Tras un descanso largo recuperas todas las vidas.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>¿Qué talento uso?</h2>
+    <div class="scroll-x">
+      <table class="tabla-sencilla">
+        <thead><tr><th>Talento</th><th>Sirve para</th></tr></thead>
+        <tbody>{TALENTOS.map((t) => <tr><td><strong>{t.emoji} {t.nombre}</strong></td><td>{t.sirve}</td></tr>)}</tbody>
+      </table>
+    </div>
+    <p class="meta" style="margin-top:20px">lo que sumas según lo bueno que seas en cada talento</p>
+    <div class="scroll-x">
+      <table class="tabla-sencilla">
+        <thead><tr><th>Eres…</th>{NIVELES.map((n) => <th>Nivel {n}</th>)}</tr></thead>
+        <tbody>
+          {(['fuerte', 'bueno', 'normal', 'flojo'] as const).map((r) => <tr><td><strong>{RANGO_TEXTO[r]}</strong></td>{SUMA[r].map((s) => <td>+{s}</td>)}</tr>)}
+          <tr><td><strong>Extra de daño</strong></td>{EXTRA_DANO.map((s) => <td>+{s}</td>)}</tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:16px">Cada ficha ya trae estos números resueltos: tú solo mira el tuyo.</p>
+  </section>
+
+  <section>
+    <h2>Subir de nivel</h2>
+    <p>Los héroes empiezan en <strong>nivel 1</strong> y suben <strong>un nivel al terminar cada aventura</strong> (o cuando el master diga, por ejemplo tras un combate importante). Al subir, tus números mejoran, tienes más vidas y, en los niveles 3 y 5, <strong>aprendes un poder nuevo</strong>. En el nivel 4 tu Defensa sube +1.</p>
+  </section>
+
+  <section>
+    <h2>Elige tu héroe</h2>
+    <div class="rejilla">
+      {clases.map((c) => (
+        <a class="tarjeta clase-card" href={`/fichas/${c.slug}/`} style={`--c:${c.color}`}>
+          <div class="cuerpo">
+            <span class="gran">{c.emoji}</span>
+            <h3>{c.nombre}</h3>
+            <p class="meta">{c.rol} · vida {vida(c, 1)}</p>
+            <p>{c.resumen}</p>
+            <span class="estrellas" aria-label={`Dificultad ${c.dificultad} de 3`}>{'★'.repeat(4 - c.dificultad)}{'☆'.repeat(c.dificultad - 1)} <small style="letter-spacing:0">{c.dificultad === 1 ? 'muy fácil' : c.dificultad === 2 ? 'fácil' : 'un poco más difícil'}</small></span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>

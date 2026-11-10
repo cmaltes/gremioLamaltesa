@@ -1,0 +1,18 @@
+name: Recurso (mapa, música, miniatura…)
+description: Falta o hay que mejorar un recurso de una aventura
+labels: ["tipo:recurso"]
+body:
+  - type: input
+    id: aventura
+    attributes: { label: Aventura, placeholder: la-feria-del-misterio }
+    validations: { required: true }
+  - type: dropdown
+    id: tipo
+    attributes:
+      label: Tipo
+      options: [Mapa, Ilustración, Música, Miniatura o ficha recortable, PDF, Otro]
+    validations: { required: true }
+  - type: textarea
+    id: desc
+    attributes: { label: Qué hace falta }
+    validations: { required: true }

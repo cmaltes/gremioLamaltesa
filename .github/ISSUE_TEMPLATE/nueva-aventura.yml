@@ -1,0 +1,31 @@
+name: Nueva aventura
+description: Idea o borrador de una partida nueva
+labels: ["tipo:aventura", "estado:idea"]
+body:
+  - type: input
+    id: titulo
+    attributes: { label: Título provisional }
+    validations: { required: true }
+  - type: dropdown
+    id: publico
+    attributes:
+      label: Público
+      options: [Niños, Adultos, Familia]
+    validations: { required: true }
+  - type: input
+    id: nivel
+    attributes: { label: Nivel y número de jugadores, placeholder: "Nivel 1-3 · 4 jugadores" }
+  - type: textarea
+    id: idea
+    attributes: { label: La idea en 3 frases }
+    validations: { required: true }
+  - type: checkboxes
+    id: trae
+    attributes:
+      label: Qué necesita
+      options:
+        - label: Guion
+        - label: Mapas
+        - label: Ilustraciones y PNJ
+        - label: Música
+        - label: Miniaturas

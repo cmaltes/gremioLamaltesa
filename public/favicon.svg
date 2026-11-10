@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="lamaltesa.dev">
+<title>lamaltesa.dev</title>
+<circle cx="256" cy="256" r="256" fill="#E0A33A"/>
+<rect x="244.76" y="96.72" width="22.49" height="367.28" rx="11.24" fill="#22160E"/>
+<ellipse cx="256" cy="89.23" rx="22.49" ry="41.23" fill="#22160E"/>
+<ellipse cx="226.02" cy="171.68" rx="28.11" ry="48.72" fill="#22160E" transform="rotate(-28 226.02 171.68)"/>
+<ellipse cx="285.98" cy="171.68" rx="28.11" ry="48.72" fill="#22160E" transform="rotate(28 285.98 171.68)"/>
+<ellipse cx="226.02" cy="276.61" rx="28.11" ry="48.72" fill="#22160E" transform="rotate(-28 226.02 276.61)"/>
+<ellipse cx="285.98" cy="276.61" rx="28.11" ry="48.72" fill="#22160E" transform="rotate(28 285.98 276.61)"/>
+</svg>
