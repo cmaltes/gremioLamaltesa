@@ -11,7 +11,7 @@ const d = a.data;
 const { Content, headings } = await render(a);
 const indice = headings.filter((h) => h.depth <= 3);
 const PUBLICO = { ninos: 'Niños', adultos: 'Adultos', familia: 'Toda la familia' } as const;
-const pdf = d.descargas.find((x) => x.tipo.toLowerCase() === 'pdf');
+const pdf = d.descargas.find((x) => x.tipo.toLowerCase() === 'pdf' && /guion/i.test(x.titulo));
 const ICONO: Record<string, string> = { pdf: '📄', imagen: '🖼️', audio: '🎵', zip: '📦', stl: '🧸' };
 const secciones = [
   ['resumen', 'Resumen'], ['guion', 'Guion'],
@@ -39,6 +39,7 @@ const mini = (r: { archivo: string; miniatura?: string }) => r.miniatura ?? r.ar
     <div class="fila no-imprimir">
       <a class="boton" href="#guion">Leer el guion</a>
       {pdf && <a class="boton fantasma" href={pdf.archivo} download>📄 Guion en PDF</a>}
+      {d.pantalla.length > 0 && <a class="boton fantasma" href={`/aventuras/${a.id}/pantalla/`}>🖨️ Pantalla del master</a>}
     </div>
   </div>
 

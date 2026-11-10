@@ -1,6 +1,14 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
+export const tarjeta = z.object({
+  titulo: z.string(),
+  emoji: z.string().optional(),
+  cabecera: z.array(z.string()).optional(),
+  filas: z.array(z.array(z.string())).default([]),
+  notas: z.array(z.string()).default([]),
+});
+
 const recurso = z.object({
   titulo: z.string(),
   archivo: z.string(),
@@ -48,6 +56,7 @@ const aventuras = defineCollection({
       )
       .default([]),
     miniaturas: z.array(recurso).default([]),
+    pantalla: z.array(tarjeta).default([]),
     descargas: z
       .array(z.object({ titulo: z.string(), archivo: z.string(), tipo: z.string(), descripcion: z.string().optional() }))
       .default([]),

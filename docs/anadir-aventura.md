@@ -52,3 +52,9 @@ Una cita sin etiqueta se muestra como «Lee en voz alta». Las imágenes: `![tex
 - Cada escena: qué ven, qué pueden hacer, qué tirada y qué pasa si fallan.
 - Dificultades: 5 fácil, 10 normal, 15 difícil, 20 heroico.
 - Para niños: sin muerte (a 0 vidas se duermen), retos que se resuelven hablando, y humor.
+
+## Pantalla del master
+
+Añade tarjetas en la cabecera de `aventura.md` con el campo `pantalla` (mira el de La Feria del Misterio como ejemplo): cada tarjeta tiene `titulo`, `emoji`, `cabecera` (opcional), `filas` y `notas`. Con ello se crea `/aventuras/<slug>/pantalla/`, ya preparada para imprimir en A4 apaisado, junto con las tarjetas generales de `src/data/pantalla.ts`.
+
+Para generar el PDF descargable (requiere Chrome): `npm run build && ./scripts/generar-pdfs.sh`, y añade el PDF a `descargas`.

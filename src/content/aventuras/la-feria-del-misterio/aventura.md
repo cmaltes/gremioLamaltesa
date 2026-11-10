@@ -87,7 +87,83 @@ musica:
       - "Hay palabras que son reverso, y acertijos de luz,\nQue abren la cerradura, y terminan la cruz.\nY un mapa de búhos sabios, que lleva al rincón,\nDonde el grito nocturno, espera en su mansión."
       - "Cuidado, amigo, del cofre dorado y su trampa mortal,\nQue la piedra es eterna, y el oro es fatal.\nSolo el golpe final, y el dulce perdón,\nPueden traer de vuelta la verdadera nación."
       - "Si el Farsante te ataca, no luches con miedo,\nPues su magia es de barro, su corazón es de pedo.\nLibera al que gime, regresa al hogar,\nY la luz de la Luna te vendrá a guiar."
+pantalla:
+  - titulo: Orden de la aventura
+    emoji: 🗺️
+    filas:
+      - ["1. La feria", "4 atracciones, en cualquier orden. Cada una da 1 objeto."]
+      - ["2. Emboscada", "Gart y Zash en el camino del bosque."]
+      - ["3. La cueva", "Oso Lechuza, nivel 2 y cofre del tesoro."]
+      - ["4. Vuelta", "Alarico, Glitch y Mizzen frente a la jaula."]
+      - ["5. Rescate", "Llave de la Jaula y Príncipe Aerion."]
+  - titulo: Las cuatro pistas
+    emoji: 🎪
+    cabecera: [Pista, Reto y dificultad, Objeto]
+    filas:
+      - ["🎯 Diana · Glitch", "Destreza DC 5 por letra. Centro: DC 15 (gana 2 PO)", "Poción Solvente"]
+      - ["🎡 Noria · Gart", "Sabiduría (percepción) DC 5 por cabina. Ordenar versos: Inteligencia (investigación) DC 10", "Mapa Escondido"]
+      - ["🎠 Carrusel · Zash", "Notar letras: Sabiduría (percepción) DC 10. Encontrar palabra: DC 5. Gritar el antónimo", "Pergamino de Dormir"]
+      - ["🛍️ Tienda · Mizzen", "Comprar: 10 PO (Carisma DC 10: 5 PO). Robar: Destreza DC 15", "Llave del Cofre"]
+    notas: ["Cada atracción cuesta 1 PO por intento."]
+  - titulo: Respuestas secretas
+    emoji: 🔑
+    filas:
+      - ["Diana", "PIEDRA: golpear P-I-E-D-R-A en orden"]
+      - ["Carrusel", "SILENCIO · COBARDE · ENEMIGO · RÁPIDO · BLANDO"]
+      - ["Noria", "Cabinas en orden: Negro, Azul, Oro, Bronce, Rojo, Blanco, Verde, Plata"]
+      - ["Mapa", "Lleva a la Boca del Búho"]
+    notas: ["Diana, fallo: la fruta se vuelve piedra y se pierde el progreso.", "Carrusel, fallo: salvación de Destreza DC 10."]
+  - titulo: Examinar objetos
+    emoji: 🔍
+    cabecera: [Objeto, Tirada, DC]
+    filas:
+      - ["Poción Solvente", "Inteligencia (arcanos)", "13"]
+      - ["Mapa Escondido", "Sabiduría (supervivencia)", "13"]
+      - ["Pergamino de Dormir", "Inteligencia (arcanos)", "13"]
+      - ["Llave del Cofre", "Inteligencia (investigación)", "13 · 16 (trampa)"]
+      - ["Llave de la Jaula", "Inteligencia (investigación)", "8"]
+    notas: ["Un fallo no bloquea la aventura: los objetos funcionan igual."]
+  - titulo: Tienda de Mizzen
+    emoji: 💰
+    cabecera: [Objeto, Precio, Robar]
+    filas:
+      - ["Llave del Cofre", "10 PO (5 con Carisma DC 10)", "Destreza DC 15"]
+      - ["Daga mágica de cocina", "1 PO", "DC 10"]
+      - ["Orbe del Vidente", "3 PO", "DC 12"]
+      - ["Botas de Siete Leguas", "5 PO", "DC 14"]
+    notas: ["Robo fallido: huir con Destreza (acrobacias) DC 12 o desventaja en las interacciones."]
+  - titulo: Enemigos
+    emoji: 👹
+    cabecera: [Quién, Def., Vidas, Ataque]
+    filas:
+      - ["Kobold emboscador ×2 (Gart y Zash)", "15", "7", "Daga +4, 1d4+2. Se esconde como acción adicional"]
+      - ["Oso Lechuza joven", "13", "30", "Garra +4, 1d6+2 · Pico +4, 1d8+2"]
+      - ["Maestro Alarico", "12", "20", "Rayo +3, 1d8+1 · Daga +3, 1d4+1"]
+      - ["Glitch y Mizzen (cada uno)", "12", "5", "Lanza +3, 1d6+1. Huyen cuando cae Alarico"]
+    notas: ["Emboscada: Sabiduría (percepción) DC 15 para no ser sorprendidos.", "Al caer Alarico, el guiverno vuelve a ser el Príncipe Aerion. La Llave de la Jaula está en el lodo."]
+  - titulo: Cueva y cofre
+    emoji: 🪙
+    filas:
+      - ["Oso", "El Pergamino de Dormir evita el combate"]
+      - ["Victoria", "¡Nivel 2!"]
+      - ["Cofre", "Se abre con la Llave del Cofre"]
+      - ["Trampa", "Salvación de Destreza DC 12 o petrificado. Lo cura la Poción Solvente"]
+      - ["Botín", "200 PO, Espada Larga +1, Arco Largo +1, Hacha de Mano de Defensa, 2 Pociones de curación"]
+  - titulo: Voces de los PNJ
+    emoji: 🎭
+    filas:
+      - ["Alarico", "Pomposo y entusiasta. Sonríe, pero sus ojos son fríos"]
+      - ["Glitch", "Voz chillona, se ríe todo el rato"]
+      - ["Gart", "Pecho inflado; se oye crujir el relleno"]
+      - ["Zash", "Nerviosa, da saltitos y cuenta monedas"]
+      - ["Mizzen", "Obsesionado con las monedas y lo que brilla"]
+      - ["Fliflas", "Melancólico, laúd desafinado"]
+      - ["Aerion", "Tembloroso y muy agradecido"]
 descargas:
+  - titulo: Pantalla del master
+    archivo: /aventuras/la-feria-del-misterio/descargas/la-feria-del-misterio-pantalla-master.pdf
+    tipo: pdf
+    descripcion: Fichas en español para imprimir en A4 apaisado y pegar en la pantalla del master.
   - titulo: Guion completo
     archivo: /aventuras/la-feria-del-misterio/descargas/la-feria-del-misterio-guion.pdf
     tipo: pdf
@@ -322,6 +398,20 @@ Un hombre llamado Fliflas toca un laúd desafinado cerca de la jaula de la Besti
 | Orbe del Vidente (bola de cristal vacía) | 3 | DC 12 | Baratija |
 | Botas de Siete Leguas (solo una bota) | 5 | DC 14 | Baratija |
 
+**Si compran una baratija, léeles:**
+
+**Daga Mágica de Cocina (el tenedor que brilla)**
+
+> Mizzen te entrega un tenedor enorme que brilla como una estrella pequeña. Al clavarlo en una manzana, ¡la manzana hace «¡ñam, ñam!» y se corta sola en trocitos! No sirve para pelear, pero ¡qué elegante para la cena! Y en la oscuridad alumbra como una vela.
+
+**Orbe del Vidente (la bola de cristal vacía)**
+
+> Es una bola de cristal muy seria y muy fría. Al mirar dentro solo ves tu propia cara, enorme y un poco torcida. Mizzen susurra: «Dentro vive una predicción secretísima… cuando la encuentres, ¡me avisas!». Seguro que da buena suerte, o al menos mucha risa.
+
+**Botas de Siete Leguas (solo una bota)**
+
+> Es una bota roja con alas bordadas que te queda enorme. Al ponértela, ¡das un salto gigante! Pero como solo hay una… ¡giras y giras en círculos hasta marearte! Con la otra bota sería otra historia.
+
 > [!REGLA]
 > **Fallo al robar:** Mizzen lo ve y grita «¡Ladrón! ¡Llamaré al Maestro Alarico!». Si el héroe no huye de inmediato (Destreza, acrobacias, DC 12), Mizzen atrae a otros kobolds y el héroe tiene **desventaja** en sus próximas tiradas de interacción.
 
@@ -440,6 +530,16 @@ Alarico, Glitch y Mizzen atacan a los héroes.
 El Príncipe Aerion, ya en su forma humana, tiembla dentro de la jaula.
 
 > «¡Me habéis salvado! ¡Gracias a los cielos! Esa maldición… desapareció en el momento en que derrotasteis a Silas Malvado (Alarico). Él… me maldijo para poder usar mi linaje de dragón para sus propios rituales oscuros. La jaula estaba fortificada con mi propia magia, ¡nunca habría podido romperla! Sois verdaderos héroes, no solo para mí, sino para todo el Valle Verde. Por favor, aceptad ese tesoro. Es la fortuna de mi familia, la que Malvado planeaba usar para sus crímenes. Usadla bien, pues la habéis ganado con vuestra valentía y astucia. ¡Ahora debo irme para avisar a mi gente, pero os estaré eternamente agradecido!»
+
+### Cierre de la sesión
+
+> [!DM]
+> Lee esto con calma, mirando a los jugadores a los ojos. Después deja unos segundos de silencio y pregúntales qué fue lo que más les gustó de la aventura.
+
+> El sol se pone sobre el Valle Verde y el Príncipe Aerion se despide agitando la mano. Fliflas, el juglar, afina su laúd y empieza a componer una estrofa nueva… sobre vosotros. Desde lo alto de un árbol, un búho os guiña un ojo. Habéis terminado la Feria del Misterio, pero los caminos del Gremio siguen abiertos: hay mapas por descubrir, misterios por resolver y amigos que todavía no conocéis. Vuestros héroes ya son de nivel 2 y están listos para lo que venga. ¿Os apuntáis a la próxima aventura?
+
+> [!DM]
+> Anima a participar: pregunta quién quiere volver a jugar, deja que cada uno guarde su ficha y diles que las próximas partidas se cuelgan en **gremio.lamaltesa.dev**. Si algún jugador se quedó callado, invítale a elegir cómo se llamará su héroe en la siguiente aventura.
 
 ## Conclusión
 
