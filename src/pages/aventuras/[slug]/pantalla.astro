@@ -2,27 +2,30 @@
 import { getCollection } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
 import TarjetasMaster from '../../../components/TarjetasMaster.astro';
-import { tarjetasGenerales } from '../../../data/pantalla';
+import { tarjetasGenerales, titulosPaneles } from '../../../data/pantalla';
 
 export async function getStaticPaths() {
   const todas = await getCollection('aventuras');
   return todas.filter((a) => a.data.pantalla.length > 0).map((a) => ({ params: { slug: a.id }, props: { a } }));
 }
 const { a } = Astro.props;
+const todas = [...a.data.pantalla, ...tarjetasGenerales];
+const paneles = titulosPaneles.map((titulo, i) => ({ titulo, tarjetas: todas.filter((t) => (t.pagina ?? 1) === i + 1) })).filter((p) => p.tarjetas.length > 0);
 ---
-<Base titulo={`Pantalla del master · ${a.data.titulo}`} descripcion={`Fichas imprimibles en español para la pantalla del master de ${a.data.titulo}: dificultades, respuestas, enemigos y objetos.`} clase="pantalla-pag">
+<Base titulo={`Pantalla del master · ${a.data.titulo}`} descripcion={`Fichas imprimibles en español para la pantalla del master de ${a.data.titulo}: dificultades, respuestas, enemigos y objetos.`} clase="pantalla-pag pantalla-v">
   <section>
     <p class="meta no-imprimir"><a href={`/aventuras/${a.id}/`}>← {a.data.titulo}</a></p>
     <h1>Pantalla del master</h1>
-    <p class="lead no-imprimir">{a.data.titulo}. Fichas para imprimir en A4 apaisado, recortar y pegar por dentro de tu pantalla de master (o dejar a la vista en la mesa).</p>
+    <p class="lead no-imprimir">{a.data.titulo}. Cinco hojas A4 verticales con letra grande, una por panel: pégalas o encájalas en tu pantalla de master (o déjalas a la vista en la mesa).</p>
     <div class="fila no-imprimir" style="margin-bottom:20px">
       <button class="boton" type="button" data-imprimir>🖨️ Imprimir o guardar en PDF</button>
       <a class="boton fantasma" href={`/aventuras/${a.id}/descargas/${a.id}-pantalla-master.pdf`} download>📄 Descargar el PDF</a>
     </div>
-    <h2 class="solo-imprimir">{a.data.titulo} · pantalla del master</h2>
-    <h2 class="no-imprimir">De esta aventura</h2>
-    <TarjetasMaster tarjetas={a.data.pantalla} />
-    <h2 class="no-imprimir" style="margin-top:32px">Reglas generales</h2>
-    <TarjetasMaster tarjetas={tarjetasGenerales} />
+    {paneles.map((p, i) => (
+      <div class="m-panel">
+        <h2><span class="panel-n">Panel {i + 1}</span> {p.titulo}<span class="solo-imprimir panel-aventura"> · {a.data.titulo}</span></h2>
+        <TarjetasMaster tarjetas={p.tarjetas} />
+      </div>
+    ))}
   </section>
 </Base>

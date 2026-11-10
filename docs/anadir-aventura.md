@@ -55,6 +55,6 @@ Una cita sin etiqueta se muestra como «Lee en voz alta». Las imágenes: `![tex
 
 ## Pantalla del master
 
-Añade tarjetas en la cabecera de `aventura.md` con el campo `pantalla` (mira el de La Feria del Misterio como ejemplo): cada tarjeta tiene `titulo`, `emoji`, `cabecera` (opcional), `filas` y `notas`. Con ello se crea `/aventuras/<slug>/pantalla/`, ya preparada para imprimir en A4 apaisado, junto con las tarjetas generales de `src/data/pantalla.ts`.
+Añade tarjetas en la cabecera de `aventura.md` con el campo `pantalla` (mira el de La Feria del Misterio como ejemplo): cada tarjeta tiene `titulo`, `emoji`, `cabecera` (opcional), `filas`, `notas` y `pagina` (1-5: el panel o hoja donde va). Con ello se crea `/aventuras/<slug>/pantalla/`: 5 hojas A4 verticales con letra grande (una por panel, títulos en `titulosPaneles` de `src/data/pantalla.ts`), junto con las tarjetas generales de ese archivo. Comprueba tras `./scripts/generar-pdfs.sh` que el PDF sigue teniendo 5 páginas.
 
 Para generar el PDF descargable (requiere Chrome): `npm run build && ./scripts/generar-pdfs.sh`, y añade el PDF a `descargas`.

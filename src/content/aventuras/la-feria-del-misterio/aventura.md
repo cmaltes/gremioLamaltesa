@@ -89,6 +89,7 @@ musica:
       - "Si el Farsante te ataca, no luches con miedo,\nPues su magia es de barro, su corazón es de pedo.\nLibera al que gime, regresa al hogar,\nY la luz de la Luna te vendrá a guiar."
 pantalla:
   - titulo: Orden de la aventura
+    pagina: 1
     emoji: 🗺️
     filas:
       - ["1. La feria", "4 atracciones, en cualquier orden. Cada una da 1 objeto."]
@@ -97,6 +98,7 @@ pantalla:
       - ["4. Vuelta", "Alarico, Glitch y Mizzen frente a la jaula."]
       - ["5. Rescate", "Llave de la Jaula y Príncipe Aerion."]
   - titulo: Las cuatro pistas
+    pagina: 2
     emoji: 🎪
     cabecera: [Pista, Reto y dificultad, Objeto]
     filas:
@@ -106,6 +108,7 @@ pantalla:
       - ["🛍️ Tienda · Mizzen", "Comprar: 10 PO (Carisma DC 10: 5 PO). Robar: Destreza DC 15", "Llave del Cofre"]
     notas: ["Cada atracción cuesta 1 PO por intento."]
   - titulo: Respuestas secretas
+    pagina: 2
     emoji: 🔑
     filas:
       - ["Diana", "PIEDRA: golpear P-I-E-D-R-A en orden"]
@@ -114,6 +117,7 @@ pantalla:
       - ["Mapa", "Lleva a la Boca del Búho"]
     notas: ["Diana, fallo: la fruta se vuelve piedra y se pierde el progreso.", "Carrusel, fallo: salvación de Destreza DC 10."]
   - titulo: Examinar objetos
+    pagina: 2
     emoji: 🔍
     cabecera: [Objeto, Tirada, DC]
     filas:
@@ -124,6 +128,7 @@ pantalla:
       - ["Llave de la Jaula", "Inteligencia (investigación)", "8"]
     notas: ["Un fallo no bloquea la aventura: los objetos funcionan igual."]
   - titulo: Tienda de Mizzen
+    pagina: 3
     emoji: 💰
     cabecera: [Objeto, Precio, Robar]
     filas:
@@ -133,6 +138,7 @@ pantalla:
       - ["Botas de Siete Leguas", "5 PO", "DC 14"]
     notas: ["Robo fallido: huir con Destreza (acrobacias) DC 12 o desventaja en las interacciones."]
   - titulo: Enemigos
+    pagina: 4
     emoji: 👹
     cabecera: [Quién, Def., Vidas, Ataque]
     filas:
@@ -142,6 +148,7 @@ pantalla:
       - ["Glitch y Mizzen (cada uno)", "12", "5", "Lanza +3, 1d6+1. Huyen cuando cae Alarico"]
     notas: ["Emboscada: Sabiduría (percepción) DC 15 para no ser sorprendidos.", "Al caer Alarico, el guiverno vuelve a ser el Príncipe Aerion. La Llave de la Jaula está en el lodo."]
   - titulo: Cueva y cofre
+    pagina: 3
     emoji: 🪙
     filas:
       - ["Oso", "El Pergamino de Dormir evita el combate"]
@@ -149,7 +156,30 @@ pantalla:
       - ["Cofre", "Se abre con la Llave del Cofre"]
       - ["Trampa", "Salvación de Destreza DC 12 o petrificado. Lo cura la Poción Solvente"]
       - ["Botín", "200 PO, Espada Larga +1, Arco Largo +1, Hacha de Mano de Defensa, 2 Pociones de curación"]
+  - titulo: Los cinco objetos clave
+    emoji: 🎒
+    pagina: 1
+    cabecera: [Objeto, Quién lo da, Para qué sirve]
+    filas:
+      - ["Poción Solvente Místico", "Glitch", "Cura la petrificación de la trampa del cofre"]
+      - ["Mapa Escondido", "Gart", "Lleva a la Boca del Búho (cueva del Oso Lechuza)"]
+      - ["Pergamino de Dormir", "Zash", "Duerme al Oso Lechuza y evita el combate"]
+      - ["Llave del Cofre", "Mizzen", "Abre el cofre del tesoro (con trampa)"]
+      - ["Llave de la Jaula", "Se cae al vencer a Alarico", "Libera al Príncipe Aerion"]
+    notas: ["Se pueden conseguir en cualquier orden. Un fallo nunca bloquea la aventura."]
+  - titulo: Si se atascan, que cante Fliflas
+    emoji: 🎵
+    pagina: 5
+    cabecera: [Verso de la Balada, Empuja hacia…]
+    filas:
+      - ["1.º «Un Maestro que sonríe…»", "Alarico es el malo; el Heredero está maldito"]
+      - ["2.º «Una pócima verde…»", "La Poción Solvente de Glitch cura la piedra"]
+      - ["3.º «Acertijos de luz… un mapa de búhos»", "Las atracciones y el Mapa a la cueva"]
+      - ["4.º «Cuidado del cofre dorado»", "La trampa del cofre petrifica"]
+      - ["5.º «Libera al que gime»", "Vencer a Alarico y abrir la jaula"]
+    notas: ["Cántala o ponla de nuevo (2 min 47 s) antes de dar una pista a la fuerza."]
   - titulo: Voces de los PNJ
+    pagina: 1
     emoji: 🎭
     filas:
       - ["Alarico", "Pomposo y entusiasta. Sonríe, pero sus ojos son fríos"]
@@ -163,7 +193,7 @@ descargas:
   - titulo: Pantalla del master
     archivo: /aventuras/la-feria-del-misterio/descargas/la-feria-del-misterio-pantalla-master.pdf
     tipo: pdf
-    descripcion: Fichas en español para imprimir en A4 apaisado y pegar en la pantalla del master.
+    descripcion: 5 hojas A4 verticales con letra grande para montar la pantalla del master (preparación, feria, tienda y cueva, combate y reglas).
   - titulo: Guion completo
     archivo: /aventuras/la-feria-del-misterio/descargas/la-feria-del-misterio-guion.pdf
     tipo: pdf

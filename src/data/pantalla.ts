@@ -1,10 +1,13 @@
 // Tarjetas generales de la pantalla del master (valen para cualquier aventura).
 // Cada aventura añade las suyas en la cabecera de aventura.md (campo `pantalla`).
-export interface Tarjeta { titulo: string; emoji?: string; cabecera?: string[]; filas: string[][]; notas: string[] }
+export interface Tarjeta { titulo: string; emoji?: string; cabecera?: string[]; filas: string[][]; notas: string[]; pagina?: number }
+
+// Títulos de los 5 paneles (hojas A4 verticales) de la pantalla del master de una aventura.
+export const titulosPaneles = ['Antes de empezar', 'La feria', 'Tienda y cueva', 'Combate', 'Reglas y apuros'];
 
 export const tarjetasGenerales: Tarjeta[] = [
   {
-    titulo: 'Dificultades', emoji: '🎲',
+    titulo: 'Dificultades', emoji: '🎲', pagina: 5,
     filas: [['Fácil', '5'], ['Normal', '10'], ['Difícil', '15'], ['Heroico', '20']],
     notas: [
       'Tirada = d20 + número de la habilidad. Si iguala o supera la dificultad, ¡éxito!',
@@ -13,7 +16,7 @@ export const tarjetasGenerales: Tarjeta[] = [
     ],
   },
   {
-    titulo: 'Combate', emoji: '⚔️',
+    titulo: 'Combate', emoji: '⚔️', pagina: 4,
     filas: [
       ['Tu turno', 'Moverte y hacer 1 acción: atacar, poder, ayudar, esconderte…'],
       ['Atacar', 'd20 + número del arma. Si iguala o supera la Defensa del enemigo, acierta.'],
@@ -24,7 +27,7 @@ export const tarjetasGenerales: Tarjeta[] = [
     notas: [],
   },
   {
-    titulo: '¿Qué tirada pido?', emoji: '🧭',
+    titulo: '¿Qué tirada pido?', emoji: '🧭', pagina: 5,
     cabecera: ['Habilidad', 'Ejemplos'],
     filas: [
       ['💪 Fuerza', 'Atletismo, trepar, empujar, romper'],
@@ -37,7 +40,7 @@ export const tarjetasGenerales: Tarjeta[] = [
     notas: [],
   },
   {
-    titulo: 'Estados y descansos', emoji: '😴',
+    titulo: 'Estados y descansos', emoji: '😴', pagina: 4,
     filas: [
       ['Petrificado', 'Es una estatua: no se mueve ni actúa. Lo cura el Solvente.'],
       ['Dormido', 'No actúa. Despierta si lo sacuden o le hacen daño.'],

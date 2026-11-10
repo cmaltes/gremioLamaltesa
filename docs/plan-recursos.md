@@ -58,7 +58,7 @@ Estado: **Pasos 0 y 1 hechos, 2 a medias**; el resto pendiente (solo existen el 
 - **Hecho cuando:** un PDF se imprime, se recorta y se tiene de pie sobre un mapa.
 
 ### Paso 5 · Mapas en A4 y A3 con la cuadrícula bien
-- **Antes de la cuadrícula: unificar la estética de los árboles.** Ahora son muy distintos en cada mapa (bosque-emboscada: árboles de pixel-art grandes y coloridos; feria y encrucijada: copas de acuarela con contorno; cueva: sin árboles). Elegir un estilo de referencia (probablemente el de la feria, que es el de las atracciones), y o bien (a) repintar las copas de los mapas discrepantes con prompts de IA («mismo estilo que feria.jpg») y retocar, o (b) pedir a Gemini una versión del bosque en ese estilo; comprobar que las copas encajan en cuadrícula de 25 mm (un árbol = 2-3 casillas).
+- **Antes de la cuadrícula: unificar la estética de los árboles (decidido: usar los árboles de la feria como referencia).** Ahora son muy distintos en cada mapa (bosque-emboscada: árboles de pixel-art grandes y coloridos; feria y encrucijada: copas de acuarela con contorno; cueva: sin árboles). Elegir un estilo de referencia (probablemente el de la feria, que es el de las atracciones), y o bien (a) repintar las copas de los mapas discrepantes con prompts de IA («mismo estilo que feria.jpg») y retocar, o (b) pedir a Gemini una versión del bosque en ese estilo; comprobar que las copas encajan en cuadrícula de 25 mm (un árbol = 2-3 casillas).
 - Medir la cuadrícula real de cada mapa (detección de líneas, no a ojo); anotar píxeles por casilla y número de casillas.
 - Si la cuadrícula de la IA no es regular, dibujar una cuadrícula propia en vectorial de 25 mm encima (y, si hace falta, atenuar la original).
 - PDF a escala 1 casilla = 25 mm en mosaico, en dos versiones: hojas A4 y hojas A3, con solapes, marcas de corte y numeración de hojas.
@@ -72,6 +72,9 @@ Estado: **Pasos 0 y 1 hechos, 2 a medias**; el resto pendiente (solo existen el 
 - Reunir en `descargas` del frontmatter: guion, pantalla del master, fichas, mapas (A4/A3), tokens, muñecos.
 - Ampliar `scripts/generar-pdfs.sh` (los PDF se suben al repo).
 - **Hecho cuando:** todo se descarga desde la página de la aventura y coincide con la versión actual de la web.
+
+## Hecho aparte (10-nov-2026)
+- Pantalla del master: 5 hojas A4 **verticales** con letra grande (12,5 pt), un panel por hoja, y 2 tarjetas nuevas («Los cinco objetos clave» y «Si se atascan, que cante Fliflas»). El campo `pagina` de cada tarjeta decide su hoja. Se pueden añadir más tarjetas mientras quepan en 5 páginas.
 
 ## Retomar después de `/clear`
 
