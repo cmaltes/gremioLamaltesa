@@ -261,7 +261,7 @@ Un hombre llamado Fliflas toca un laúd desafinado cerca de la jaula de la Besti
 
 **Diálogo clave (Zash)**
 
-> Zash da pequeños saltitos nerviosos, contando rápidamente las monedas. «¡Súbete, súbete! ¡Un viaje, solo 1 pieza de oro (PO)! ¡Rápido, rápido, que no se pare, que hoy hay mucha cola!»
+> Zash da pequeños saltitos nerviosos, contando rápidamente las monedas. «¡Bienvenidos al Carrusel de los Contrasentidos! ¡Aquí todo va al revés: lo que sube baja, el que dice «sí» quiere decir «no» y hasta los dragones se asustan de los ratones! ¡Súbete, súbete! ¡Un viaje, solo 1 pieza de oro (PO)! ¡Rápido, rápido, que no se pare, que hoy hay mucha cola!»
 
 **Mecánica del reto**
 
