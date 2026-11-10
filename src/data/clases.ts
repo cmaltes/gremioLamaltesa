@@ -71,7 +71,7 @@ export interface Clase {
 
 export const clases: Clase[] = [
   {
-    slug: 'caballero', nombre: 'Caballero', emoji: '🛡️', color: '#3b82f6', rol: 'Protector', dificultad: 1,
+    slug: 'guerrero', nombre: 'Guerrero', emoji: '🛡️', color: '#3b82f6', rol: 'Protector del grupo', dificultad: 1,
     frase: '¡Detrás de mí, amigos!',
     resumen: 'Aguanta muchos golpes y protege al grupo. El mejor para empezar.',
     talentos: { fuerza: 'fuerte', agilidad: 'normal', ingenio: 'flojo', corazon: 'bueno' },
@@ -88,7 +88,7 @@ export const clases: Clase[] = [
     equipo: ['Armadura de metal', 'Escudo redondo', 'Mochila con comida'],
   },
   {
-    slug: 'furioso', nombre: 'Furioso', emoji: '🪓', color: '#ef4444', rol: 'Gran golpeador', dificultad: 1,
+    slug: 'barbaro', nombre: 'Bárbaro', emoji: '🪓', color: '#ef4444', rol: 'Gran golpeador', dificultad: 1,
     frase: '¡¡RAAAAAH!!',
     resumen: 'Pega más fuerte que nadie y casi no se cansa. Poca cabeza, mucho corazón.',
     talentos: { fuerza: 'fuerte', agilidad: 'bueno', ingenio: 'flojo', corazon: 'normal' },
@@ -122,7 +122,7 @@ export const clases: Clase[] = [
     equipo: ['Capa verde', 'Carcaj con flechas', 'Mapa y brújula'],
   },
   {
-    slug: 'sombra', nombre: 'Sombra', emoji: '🗡️', color: '#6366f1', rol: 'Sigilo y trucos', dificultad: 3,
+    slug: 'picaro', nombre: 'Pícaro', emoji: '🗡️', color: '#6366f1', rol: 'Sigilo y trucos', dificultad: 3,
     frase: '¿Quién? ¿Yo? Yo no he sido.',
     resumen: 'Se esconde, abre cerraduras y golpea por sorpresa. Frágil pero astuto.',
     talentos: { fuerza: 'flojo', agilidad: 'fuerte', ingenio: 'bueno', corazon: 'normal' },
@@ -156,7 +156,7 @@ export const clases: Clase[] = [
     equipo: ['Túnica con estrellas', 'Libro de hechizos', 'Gato negro (opcional)'],
   },
   {
-    slug: 'sanador', nombre: 'Sanador', emoji: '✨', color: '#f59e0b', rol: 'Cuidador', dificultad: 2,
+    slug: 'clerigo', nombre: 'Clérigo', emoji: '✨', color: '#f59e0b', rol: 'Sanador y apoyo', dificultad: 2,
     frase: 'Tranquilo, ya estoy aquí.',
     resumen: 'Cura a los amigos y brilla contra la oscuridad. Todo grupo lo quiere.',
     talentos: { fuerza: 'normal', agilidad: 'flojo', ingenio: 'bueno', corazon: 'fuerte' },
@@ -173,7 +173,7 @@ export const clases: Clase[] = [
     equipo: ['Túnica blanca', 'Símbolo de sol', 'Vendas y pociones de manzanilla'],
   },
   {
-    slug: 'guardian-del-bosque', nombre: 'Guardián del Bosque', emoji: '🌿', color: '#65a30d', rol: 'Amigo de la naturaleza', dificultad: 3,
+    slug: 'druida', nombre: 'Druida', emoji: '🌿', color: '#65a30d', rol: 'Magia de la naturaleza', dificultad: 3,
     frase: '¿Oyes eso? Es el bosque hablando.',
     resumen: 'Habla con los animales y se convierte en oso. Un poco mago, un poco fiera.',
     talentos: { fuerza: 'bueno', agilidad: 'flojo', ingenio: 'normal', corazon: 'fuerte' },
@@ -190,7 +190,7 @@ export const clases: Clase[] = [
     equipo: ['Capa de hojas', 'Flauta de madera', 'Bolsa de bayas'],
   },
   {
-    slug: 'juglar', nombre: 'Juglar', emoji: '🎶', color: '#ec4899', rol: 'Animador', dificultad: 2,
+    slug: 'bardo', nombre: 'Bardo', emoji: '🎶', color: '#ec4899', rol: 'Músico y animador', dificultad: 2,
     frase: '¡Y ahora, un cuentito!',
     resumen: 'Canta, anima y deja con la boca abierta a los enemigos. El alma del grupo.',
     talentos: { fuerza: 'flojo', agilidad: 'bueno', ingenio: 'normal', corazon: 'fuerte' },
@@ -224,21 +224,21 @@ export const clases: Clase[] = [
     equipo: ['Cinta en la frente', 'Ropa cómoda', 'Cantimplora'],
   },
   {
-    slug: 'domador', nombre: 'Domador', emoji: '🐺', color: '#b45309', rol: 'Va con mascota', dificultad: 1,
-    frase: '¡Vamos, amigo, a por ellos!',
-    resumen: 'Lucha junto a un animal fiel que muerde solo. Ideal para peques que aman los animales.',
-    talentos: { fuerza: 'normal', agilidad: 'bueno', ingenio: 'flojo', corazon: 'fuerte' },
-    vida: [11, 4], defensa: 13,
+    slug: 'paladin', nombre: 'Paladín', emoji: '⚜️', color: '#eab308', rol: 'Caballero de la luz', dificultad: 2,
+    frase: '¡Por la luz y por mis amigos!',
+    resumen: 'Guerrero valiente con poderes de luz. Golpea fuerte y da ánimos con su ejemplo.',
+    talentos: { fuerza: 'fuerte', agilidad: 'flojo', ingenio: 'normal', corazon: 'bueno' },
+    vida: [13, 5], defensa: 16,
     armas: [
-      { nombre: 'Látigo largo', emoji: '➰', dado: 'd6', alcance: 'cuerpo', talento: 'agilidad', nota: 'Llega a 3 casillas de distancia.' },
-      { nombre: 'Lanzarredes', emoji: '🕸️', dado: 'd4', alcance: 'distancia', talento: 'agilidad', nota: 'Si aciertas, el enemigo no puede moverse este turno.' },
+      { nombre: 'Espada sagrada', emoji: '⚔️', dado: 'd8', alcance: 'cuerpo', talento: 'fuerza', nota: 'Brilla suavemente cuando hay peligro.' },
+      { nombre: 'Lanza de luz', emoji: '🔱', dado: 'd6', alcance: 'distancia', talento: 'corazon', nota: 'La lanzas y vuelve a tu mano.' },
     ],
     poderes: [
-      { nivel: 1, nombre: 'Compañero fiel', texto: 'Tu animal (lobito, zorro o águila: lo eliges) muerde al enemigo que ataques: 2 de daño, sin tirada.', uso: 'siempre' },
-      { nivel: 3, nombre: 'Se hace mayor', texto: 'Tu compañero crece: ahora muerde con 4 de daño y tiene 10 vidas.', uso: 'siempre' },
-      { nivel: 5, nombre: '¡Ataque en manada!', texto: 'Tu compañero ataca a todos los enemigos cercanos: 4 de daño a cada uno.', uso: 'combate' },
+      { nivel: 1, nombre: 'Golpe sagrado', texto: 'Tu siguiente golpe que acierte brilla y hace +4 de daño.', uso: 'combate' },
+      { nivel: 3, nombre: 'Aura de valor', texto: 'Tus amigos a 1 casilla de ti suman +1 a su Defensa.', uso: 'siempre' },
+      { nivel: 5, nombre: 'Juramento de luz', texto: 'Un amigo recupera 10 vidas y tú recuperas 5.', uso: 'aventura' },
     ],
-    equipo: ['Chaleco con bolsillos', 'Premios para animales', 'Silbato'],
+    equipo: ['Armadura plateada', 'Escudo con un sol', 'Capa blanca'],
   },
 ];
 

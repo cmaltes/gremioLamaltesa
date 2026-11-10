@@ -97,7 +97,7 @@ descargas:
 ## 1. Configuración de la aventura
 
 - **Nivel de los personajes:** 1. Suben a nivel 2 después del combate con el Oso Lechuza.
-- **Número de jugadores:** 4. Va bien un grupo equilibrado: guerrero (Caballero o Furioso), pícaro o explorador (Sombra o Explorador), mago o hechicero (Mago) y clérigo o druida (Sanador o Guardián del Bosque).
+- **Número de jugadores:** 4. Va bien un grupo equilibrado: guerrero (Guerrero o Bárbaro), pícaro o explorador (Pícaro o Explorador), mago o hechicero (Mago) y clérigo o druida (Clérigo o Druida).
 - **Ambientación:** una feria misteriosa, «El Festival de los Mil Velos», montada cerca de un pueblo junto a un bosque.
 - **Duración estimada:** 2-3 horas.
 
