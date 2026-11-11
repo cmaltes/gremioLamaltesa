@@ -77,7 +77,8 @@ def hacer_hoja(titulo, tokens, ajuste):
     return hoja
 
 NOMBRES = {"guerrero": "Guerrero", "barbaro": "Bárbaro", "explorador": "Explorador", "picaro": "Pícaro", "mago": "Mago", "clerigo": "Clérigo", "druida": "Druida", "bardo": "Bardo", "monje": "Monje", "paladin": "Paladín"}
-HEROES = [(RAIZ / f"public/fichas/heroes/{c}-{x}.jpg", f"{n} ({x})", 25, ALIADO) for c, n in NOMBRES.items() for x in ("chico", "chica")]
+NOMBRES_F = {"guerrero": "Guerrera", "barbaro": "Bárbara", "explorador": "Exploradora", "picaro": "Pícara", "mago": "Maga", "clerigo": "Clériga", "druida": "Druida", "bardo": "Barda", "monje": "Monja", "paladin": "Paladina"}
+HEROES = [(RAIZ / f"public/fichas/heroes/{c}-{x}.jpg", (NOMBRES_F[c] if x == "chica" else n), 25, ALIADO) for c, n in NOMBRES.items() for x in ("chico", "chica")]
 titulo = "Tokens · La Feria del Misterio" if SLUG == "la-feria-del-misterio" else "Tokens · " + SLUG.replace("-", " ").capitalize()
 h1 = hacer_hoja(titulo, TOKENS, None)
 h2 = hacer_hoja("Tokens · Héroes (chicos y chicas)", HEROES, None) if all(t[0].exists() for t in HEROES) else None

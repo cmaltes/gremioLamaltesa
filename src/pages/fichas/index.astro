@@ -64,7 +64,7 @@ import { clases, SUMINISTROS, TALENTOS, SUMA, EXTRA_DANO, NIVELES, RANGO_TEXTO, 
         <a class="tarjeta clase-card" href={`/fichas/${c.slug}/`} style={`--c:${c.color}`}>
           <div class="cuerpo">
             <span class="gran">{c.emoji}</span>
-            <h3>{c.nombre}</h3>
+            <h3>{c.nombre}{c.f && c.f.nombre !== c.nombre ? ` / ${c.f.nombre}` : ''}</h3>
             <p class="meta">{c.rol} · vida {vida(c, 1)}</p>
             <p>{c.resumen}</p>
             <span class="estrellas" aria-label={`Dificultad ${c.dificultad} de 3`}>{'★'.repeat(4 - c.dificultad)}{'☆'.repeat(c.dificultad - 1)} <small style="letter-spacing:0">{c.dificultad === 1 ? 'muy fácil' : c.dificultad === 2 ? 'fácil' : 'un poco más difícil'}</small></span>

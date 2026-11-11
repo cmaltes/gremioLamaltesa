@@ -1,19 +1,24 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { clases, porSlug, DINERO_TEXTO, alcanceTexto, SUMINISTROS, equipoTexto, TALENTOS, NIVELES, RANGO_TEXTO, USO_TEXTO, suma, vida, defensa, extraDano, ataqueArma } from '../../data/clases';
+import { clases, porSlug, datos, textoPoder, DINERO_TEXTO, alcanceTexto, SUMINISTROS, equipoTexto, TALENTOS, NIVELES, RANGO_TEXTO, USO_TEXTO, suma, vida, defensa, extraDano, ataqueArma } from '../../data/clases';
 
 export function getStaticPaths() { return clases.map((c) => ({ params: { slug: c.slug }, props: { c } })); }
 const { c } = Astro.props;
 const por = (f: (n: number) => string | number) => Object.fromEntries(NIVELES.map((n) => [`data-n${n}`, String(f(n))]));
 const mejora = ['Empiezas tu aventura', '+1 de daño y más vidas', 'Nuevo poder y mejoran tus sumas', 'Defensa +1', 'Superpoder y mejoran tus sumas'];
 const mas = (n: number) => `+${n}`;
+const o = datos(c, 'chico');
+const a = datos(c, 'chica');
 ---
 <Base titulo={`${c.nombre}, ficha de héroe`} descripcion={`${c.nombre}: ${c.resumen} Ficha del nivel 1 al 5 con dos armas y los números que sumar en cada tirada.`} clase="fichas-pag">
   <section data-ficha={c.slug} style={`--c:${c.color}`}>
     <p class="meta no-imprimir"><a href="/fichas/">← todas las fichas</a></p>
     <div class="hoja-cab">
       <span class="gran" aria-hidden="true">{c.emoji}</span>
-      <div><h1>{c.nombre}</h1><p class="meta" style="margin:0">{c.rol} · “{c.frase}”</p></div>
+      <div>
+        <h1><span data-t="chico">{o.nombre}</span><span data-t="chica" hidden>{a.nombre}</span></h1>
+        <p class="meta" style="margin:0"><span data-t="chico">{o.rol} · “{o.frase}”</span><span data-t="chica" hidden>{a.rol} · “{a.frase}”</span></p>
+      </div>
     </div>
     <div class="heroe-foto" data-heroe>
       <img class="on" src={`/fichas/heroes/${c.slug}-chico.jpg`} alt={`${c.nombre}, versión chico`} data-sexo="chico" width="640" height="800" />
@@ -23,7 +28,7 @@ const mas = (n: number) => `+${n}`;
         <button type="button" data-sexo-btn="chica" aria-pressed="false">👩 Chica</button>
       </div>
     </div>
-    <p>{c.resumen}</p>
+    <p><span data-t="chico">{o.resumen}</span><span data-t="chica" hidden>{a.resumen}</span></p>
     <p class="solo-imprimir"><strong>Nombre del héroe:</strong> ______________________________ <strong>Nivel:</strong> ____</p>
 
     <div class="nivel-sel" role="group" aria-label="Elige tu nivel">
@@ -72,7 +77,7 @@ const mas = (n: number) => `+${n}`;
       <div class="poder" data-desde={p.nivel}>
         <span class="uso">Nivel {p.nivel} · {USO_TEXTO(p.uso, p.veces)}</span>
         <h3>{p.nombre}</h3>
-        <p>{p.texto}</p>
+        <p><span data-t="chico">{p.texto}</span><span data-t="chica" hidden>{textoPoder(p.texto, 'chica')}</span></p>
       </div>
     ))}
 
@@ -119,6 +124,7 @@ const mas = (n: number) => `+${n}`;
     const poner = (sexo: string) => {
       caja.querySelectorAll<HTMLImageElement>('img[data-sexo]').forEach((i) => i.classList.toggle('on', i.dataset.sexo === sexo));
       caja.querySelectorAll<HTMLButtonElement>('[data-sexo-btn]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.sexoBtn === sexo)));
+      document.querySelectorAll<HTMLElement>('[data-t]').forEach((e) => { e.hidden = e.dataset.t !== sexo; });
     };
     let guardado = 'chico';
     try { guardado = localStorage.getItem('gremio-sexo') || 'chico'; } catch {}

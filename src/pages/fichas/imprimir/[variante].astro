@@ -1,7 +1,7 @@
 ---
 // Todas las fichas para imprimir: 1 hoja de reglas + 1 hoja A4 por héroe con los 5 niveles a la vista. Se convierte en PDF con scripts/generar-pdfs.sh.
 import Base from '../../../layouts/Base.astro';
-import { clases, DINERO_TEXTO, alcanceTexto, SUMINISTROS, equipoTexto, TALENTOS, SUMA, EXTRA_DANO, NIVELES, RANGO_TEXTO, USO_TEXTO, suma, vida, defensa, extraDano, ataqueArma } from '../../../data/clases';
+import { clases, datos, textoPoder, DINERO_TEXTO, alcanceTexto, SUMINISTROS, equipoTexto, TALENTOS, SUMA, EXTRA_DANO, NIVELES, RANGO_TEXTO, USO_TEXTO, suma, vida, defensa, extraDano, ataqueArma } from '../../../data/clases';
 const mas = (n: number) => `+${n}`;
 const mejora = ['Empiezas', '+1 daño, más vidas', 'Poder nuevo, más sumas', 'Defensa +1', 'Superpoder, más sumas'];
 
@@ -60,9 +60,9 @@ const todas = [['chico', '🧑 Chico'], ['chica', '👩 Chica'], ['dibujo', '✏
           <div class="fi-cab-texto">
             <div class="hoja-cab">
               <span class="gran" aria-hidden="true">{c.emoji}</span>
-              <div><h1>{c.nombre}</h1><p class="meta" style="margin:0">{c.rol} · “{c.frase}”</p></div>
+              <div><h1>{v === 'dibujo' && c.f ? `${c.nombre} / ${c.f.nombre}` : datos(c, v === 'chica' ? 'chica' : 'chico').nombre}</h1><p class="meta" style="margin:0">{datos(c, v === 'chica' ? 'chica' : 'chico').rol} · “{datos(c, v === 'chica' ? 'chica' : 'chico').frase}”</p></div>
             </div>
-            <p>{c.resumen}</p>
+            <p>{datos(c, v === 'chica' ? 'chica' : 'chico').resumen}</p>
             <p class="fi-nombre"><strong>Nombre del héroe:</strong> _______________________________</p>
             <p class="fi-nombre"><strong>Nivel:</strong> ______ &nbsp; <strong>💰 Dinero:</strong> {DINERO_TEXTO(c)} <small>(monedas de oro)</small></p>
           </div>
@@ -106,7 +106,7 @@ const todas = [['chico', '🧑 Chico'], ['chica', '👩 Chica'], ['dibujo', '✏
           <div class="poder">
             <span class="uso">Nivel {p.nivel} · {USO_TEXTO(p.uso, p.veces)}</span>
             <h3>{p.nombre}</h3>
-            <p>{p.texto}</p>
+            <p>{textoPoder(p.texto, v === 'chica' ? 'chica' : 'chico')}</p>
           </div>
         ))}
 

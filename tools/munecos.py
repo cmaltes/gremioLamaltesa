@@ -93,9 +93,10 @@ def hoja(titulo, grupo):
 
 
 NOMBRES = {"guerrero": "Guerrero", "barbaro": "Bárbaro", "explorador": "Explorador", "picaro": "Pícaro", "mago": "Mago", "clerigo": "Clérigo", "druida": "Druida", "bardo": "Bardo", "monje": "Monje", "paladin": "Paladín"}
+NOMBRES_F = {"guerrero": "Guerrera", "barbaro": "Bárbara", "explorador": "Exploradora", "picaro": "Pícara", "mago": "Maga", "clerigo": "Clériga", "druida": "Druida", "bardo": "Barda", "monje": "Monja", "paladin": "Paladina"}
 CUERPOS = Path(__file__).resolve().parent.parent / "public/fichas/heroes"
 def heroes(sexo):   # los héroes jugadores: todos de 42 mm, peana de 1 casilla
-    return [(CUERPOS / f"{c}-{sexo}-cuerpo.png", n, 42, 1, ALIADO, True) for c, n in NOMBRES.items() if (CUERPOS / f"{c}-{sexo}-cuerpo.png").exists()]
+    return [(CUERPOS / f"{c}-{sexo}-cuerpo.png", (NOMBRES_F[c] if sexo == "chica" else n), 42, 1, ALIADO, True) for c, n in NOMBRES.items() if (CUERPOS / f"{c}-{sexo}-cuerpo.png").exists()]
 
 paginas = [("Muñecos · Pequeños y medianos (peana 1 casilla)", [m for m in MUNECOS if m[3] == 1]),
            ("Muñecos · Grandes (peana 2 casillas)", [m for m in MUNECOS if m[3] == 2])]

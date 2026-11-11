@@ -63,6 +63,8 @@ export interface Clase {
   dificultad: 1 | 2 | 3; // lo fácil que es de llevar: 1 = muy fácil
   frase: string;
   resumen: string;
+  /** versión en femenino (solo lo que cambia) */
+  f?: { nombre: string; rol?: string; frase?: string; resumen?: string };
   talentos: Record<TalentoId, Rango>;
   vida: [base: number, porNivel: number];
   defensa: number;
@@ -79,6 +81,7 @@ export const clases: Clase[] = [
   {
     slug: 'guerrero', nombre: 'Guerrero', emoji: '🛡️', color: '#3b82f6', rol: 'Protector del grupo', dificultad: 1,
     frase: '¡Detrás de mí, amigos!',
+    f: { nombre: 'Guerrera', rol: 'Protectora del grupo', resumen: 'Aguanta muchos golpes y protege al grupo. La mejor para empezar.' },
     resumen: 'Aguanta muchos golpes y protege al grupo. El mejor para empezar.',
     talentos: { fuerza: 'fuerte', destreza: 'normal', constitucion: 'bueno', inteligencia: 'flojo', sabiduria: 'flojo', carisma: 'normal' },
     vida: [14, 5], defensa: 16,
@@ -98,6 +101,7 @@ export const clases: Clase[] = [
   {
     slug: 'barbaro', nombre: 'Bárbaro', emoji: '🪓', color: '#ef4444', rol: 'Gran golpeador', dificultad: 1,
     frase: '¡¡RAAAAAH!!',
+    f: { nombre: 'Bárbara', rol: 'Gran golpeadora' },
     resumen: 'Pega más fuerte que nadie y casi no se cansa. Poca cabeza, mucho corazón.',
     talentos: { fuerza: 'fuerte', destreza: 'normal', constitucion: 'bueno', inteligencia: 'flojo', sabiduria: 'normal', carisma: 'flojo' },
     vida: [15, 5], defensa: 13,
@@ -117,6 +121,7 @@ export const clases: Clase[] = [
   {
     slug: 'explorador', nombre: 'Explorador', emoji: '🏹', color: '#16a34a', rol: 'Tirador', dificultad: 2,
     frase: 'Hay huellas frescas por aquí…',
+    f: { nombre: 'Exploradora', rol: 'Tiradora' },
     resumen: 'Dispara desde lejos y encuentra el camino. Ojo de halcón.',
     talentos: { fuerza: 'normal', destreza: 'fuerte', constitucion: 'normal', inteligencia: 'flojo', sabiduria: 'bueno', carisma: 'flojo' },
     vida: [11, 4], defensa: 14,
@@ -136,6 +141,7 @@ export const clases: Clase[] = [
   {
     slug: 'picaro', nombre: 'Pícaro', emoji: '🗡️', color: '#6366f1', rol: 'Sigilo y trucos', dificultad: 3,
     frase: '¿Quién? ¿Yo? Yo no he sido.',
+    f: { nombre: 'Pícara', resumen: 'Se esconde, abre cerraduras y golpea por sorpresa. Frágil pero astuta.' },
     resumen: 'Se esconde, abre cerraduras y golpea por sorpresa. Frágil pero astuto.',
     talentos: { fuerza: 'flojo', destreza: 'fuerte', constitucion: 'flojo', inteligencia: 'bueno', sabiduria: 'normal', carisma: 'normal' },
     vida: [10, 4], defensa: 14,
@@ -155,6 +161,7 @@ export const clases: Clase[] = [
   {
     slug: 'mago', nombre: 'Mago', emoji: '🔮', color: '#a855f7', rol: 'Hechizos', dificultad: 3,
     frase: '¡Abracadabra… y un poco de suerte!',
+    f: { nombre: 'Maga' },
     resumen: 'Poca vida pero muchísimo poder. Lanza chispas y resuelve acertijos.',
     talentos: { fuerza: 'flojo', destreza: 'normal', constitucion: 'normal', inteligencia: 'fuerte', sabiduria: 'bueno', carisma: 'flojo' },
     vida: [8, 3], defensa: 11,
@@ -174,6 +181,7 @@ export const clases: Clase[] = [
   {
     slug: 'clerigo', nombre: 'Clérigo', emoji: '✨', color: '#f59e0b', rol: 'Sanador y apoyo', dificultad: 2,
     frase: 'Tranquilo, ya estoy aquí.',
+    f: { nombre: 'Clériga', rol: 'Sanadora y apoyo', frase: 'Tranquila, ya estoy aquí.', resumen: 'Cura a los amigos y brilla contra la oscuridad. Todo grupo la quiere.' },
     resumen: 'Cura a los amigos y brilla contra la oscuridad. Todo grupo lo quiere.',
     talentos: { fuerza: 'normal', destreza: 'flojo', constitucion: 'bueno', inteligencia: 'flojo', sabiduria: 'fuerte', carisma: 'normal' },
     vida: [11, 4], defensa: 14,
@@ -193,6 +201,7 @@ export const clases: Clase[] = [
   {
     slug: 'druida', nombre: 'Druida', emoji: '🌿', color: '#65a30d', rol: 'Magia de la naturaleza', dificultad: 3,
     frase: '¿Oyes eso? Es el bosque hablando.',
+    f: { nombre: 'Druida' },
     resumen: 'Habla con los animales y se convierte en oso. Un poco mago, un poco fiera.',
     talentos: { fuerza: 'bueno', destreza: 'flojo', constitucion: 'normal', inteligencia: 'normal', sabiduria: 'fuerte', carisma: 'flojo' },
     vida: [10, 4], defensa: 12,
@@ -212,6 +221,7 @@ export const clases: Clase[] = [
   {
     slug: 'bardo', nombre: 'Bardo', emoji: '🎶', color: '#ec4899', rol: 'Músico y animador', dificultad: 2,
     frase: '¡Y ahora, un cuentito!',
+    f: { nombre: 'Barda', rol: 'Música y animadora' },
     resumen: 'Canta, anima y deja con la boca abierta a los enemigos. El alma del grupo.',
     talentos: { fuerza: 'flojo', destreza: 'bueno', constitucion: 'normal', inteligencia: 'normal', sabiduria: 'flojo', carisma: 'fuerte' },
     vida: [10, 4], defensa: 13,
@@ -231,6 +241,7 @@ export const clases: Clase[] = [
   {
     slug: 'monje', nombre: 'Monje', emoji: '🥋', color: '#0d9488', rol: 'Luchador veloz', dificultad: 2,
     frase: 'Primero respira. Después, ¡pum!',
+    f: { nombre: 'Monja', rol: 'Luchadora veloz' },
     resumen: 'Sin armadura, pero tan rápido que casi nadie le toca. Pega con puños y bastón.',
     talentos: { fuerza: 'bueno', destreza: 'fuerte', constitucion: 'normal', inteligencia: 'flojo', sabiduria: 'normal', carisma: 'flojo' },
     vida: [11, 4], defensa: 15,
@@ -250,6 +261,7 @@ export const clases: Clase[] = [
   {
     slug: 'paladin', nombre: 'Paladín', emoji: '⚜️', color: '#eab308', rol: 'Caballero de la luz', dificultad: 2,
     frase: '¡Por la luz y por mis amigos!',
+    f: { nombre: 'Paladina', rol: 'Caballera de la luz', resumen: 'Guerrera valiente con poderes de luz. Golpea fuerte y da ánimos con su ejemplo.' },
     resumen: 'Guerrero valiente con poderes de luz. Golpea fuerte y da ánimos con su ejemplo.',
     talentos: { fuerza: 'fuerte', destreza: 'flojo', constitucion: 'normal', inteligencia: 'flojo', sabiduria: 'normal', carisma: 'bueno' },
     vida: [13, 5], defensa: 16,
@@ -313,3 +325,12 @@ export const vida = (c: Clase, nivel: number) => c.vida[0] + c.vida[1] * (nivel 
 export const defensa = (c: Clase, nivel: number) => c.defensa + (nivel >= 4 ? 1 : 0);
 export const extraDano = (nivel: number) => EXTRA_DANO[nivel - 1];
 export const ataqueArma = (c: Clase, a: Arma, nivel: number) => suma(c, a.talento, nivel);
+
+export type Sexo = 'chico' | 'chica';
+/** nombre, rol, frase y resumen según el héroe sea chico o chica */
+export function datos(c: Clase, sexo: Sexo) {
+  const f = sexo === 'chica' ? c.f : undefined;
+  return { nombre: f?.nombre ?? c.nombre, rol: f?.rol ?? c.rol, frase: f?.frase ?? c.frase, resumen: f?.resumen ?? c.resumen };
+}
+/** texto de un poder en femenino cuando el héroe es chica */
+export const textoPoder = (t: string, sexo: Sexo) => (sexo === 'chica' ? t.replace(/furioso/g, 'furiosa') : t);
