@@ -1,6 +1,7 @@
 ---
 titulo: La Feria del Misterio
 subtitulo: Un festival de luces, kobolds trampistas y un dragón que no es lo que parece.
+gancho: Una feria que nadie recuerda haber visto llegar. Faroles que brillan sin velas, kobolds que cobran con acertijos, un juglar que canta cosas que no deberías saber… y una jaula tapada con una tela en el centro de todo. ¿Quién ha montado el Festival de los Mil Velos, y por qué está tan interesado en que te quedes a jugar?
 resumen: Los héroes llegan al Festival de los Mil Velos, una feria encantada junto al bosque. Con acertijos, atracciones y una canción que lo cuenta todo, tendrán que reunir cuatro objetos, vencer a un oso lechuza y liberar a un príncipe maldito.
 publico: ninos
 edad: 7-12 años

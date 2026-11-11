@@ -39,6 +39,7 @@ const aventuras = defineCollection({
     titulo: z.string(),
     subtitulo: z.string().optional(),
     resumen: z.string(),
+    gancho: z.string().optional(), // presentación sin spoilers (pestaña Resumen)
     publico: z.enum(['ninos', 'adultos', 'familia']),
     edad: z.string(),
     nivel: z.string(),

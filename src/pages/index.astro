@@ -29,7 +29,7 @@ const PUBLICO = { ninos: 'Niños', adultos: 'Adultos', familia: 'Familia' } as c
           <div class="cuerpo">
             <p class="meta">nivel {a.data.nivel} · {a.data.jugadores} jugadores · {a.data.duracion}</p>
             <h3>{a.data.titulo}</h3>
-            <p>{a.data.resumen}</p>
+            <p>{a.data.gancho ?? a.data.resumen}</p>
             <div class="fila">{a.data.etiquetas.slice(0, 4).map((e) => <span class="etiqueta">{e}</span>)}</div>
           </div>
         </a>

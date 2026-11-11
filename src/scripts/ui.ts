@@ -54,22 +54,33 @@ function filtros() {
   );
 }
 
-/* ---------- Navegación de la aventura: resalta la sección visible ---------- */
+/* ---------- Pestañas de la aventura: un panel a la vez, con #hash ---------- */
 function seccionActiva() {
-  const links = [...document.querySelectorAll<HTMLAnchorElement>('.pestanas a')];
-  if (!links.length || !('IntersectionObserver' in window)) return;
-  const mapa = new Map(links.map((l) => [l.hash.slice(1), l]));
-  const obs = new IntersectionObserver(
-    (es) => es.forEach((e) => {
-      if (!e.isIntersecting) return;
-      links.forEach((l) => l.removeAttribute('aria-current'));
-      const l = mapa.get(e.target.id);
-      l?.setAttribute('aria-current', 'true');
-      l?.scrollIntoView({ inline: 'center', block: 'nearest' });
-    }),
-    { rootMargin: '-30% 0px -60% 0px' },
-  );
-  mapa.forEach((_, id) => { const s = document.getElementById(id); if (s) obs.observe(s); });
+  const links = [...document.querySelectorAll<HTMLAnchorElement>('[data-pestanas] a')];
+  const paneles = [...document.querySelectorAll<HTMLElement>('[data-panel]')];
+  if (!links.length || !paneles.length) return;
+  document.documentElement.classList.add('con-pestanas');
+  const mostrar = (id: string, mover: boolean) => {
+    paneles.forEach((p) => p.classList.toggle('activo', p.id === id));
+    links.forEach((l) => {
+      const on = l.hash.slice(1) === id;
+      if (on) { l.setAttribute('aria-current', 'true'); l.scrollIntoView({ inline: 'center', block: 'nearest' }); }
+      else l.removeAttribute('aria-current');
+    });
+    if (mover) document.querySelector('[data-pestanas]')?.scrollIntoView({ block: 'start' });
+  };
+  const desdeHash = (primera: boolean) => {
+    const id = decodeURIComponent(location.hash.slice(1));
+    const destino = id ? document.getElementById(id) : null;
+    const panel = destino?.closest<HTMLElement>('[data-panel]');
+    if (panel) {
+      mostrar(panel.id, false);
+      if (destino !== panel) destino!.scrollIntoView();
+    } else mostrar(paneles[0].id, false);
+    if (!primera && panel && destino === panel) document.querySelector('[data-pestanas]')?.scrollIntoView({ block: 'start' });
+  };
+  window.addEventListener('hashchange', () => desdeHash(false));
+  desdeHash(true);
 }
 
 /* ---------- Lector del guion: tamaño de letra y pantalla encendida ---------- */

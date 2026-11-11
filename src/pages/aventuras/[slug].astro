@@ -14,7 +14,7 @@ const PUBLICO = { ninos: 'Niños', adultos: 'Adultos', familia: 'Toda la familia
 const pdf = d.descargas.find((x) => x.tipo.toLowerCase() === 'pdf' && /guion/i.test(x.titulo));
 const ICONO: Record<string, string> = { pdf: '📄', imagen: '🖼️', audio: '🎵', zip: '📦', stl: '🧸' };
 const secciones = [
-  ['resumen', 'Resumen'], ['guion', 'Guion'],
+  ['resumen', 'Resumen'], ['guion', 'Guía del master'],
   ...(d.mapas.length ? [['mapas', 'Mapas']] : []),
   ...(d.pnj.length ? [['personajes', 'Personajes']] : []),
   ...(d.ilustraciones.length ? [['escenas', 'Escenas']] : []),
@@ -22,9 +22,10 @@ const secciones = [
   ...(d.miniaturas.length ? [['miniaturas', 'Miniaturas']] : []),
   ['descargas', 'Descargas'],
 ];
+const gancho = d.gancho ?? d.resumen;
 const mini = (r: { archivo: string; miniatura?: string }) => r.miniatura ?? r.archivo;
 ---
-<Base titulo={d.titulo} descripcion={d.resumen} imagen={d.portada} clase="aventura">
+<Base titulo={d.titulo} descripcion={gancho} imagen={d.portada} clase="aventura">
   <div class="portada"><img src={d.portada} alt="" width="1200" height="675"></div>
   <div class="cab">
     <p class="meta">{PUBLICO[d.publico]} · {d.edad}</p>
@@ -37,26 +38,27 @@ const mini = (r: { archivo: string; miniatura?: string }) => r.miniatura ?? r.ar
       <div><dt>Edad</dt><dd>{d.edad}</dd></div>
     </dl>
     <div class="fila no-imprimir">
-      <a class="boton" href="#guion">Leer el guion</a>
+      <a class="boton" href="#guion">📜 Guía del master</a>
       {pdf && <a class="boton fantasma" href={pdf.archivo} download>📄 Guion en PDF</a>}
       {d.pantalla.length > 0 && <a class="boton fantasma" href={`/aventuras/${a.id}/pantalla/`}>🖨️ Pantalla del master</a>}
     </div>
   </div>
 
-  <nav class="pestanas no-imprimir" aria-label="Secciones de la aventura" style="margin-top:20px">
+  <nav class="pestanas no-imprimir" aria-label="Secciones de la aventura" style="margin-top:20px" data-pestanas>
     <ul>{secciones.map(([id, nombre]) => <li><a href={`#${id}`}>{nombre}</a></li>)}</ul>
   </nav>
 
-  <section id="resumen" class="seccion">
+  <section id="resumen" class="seccion panel" data-panel>
     <h2><span>🎪</span> Resumen</h2>
-    <p class="lead">{d.resumen}</p>
-    <p><strong>Ambientación:</strong> {d.ambientacion}</p>
+    <p class="meta">sin spoilers: lo que se puede contar a los jugadores</p>
+    <p class="lead">{gancho}</p>
     <div class="fila">{d.etiquetas.map((e) => <span class="etiqueta">{e}</span>)}</div>
     <p class="nota-reglas" style="margin-top:16px">🎲 <strong>Para jugar con las <a href="/fichas/">fichas del Gremio</a>:</strong> las habilidades de esta aventura (Fuerza, Destreza, Constitución, Inteligencia, Sabiduría y Carisma) son las mismas de las fichas. Dificultades (DC): 5 fácil, 10 normal, 15 difícil, 20 heroico.</p>
   </section>
 
-  <section id="guion" class="seccion">
-    <h2><span>📜</span> Guion</h2>
+  <section id="guion" class="seccion panel" data-panel>
+    <h2><span>📜</span> Guía del master</h2>
+    <p class="nota-reglas no-imprimir">⚠️ <strong>Con spoilers.</strong> Esta guía revela la trama, los villanos y las soluciones: léela tú antes de jugar y no se la enseñes a los jugadores.</p>
     <div class="barra-lector no-imprimir">
       <button class="chip" type="button" data-letra="-" aria-label="Letra más pequeña">A−</button>
       <button class="chip" type="button" data-letra="+" aria-label="Letra más grande">A+</button>
@@ -71,7 +73,7 @@ const mini = (r: { archivo: string; miniatura?: string }) => r.miniatura ?? r.ar
   </section>
 
   {d.mapas.length > 0 && (
-    <section id="mapas" class="seccion">
+    <section id="mapas" class="seccion panel" data-panel>
       <h2><span>🗺️</span> Mapas</h2>
       <p class="meta">toca un mapa para verlo grande y hacer zoom</p>
       <div class="galeria">
@@ -93,8 +95,9 @@ const mini = (r: { archivo: string; miniatura?: string }) => r.miniatura ?? r.ar
   )}
 
   {d.pnj.length > 0 && (
-    <section id="personajes" class="seccion">
+    <section id="personajes" class="seccion panel" data-panel>
       <h2><span>🧙</span> Personajes</h2>
+      <p class="nota-reglas no-imprimir">⚠️ <strong>Con spoilers:</strong> aquí se dice quién es quién de verdad. Solo para el master.</p>
       <div class="pnj">
         {d.pnj.map((p) => (
           <article>
@@ -107,7 +110,7 @@ const mini = (r: { archivo: string; miniatura?: string }) => r.miniatura ?? r.ar
   )}
 
   {d.ilustraciones.length > 0 && (
-    <section id="escenas" class="seccion">
+    <section id="escenas" class="seccion panel" data-panel>
       <h2><span>🖼️</span> Escenas</h2>
       <p class="meta">enséñalas en la mesa cuando llegue la escena</p>
       <div class="galeria">
@@ -122,8 +125,9 @@ const mini = (r: { archivo: string; miniatura?: string }) => r.miniatura ?? r.ar
   )}
 
   {d.musica.length > 0 && (
-    <section id="musica" class="seccion">
+    <section id="musica" class="seccion panel" data-panel>
       <h2><span>🎵</span> Música</h2>
+      <p class="meta">la letra de la canción cuenta la trama: ¡no la leas a los jugadores antes de tiempo!</p>
       {d.musica.map((m) => (
         <div class="pista">
           <div class="pista-cab">
@@ -144,7 +148,7 @@ const mini = (r: { archivo: string; miniatura?: string }) => r.miniatura ?? r.ar
   )}
 
   {d.miniaturas.length > 0 && (
-    <section id="miniaturas" class="seccion">
+    <section id="miniaturas" class="seccion panel" data-panel>
       <h2><span>🧸</span> Miniaturas</h2>
       <div class="galeria">
         {d.miniaturas.map((m) => (
@@ -157,7 +161,7 @@ const mini = (r: { archivo: string; miniatura?: string }) => r.miniatura ?? r.ar
     </section>
   )}
 
-  <section id="descargas" class="seccion">
+  <section id="descargas" class="seccion panel" data-panel>
     <h2><span>⤓</span> Descargas</h2>
     <ul class="descargas">
       {d.descargas.map((x) => (
