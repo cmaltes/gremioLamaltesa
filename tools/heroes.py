@@ -8,13 +8,31 @@ from rembg import remove, new_session
 
 RAIZ = Path(__file__).resolve().parent.parent
 ORI, SAL = RAIZ / "_originales/heroes", RAIZ / "public/fichas/heroes"; SAL.mkdir(parents=True, exist_ok=True)
-SEL = {(c, x): 2 for c in ("guerrero","barbaro","explorador","picaro","mago","clerigo","druida","bardo","monje","paladin") for x in ("chico","chica")}   # semilla elegida de cada héroe (la 2 salió mejor: colores propios, armas y trenzas en las chicas)
+SEL = {(c, x): 3 for c in ("guerrero","barbaro","explorador","picaro","mago","clerigo","druida","bardo","monje","paladin") for x in ("chico","chica")}   # semilla elegida de cada héroe (la 3: caras distintas para cada héroe, sin IP-Adapter)
 col = {m[1]: m[2] for m in re.findall(r"slug: '(\w+)'.*?color: '(#\w+)'", (RAIZ / "src/data/clases.ts").read_text())} if False else {}
 for m in re.finditer(r"slug: '(\w+)'.*?color: '(#[0-9a-fA-F]{6})'", (RAIZ / "src/data/clases.ts").read_text()): col[m[1]] = m[2]
 ses = new_session("isnet-general-use")
 W, H = 640, 800
+def recortar(f):
+    a = np.array(remove(Image.open(f).convert("RGB"), session=ses, post_process_mask=True))
+    m = (a[..., 3] > 128).astype(np.uint8); nc, lab, st, _ = cv2.connectedComponentsWithStats(m)
+    a[..., 3] = np.where(lab == 1 + np.argmax(st[1:, cv2.CC_STAT_AREA]), a[..., 3], 0)
+    ys, xs = np.nonzero(a[..., 3] > 10)
+    return Image.fromarray(a).crop((xs.min(), ys.min(), xs.max() + 1, ys.max() + 1))
+
+SEL = {**SEL, ("barbaro", "chica"): 4}   # la bárbara de la semilla 3 llevaba ropa poco apta: se usa la 4 (ropa cubierta)
+SEL_FULL = 4   # semilla de los cuerpos enteros (figura pequeña con margen para que salgan completos)
+for f in sorted(ORI.glob("*-full-s*.png")):          # cuerpo entero para los muñecos de pie
+    clase, sexo, s = re.fullmatch(r"(\w+)-(chico|chica)-full-s(\d+)", f.stem).groups()
+    if int(s) != SEL_FULL: continue
+    im = recortar(f)
+    if im.height > 1400: im = im.resize((round(im.width * 1400 / im.height), 1400), Image.LANCZOS)
+    im.save(SAL / f"{clase}-{sexo}-cuerpo.png", optimize=True); print(clase, sexo, "cuerpo", flush=True)
+
 for f in sorted(ORI.glob("*-s*.png")):
-    clase, sexo, s = re.match(r"(\w+)-(chico|chica)-s(\d+)", f.stem).groups()
+    mm_ = re.fullmatch(r"(\w+)-(chico|chica)-s(\d+)", f.stem)
+    if not mm_: continue
+    clase, sexo, s = mm_.groups()
     if int(s) != SEL.get((clase, sexo), 1): continue
     a = np.array(remove(Image.open(f).convert("RGB"), session=ses, post_process_mask=True))
     m = (a[..., 3] > 128).astype(np.uint8); nc, lab, st, _ = cv2.connectedComponentsWithStats(m)

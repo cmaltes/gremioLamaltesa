@@ -14,11 +14,11 @@ PERS, SAL = DIR / "personajes", DIR / "miniaturas"; SAL.mkdir(parents=True, exis
 DPI = 300
 mm = lambda v: round(v * DPI / 25.4)
 W, H = mm(210), mm(297)
-ALIADO, ENEMIGO = (22, 150, 150), (180, 45, 45)
+ALIADO = ENEMIGO = (150, 112, 45)   # un solo color neutro: no delata quién es aliado o enemigo
 # archivo, nombre, altura de la figura (mm), casillas de peana, bando
 MUNECOS = [
     ("alarico", "Alarico", 44, 1, ENEMIGO), ("glitch", "Glitch", 32, 1, ENEMIGO), ("gart", "Gart", 34, 1, ENEMIGO),
-    ("zash", "Zash", 32, 1, ENEMIGO), ("mizzen", "Mizzen", 32, 1, ENEMIGO), ("oso-lechuza", "Oso Lechuza", 62, 2, ENEMIGO),
+    ("zash", "Zash", 32, 1, ENEMIGO), ("mizzen", "Mizzen", 36, 1, ENEMIGO), ("oso-lechuza", "Oso Lechuza", 62, 2, ENEMIGO),
     ("aerion", "Aerion", 42, 1, ALIADO), ("fliflas", "Fliflas", 42, 1, ALIADO), ("guiverno", "Guiverno", 62, 2, ALIADO),
 ]
 FUENTE = "/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf"
@@ -34,9 +34,9 @@ def linea_disc(d, p0, p1, color=GRIS, trazo=mm(1.6), hueco=mm(1.2), w=3):
         d.line((x0 + (x1 - x0) * a, y0 + (y1 - y0) * a, x0 + (x1 - x0) * b, y0 + (y1 - y0) * b), fill=color, width=w); t += paso
 
 
-def tira(arch, nombre, h_mm, casillas, color):
+def tira(arch, nombre, h_mm, casillas, color, cartel=False):
     base = mm(25 * casillas); tab = base // 2                     # pestaña = media peana → huella cuadrada
-    im = Image.open(PERS / f"{arch}.png").convert("RGBA"); im = im.crop(im.getchannel("A").point(lambda v: 255 if v > 10 else 0).getbbox())
+    im = Image.open(arch if isinstance(arch, Path) else PERS / f"{arch}.png").convert("RGBA"); im = im.crop(im.getchannel("A").point(lambda v: 255 if v > 10 else 0).getbbox())
     h = mm(h_mm); w = round(im.width * h / im.height)
     if w > mm(25 * casillas * 1.25):                              # no sobresalir demasiado de la peana
         w = mm(25 * casillas * 1.25); h = round(im.height * w / im.width)
@@ -51,9 +51,14 @@ def tira(arch, nombre, h_mm, casillas, color):
     pegar = lambda im2, y: t.paste(im2, (fx, y), im2)
     # frente: figura apoyada en el borde inferior de su zona (pies en alto - tab)
     pegar(fig, alto - tab - h)
+    cart = mm(7)   # héroes (solo medio cuerpo): un cartel con el nombre tapa el corte y queda a propósito
+    if cartel:
+        d.rectangle((0, alto - tab - cart, ancho, alto - tab), fill=(150, 112, 45)); d.line((0, alto - tab - cart, ancho, alto - tab - cart), fill=(90, 66, 25), width=4)
+        f0 = fn(7); tw0 = d.textlength(nombre, font=f0); d.text(((ancho - tw0) / 2, alto - tab - cart + (cart - mm(3)) / 2), nombre, font=f0, fill='white')
     # espalda: la misma figura reflejada respecto al pliegue; ligeramente oscurecida
     atras = ImageOps.flip(fig); atras = Image.eval(atras.convert("RGB"), lambda v: int(v * .85)).convert("RGBA"); atras.putalpha(ImageOps.flip(fig).getchannel("A"))
     pegar(atras, tab)
+    if cartel: d.rectangle((0, tab, ancho, tab + cart), fill=(150, 112, 45)); d.line((0, tab + cart, ancho, tab + cart), fill=(90, 66, 25), width=4)
     # pestañas de color con el nombre
     for y0, y1 in ((0, tab), (alto - tab, alto)):
         d.rectangle((0, y0, ancho, y1), fill=color)
@@ -87,10 +92,20 @@ def hoja(titulo, grupo):
     return pag, y + fila
 
 
-p1, y1 = hoja("Muñecos · Pequeños y medianos (peana 1 casilla)", [m for m in MUNECOS if m[3] == 1])
-p2, y2 = hoja("Muñecos · Grandes (peana 2 casillas)", [m for m in MUNECOS if m[3] == 2])
-print("alto usado (mm):", y1 / mm(1), y2 / mm(1), "de", 297 - 16)
-p1.save(SAL / f"{SLUG}-munecos.pdf", "PDF", resolution=DPI, save_all=True, append_images=[p2])
-for i, p in enumerate((p1, p2), 1):
+NOMBRES = {"guerrero": "Guerrero", "barbaro": "Bárbaro", "explorador": "Explorador", "picaro": "Pícaro", "mago": "Mago", "clerigo": "Clérigo", "druida": "Druida", "bardo": "Bardo", "monje": "Monje", "paladin": "Paladín"}
+CUERPOS = Path(__file__).resolve().parent.parent / "public/fichas/heroes"
+def heroes(sexo):   # los héroes jugadores: todos de 42 mm, peana de 1 casilla
+    return [(CUERPOS / f"{c}-{sexo}-cuerpo.png", n, 42, 1, ALIADO, True) for c, n in NOMBRES.items() if (CUERPOS / f"{c}-{sexo}-cuerpo.png").exists()]
+
+paginas = [("Muñecos · Pequeños y medianos (peana 1 casilla)", [m for m in MUNECOS if m[3] == 1]),
+           ("Muñecos · Grandes (peana 2 casillas)", [m for m in MUNECOS if m[3] == 2])]
+for sexo, tit in (("chico", "chicos"), ("chica", "chicas")):
+    h = heroes(sexo)
+    if h: paginas.append((f"Muñecos · Héroes jugadores, {tit} (peana 1 casilla)", h))
+res = [hoja(t, g) for t, g in paginas]
+imgs = [r[0] for r in res]
+print("hojas:", len(imgs), "alto usado (mm):", [round(r[1] / mm(1)) for r in res])
+imgs[0].save(SAL / f"{SLUG}-munecos.pdf", "PDF", resolution=DPI, save_all=True, append_images=imgs[1:])
+for i, p in enumerate(imgs, 1):
     p.save(SAL / f"{SLUG}-munecos-{i}.png", dpi=(DPI, DPI), optimize=True)
-m = p1.copy(); m.thumbnail((700, 990)); m.save(SAL / f"{SLUG}-munecos-min.jpg", quality=85)
+m = imgs[0].copy(); m.thumbnail((700, 990)); m.save(SAL / f"{SLUG}-munecos-min.jpg", quality=85)

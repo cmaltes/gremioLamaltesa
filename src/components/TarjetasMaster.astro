@@ -2,11 +2,13 @@
 import type { Tarjeta } from '../data/pantalla';
 interface Props { tarjetas: Tarjeta[] }
 const { tarjetas } = Astro.props;
+import FlujoCombate from './FlujoCombate.astro';
 ---
 <div class="master-rejilla">
   {tarjetas.map((t) => (
     <section class="m-card">
       <h3>{t.emoji && <span aria-hidden="true">{t.emoji} </span>}{t.titulo}</h3>
+      {t.flujo && <FlujoCombate />}
       {t.filas.length > 0 && (
         <table>
           {t.cabecera && <thead><tr>{t.cabecera.map((h) => <th>{h}</th>)}</tr></thead>}

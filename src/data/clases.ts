@@ -268,6 +268,35 @@ export const clases: Clase[] = [
   },
 ];
 
+/** Alcance en casillas (1 casilla = 1,5 m = 25 mm en el mapa). Lo que no está aquí es cuerpo a cuerpo: 1 casilla. */
+export const ALCANCE: Record<string, number> = {
+  'Bastón largo': 2, 'Jabalina': 6, 'Hachas pequeñas': 4, 'Arco largo': 20, 'Honda': 10, 'Varita de chispas': 12,
+  'Rayo de luz': 12, 'Semillas espinosas': 6, 'Cuchillos de malabar': 4, 'Lanza de luz': 12,
+};
+export const metros = (casillas: number) => `${casillas} (${(casillas * 1.5).toString().replace('.', ',')} m)`;
+/** Frase para la ficha: hasta dónde llega el arma y qué pasa más lejos. */
+export const alcanceTexto = (a: Arma) => {
+  const r = ALCANCE[a.nombre] ?? 1;
+  if (a.alcance === 'cuerpo' && r === 1) return 'Alcance: 1 casilla, el enemigo tiene que estar a tu lado (la diagonal vale).';
+  if (a.alcance === 'cuerpo') return `Alcance: ${r} casillas (${r * 1.5} m), llega un poco más lejos que una espada.`.replace('.5', ',5');
+  return `Alcance: ${metros(r)}. Hasta ahí tiras normal; de ${r + 1} a ${r * 2} casillas con desventaja; más lejos no llegas. Con un enemigo pegado a ti: desventaja.`;
+};
+
+/** Emoji de cada objeto del equipo (se muestra delante del nombre). */
+export const EQUIPO_EMOJI: Record<string, string> = {
+  'Armadura de metal': '🪖', 'Escudo redondo': '🛡️', 'Mochila con comida': '🎒',
+  'Chaleco de pieles': '🧥', 'Cuerno de beber': '📯', 'Cuerda larga': '🪢',
+  'Capa verde': '🧣', 'Carcaj con flechas': '🏹', 'Mapa y brújula': '🧭',
+  'Capucha oscura': '🥷', 'Ganzúas': '🗝️', 'Bolsa de bolitas para tropezar': '⚪',
+  'Túnica con estrellas': '🌟', 'Libro de hechizos': '📖', 'Gato negro (opcional)': '🐈‍⬛',
+  'Túnica blanca': '🤍', 'Símbolo de sol': '☀️', 'Vendas y pociones de manzanilla': '🩹',
+  'Capa de hojas': '🍃', 'Flauta de madera': '🪈', 'Bolsa de bayas': '🫐',
+  'Laúd': '🪕', 'Sombrero con pluma': '🪶', 'Cuaderno de canciones': '📓',
+  'Cinta en la frente': '🥋', 'Ropa cómoda': '👕', 'Cantimplora': '💧',
+  'Armadura plateada': '⚜️', 'Escudo con un sol': '🌞', 'Capa blanca': '🕊️',
+};
+export const equipoTexto = (e: string) => `${EQUIPO_EMOJI[e] ?? '🎒'} ${e}`;
+
 /** Suministros que tienen TODOS los héroes al empezar (reglas en la hoja de reglas de las fichas). */
 export const SUMINISTROS = [
   { emoji: '🧪', nombre: '1 poción de curación', regla: 'Gasta tu acción: tú o un amigo cercano recuperáis 5 vidas.' },

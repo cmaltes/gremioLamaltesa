@@ -1,0 +1,40 @@
+---
+// Diagrama de flujo de un combate: iniciativa, turnos y rondas. Se imprime en una hoja A4 vertical.
+---
+<div class="flujo">
+  <div class="fx inicio"><b>1 · ¡Empieza el combate!</b><span>Si hay emboscada, los sorprendidos no actúan en la 1ª ronda.</span></div>
+  <div class="fa">▼</div>
+  <div class="fx"><b>2 · 🎲 Iniciativa</b><span>Cada héroe tira <b>d20 + su Destreza</b>. El master tira <b>1 d20 + 2</b> por cada tipo de enemigo. Se apuntan de mayor a menor. Empate: primero los héroes.</span></div>
+  <div class="fa">▼</div>
+  <div class="fx turno"><b>3 · ▶️ Turno del primero de la lista</b>
+    <div class="fx-tres">
+      <span>🦶 <b>Moverte</b><br>hasta 6 casillas</span>
+      <span>✋ <b>1 acción</b><br>atacar, poder, ayudar…</span>
+      <span>⚡ <b>1 acción adicional</b><br>algo rápido</span>
+    </div>
+  </div>
+  <div class="fa">▼</div>
+  <div class="fd"><b>4 · ¿Atacas?</b></div>
+  <div class="fx-ramas">
+    <div class="rama"><span class="si">SÍ</span>
+      <div class="fx peq"><b>d20 + número del arma</b><span>¿Iguala o supera la Defensa?</span></div>
+      <div class="fx-ramas dos">
+        <div class="fx peq ok"><span class="si">SÍ</span> Tira el dado del arma <b>+ extra de nivel</b> y réstalo a sus vidas.<br><i>20 natural = crítico: tiras el dado dos veces.</i></div>
+        <div class="fx peq mal"><span class="no">NO</span> Fallas. <i>1 natural = pifia graciosa.</i></div>
+      </div>
+    </div>
+    <div class="rama"><span class="no">NO</span>
+      <div class="fx peq"><b>Haces otra acción</b><span>Usar un poder, ayudar, esconderte, curar, correr…</span></div>
+    </div>
+  </div>
+  <div class="fa">▼</div>
+  <div class="fx"><b>5 · ¿Alguien llega a 0 vidas?</b><span><b>Héroe:</b> se duerme (no muere). <b>Enemigo:</b> cae o huye.</span></div>
+  <div class="fa">▼</div>
+  <div class="fx"><b>6 · Siguiente en la lista</b><span>Al terminar el último, acaba la <b>ronda</b> y vuelve el primero (nueva ronda).</span></div>
+  <div class="fa">▼</div>
+  <div class="fd"><b>7 · ¿Quedan enemigos de pie y héroes despiertos?</b></div>
+  <div class="fx-ramas dos">
+    <div class="fx peq lazo"><span class="si">SÍ</span> ↺ Vuelve al paso <b>3</b> con el siguiente turno.</div>
+    <div class="fx peq fin"><span class="no">NO</span> 🏁 <b>Fin del combate.</b> Los dormidos despiertan con 1 vida. Botín y descanso.</div>
+  </div>
+</div>

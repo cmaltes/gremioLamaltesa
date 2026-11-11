@@ -16,7 +16,7 @@ const paneles = titulosPaneles.map((titulo, i) => ({ titulo, tarjetas: todas.fil
   <section>
     <p class="meta no-imprimir"><a href={`/aventuras/${a.id}/`}>← {a.data.titulo}</a></p>
     <h1>Pantalla del master</h1>
-    <p class="lead no-imprimir">{a.data.titulo}. Cinco hojas A4 verticales con letra grande, una por panel: pégalas o encájalas en tu pantalla de master (o déjalas a la vista en la mesa).</p>
+    <p class="lead no-imprimir">{a.data.titulo}. Seis hojas A4 verticales con letra grande, una por panel: el combate, las acciones, el movimiento y alcance, los héroes, sus números y los enemigos. Pégalas o encájalas en tu pantalla de master (o déjalas a la vista en la mesa). El guion va aparte.</p>
     <div class="fila no-imprimir" style="margin-bottom:20px">
       <button class="boton" type="button" data-imprimir>🖨️ Imprimir o guardar en PDF</button>
       <a class="boton fantasma" href={`/aventuras/${a.id}/descargas/${a.id}-pantalla-master.pdf`} download>📄 Descargar el PDF</a>

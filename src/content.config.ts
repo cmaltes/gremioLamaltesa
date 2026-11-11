@@ -7,7 +7,7 @@ export const tarjeta = z.object({
   cabecera: z.array(z.string()).optional(),
   filas: z.array(z.array(z.string())).default([]),
   notas: z.array(z.string()).default([]),
-  pagina: z.number().int().min(1).max(5).optional(), // panel (hoja A4 vertical) de la pantalla del master
+  pagina: z.number().int().min(1).max(6).optional(), // panel (hoja A4 vertical) de la pantalla del master
 });
 
 const recurso = z.object({

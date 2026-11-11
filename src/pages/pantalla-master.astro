@@ -6,8 +6,8 @@ import { tarjetasGenerales } from '../data/pantalla';
 <Base titulo="Pantalla del master: reglas" descripcion="Fichas imprimibles en español con las reglas básicas para la pantalla del master: dificultades, combate, habilidades y descansos." clase="pantalla-pag">
   <section>
     <h1>Pantalla del master</h1>
-    <p class="lead no-imprimir">Las reglas básicas en cuatro fichas para imprimir en A4 apaisado. Cada aventura trae además las suyas.</p>
+    <p class="lead no-imprimir">Las reglas básicas en fichas para imprimir en A4 apaisado. Cada aventura trae además sus paneles A4 verticales.</p>
     <div class="fila no-imprimir" style="margin-bottom:20px"><button class="boton" type="button" data-imprimir>🖨️ Imprimir o guardar en PDF</button></div>
-    <TarjetasMaster tarjetas={tarjetasGenerales} />
+    <TarjetasMaster tarjetas={tarjetasGenerales.filter((t) => !t.flujo)} />
   </section>
 </Base>

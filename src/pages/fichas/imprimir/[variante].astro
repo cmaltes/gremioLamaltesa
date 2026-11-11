@@ -1,7 +1,7 @@
 ---
 // Todas las fichas para imprimir: 1 hoja de reglas + 1 hoja A4 por héroe con los 5 niveles a la vista. Se convierte en PDF con scripts/generar-pdfs.sh.
 import Base from '../../../layouts/Base.astro';
-import { clases, DINERO_TEXTO, SUMINISTROS, TALENTOS, SUMA, EXTRA_DANO, NIVELES, RANGO_TEXTO, USO_TEXTO, suma, vida, defensa, extraDano, ataqueArma } from '../../../data/clases';
+import { clases, DINERO_TEXTO, alcanceTexto, SUMINISTROS, equipoTexto, TALENTOS, SUMA, EXTRA_DANO, NIVELES, RANGO_TEXTO, USO_TEXTO, suma, vida, defensa, extraDano, ataqueArma } from '../../../data/clases';
 const mas = (n: number) => `+${n}`;
 const mejora = ['Empiezas', '+1 daño, más vidas', 'Poder nuevo, más sumas', 'Defensa +1', 'Superpoder, más sumas'];
 
@@ -31,7 +31,7 @@ const todas = [['chico', '🧑 Chico'], ['chica', '👩 Chica'], ['dibujo', '✏
       <ol class="reglas-lista">
         <li><strong>Un dado para todo.</strong> Cuando quieras hacer algo difícil, el master te dice qué habilidad usar. Tira un d20 y <strong>suma el número de esa habilidad en tu ficha</strong>.</li>
         <li><strong>¿Llegas?</strong> El master dice una dificultad (5 fácil, 10 normal, 15 difícil, 20 heroico). Si igualas o superas, ¡lo consigues!</li>
-        <li><strong>Atacar.</strong> d20 + el número de tu arma. Si igualas o superas la <em>Defensa</em> del enemigo, le das. Entonces tira el dado del arma y <strong>suma tu extra de daño</strong>. Quita esa cantidad a sus vidas.</li>
+        <li><strong>Atacar.</strong> d20 + el número de tu arma. Si igualas o superas la <em>Defensa</em> del enemigo, le das. Entonces tira el dado del arma y <strong>suma tu extra de daño</strong>. Quita esa cantidad a sus vidas. <strong>Alcance:</strong> cuerpo a cuerpo, el enemigo debe estar a tu lado; a distancia, hasta las casillas que pone tu arma (el doble con desventaja).</li>
         <li><strong>Un 20 es crítico, un 1 es pifia.</strong> Con un 20 tiras el dado del arma dos veces. Con un 1, ¡algo gracioso sale mal!</li>
         <li><strong>Tu turno.</strong> Te mueves y haces una cosa: atacar, usar un poder, ayudar, esconderte, curar… Si un amigo te ayuda, tiras dos d20 y te quedas con el más alto.</li>
         <li><strong>Vidas.</strong> A 0 vidas te quedas dormido: un amigo te despierta con cuidados, o al acabar el combate vuelves con 1 vida. Descanso corto (1 h): recuperas la mitad; largo (8 h): todas.</li>
@@ -95,6 +95,7 @@ const todas = [['chico', '🧑 Chico'], ['chica', '👩 Chica'], ['dibujo', '✏
                 <p class="meta" style="margin:0">{a.alcance === 'cuerpo' ? 'cuerpo a cuerpo' : 'a distancia'} · usa {tal.emoji} {tal.nombre}</p>
                 <p class="fi-tirada">1º Atacar: <strong>d20 +{ataqueArma(c, a, 1)}</strong> <small>(nivel 1)</small> · 2º Si aciertas: <strong>{a.dado} +{extraDano(1)}</strong></p>
                 <p class="nota">{a.nota}</p>
+                <p class="alcance">🎯 {alcanceTexto(a)}</p>
               </article>
             );
           })}
@@ -110,11 +111,11 @@ const todas = [['chico', '🧑 Chico'], ['chica', '👩 Chica'], ['dibujo', '✏
         ))}
 
         <h2>Tu equipo</h2>
-        <ul class="equipo">{c.equipo.map((e) => <li>{e}</li>)}<li class="dinero">💰 {DINERO_TEXTO(c)} al empezar</li></ul>
+        <ul class="equipo">{c.equipo.map((e) => <li class="eq">{equipoTexto(e)}</li>)}<li class="dinero">💰 {DINERO_TEXTO(c)} al empezar</li></ul>
         <h3>Suministros <small class="meta">(poción y descanso: mira las reglas)</small></h3>
-        <ul class="equipo sumin">{SUMINISTROS.map((x) => <li>{x.emoji} {x.nombre}</li>)}<li>⛺ {c.descanso}</li></ul>
+        <ul class="equipo sumin">{SUMINISTROS.map((x) => <li>{x.emoji} {x.nombre}</li>)}<li class="desc">⛺ {c.descanso}</li></ul>
         <h3>Mis vidas <small class="meta">(tacha al perderlas)</small></h3>
-        <div class="casillas">{Array.from({ length: vida(c, 5) }).map(() => <i />)}</div>
+        <div class="casillas">{Array.from({ length: Math.ceil(vida(c, 5) / 5) }).map((_, g) => <span class="g">{Array.from({ length: Math.min(5, vida(c, 5) - g * 5) }).map(() => <i />)}</span>)}</div>
       </div>
     ))}
   </section>

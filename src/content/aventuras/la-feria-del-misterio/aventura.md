@@ -122,7 +122,7 @@ miniaturas:
   - titulo: Hoja de tokens (25 y 50 mm)
     archivo: /aventuras/la-feria-del-misterio/miniaturas/la-feria-del-misterio-tokens.png
     miniatura: /aventuras/la-feria-del-misterio/miniaturas/la-feria-del-misterio-tokens-min.jpg
-    nota: 9 redondos con retrato; rojo enemigos, turquesa aliados. PNG a 300 ppp
+    nota: 9 redondos con retrato (25 y 50 mm). PNG a 300 ppp
   - titulo: Muñecos de papel · pequeños y medianos
     archivo: /aventuras/la-feria-del-misterio/miniaturas/la-feria-del-misterio-munecos-1.png
     miniatura: /aventuras/la-feria-del-misterio/miniaturas/la-feria-del-misterio-munecos-min.jpg
@@ -130,58 +130,18 @@ miniaturas:
   - titulo: Muñecos de papel · grandes
     archivo: /aventuras/la-feria-del-misterio/miniaturas/la-feria-del-misterio-munecos-2.png
     nota: Oso Lechuza y Guiverno (peana de 2 casillas)
+  - titulo: Muñecos de papel · héroes chicos
+    archivo: /aventuras/la-feria-del-misterio/miniaturas/la-feria-del-misterio-munecos-3.png
+    nota: Los 10 héroes jugadores (medio cuerpo con cartel de nombre)
+  - titulo: Muñecos de papel · héroes chicas
+    archivo: /aventuras/la-feria-del-misterio/miniaturas/la-feria-del-misterio-munecos-4.png
+    nota: Los 10 héroes jugadores, versión chica
+  - titulo: Tokens de los héroes
+    archivo: /aventuras/la-feria-del-misterio/miniaturas/la-feria-del-misterio-tokens-heroes.png
+    nota: 20 redondos de 25 mm (10 clases, chico y chica)
 pantalla:
-  - titulo: Orden de la aventura
-    pagina: 1
-    emoji: 🗺️
-    filas:
-      - ["1. La feria", "4 atracciones, en cualquier orden. Cada una da 1 objeto."]
-      - ["2. Emboscada", "Gart y Zash en el camino del bosque."]
-      - ["3. La cueva", "Oso Lechuza, nivel 2 y cofre del tesoro."]
-      - ["4. Vuelta", "Alarico, Glitch y Mizzen frente a la jaula."]
-      - ["5. Rescate", "Llave de la Jaula y Príncipe Aerion."]
-  - titulo: Las cuatro pistas
-    pagina: 2
-    emoji: 🎪
-    cabecera: [Pista, Reto y dificultad, Objeto]
-    filas:
-      - ["🎯 Diana · Glitch", "Destreza DC 5 por letra. Centro: DC 15 (gana 2 PO)", "Poción Solvente"]
-      - ["🎡 Noria · Gart", "Sabiduría (percepción) DC 5 por cabina. Ordenar versos: Inteligencia (investigación) DC 10", "Mapa Escondido"]
-      - ["🎠 Carrusel · Zash", "Notar letras: Sabiduría (percepción) DC 10. Encontrar palabra: DC 5. Gritar el antónimo", "Pergamino de Dormir"]
-      - ["🛍️ Tienda · Mizzen", "Comprar: 10 PO (Carisma DC 10: 5 PO). Robar: Destreza DC 15", "Llave del Cofre"]
-    notas: ["Cada atracción cuesta 1 PO por intento."]
-  - titulo: Respuestas secretas
-    pagina: 2
-    emoji: 🔑
-    filas:
-      - ["Diana", "PIEDRA: golpear P-I-E-D-R-A en orden"]
-      - ["Carrusel", "SILENCIO · COBARDE · ENEMIGO · RÁPIDO · BLANDO"]
-      - ["Noria", "Cabinas en orden: Negro, Azul, Oro, Bronce, Rojo, Blanco, Verde, Plata"]
-      - ["Mapa", "Lleva a la Boca del Búho"]
-    notas: ["Diana, fallo: la fruta se vuelve piedra y se pierde el progreso.", "Carrusel, fallo: salvación de Destreza DC 10."]
-  - titulo: Examinar objetos
-    pagina: 2
-    emoji: 🔍
-    cabecera: [Objeto, Tirada, DC]
-    filas:
-      - ["Poción Solvente", "Inteligencia (arcanos)", "13"]
-      - ["Mapa Escondido", "Sabiduría (supervivencia)", "13"]
-      - ["Pergamino de Dormir", "Inteligencia (arcanos)", "13"]
-      - ["Llave del Cofre", "Inteligencia (investigación)", "13 · 16 (trampa)"]
-      - ["Llave de la Jaula", "Inteligencia (investigación)", "8"]
-    notas: ["Un fallo no bloquea la aventura: los objetos funcionan igual."]
-  - titulo: Tienda de Mizzen
-    pagina: 3
-    emoji: 💰
-    cabecera: [Objeto, Precio, Robar]
-    filas:
-      - ["Llave del Cofre", "10 PO (5 con Carisma DC 10)", "Destreza DC 15"]
-      - ["Daga mágica de cocina", "1 PO", "DC 10"]
-      - ["Orbe del Vidente", "3 PO", "DC 12"]
-      - ["Botas de Siete Leguas", "5 PO", "DC 14"]
-    notas: ["Robo fallido: huir con Destreza (acrobacias) DC 12 o desventaja en las interacciones."]
   - titulo: Enemigos
-    pagina: 4
+    pagina: 6
     emoji: 👹
     cabecera: [Quién, Def., Vidas, Ataque]
     filas:
@@ -189,62 +149,20 @@ pantalla:
       - ["Oso Lechuza joven", "13", "30", "Garra +4, 1d6+2 · Pico +4, 1d8+2"]
       - ["Maestro Alarico", "12", "20", "Rayo +3, 1d8+1 · Daga +3, 1d4+1"]
       - ["Glitch y Mizzen (cada uno)", "12", "5", "Lanza +3, 1d6+1. Huyen cuando cae Alarico"]
-    notas: ["Emboscada: Sabiduría (percepción) DC 15 para no ser sorprendidos.", "Al caer Alarico, el guiverno vuelve a ser el Príncipe Aerion. La Llave de la Jaula está en el lodo."]
-  - titulo: Cueva y cofre
-    pagina: 3
-    emoji: 🪙
-    filas:
-      - ["Oso", "El Pergamino de Dormir evita el combate"]
-      - ["Victoria", "¡Nivel 2!"]
-      - ["Cofre", "Se abre con la Llave del Cofre"]
-      - ["Trampa", "Salvación de Destreza DC 12 o petrificado. Lo cura la Poción Solvente"]
-      - ["Botín", "200 PO, Espada Larga +1, Arco Largo +1, Hacha de Mano de Defensa, 2 Pociones de curación"]
-  - titulo: Los cinco objetos clave
-    emoji: 🎒
-    pagina: 1
-    cabecera: [Objeto, Quién lo da, Para qué sirve]
-    filas:
-      - ["Poción Solvente Místico", "Glitch", "Cura la petrificación de la trampa del cofre"]
-      - ["Mapa Escondido", "Gart", "Lleva a la Boca del Búho (cueva del Oso Lechuza)"]
-      - ["Pergamino de Dormir", "Zash", "Duerme al Oso Lechuza y evita el combate"]
-      - ["Llave del Cofre", "Mizzen", "Abre el cofre del tesoro (con trampa)"]
-      - ["Llave de la Jaula", "Se cae al vencer a Alarico", "Libera al Príncipe Aerion"]
-    notas: ["Se pueden conseguir en cualquier orden. Un fallo nunca bloquea la aventura."]
-  - titulo: Si se atascan, que cante Fliflas
-    emoji: 🎵
-    pagina: 5
-    cabecera: [Verso de la Balada, Empuja hacia…]
-    filas:
-      - ["1.º «Un Maestro que sonríe…»", "Alarico es el malo; el Heredero está maldito"]
-      - ["2.º «Una pócima verde…»", "La Poción Solvente de Glitch cura la piedra"]
-      - ["3.º «Acertijos de luz… un mapa de búhos»", "Las atracciones y el Mapa a la cueva"]
-      - ["4.º «Cuidado del cofre dorado»", "La trampa del cofre petrifica"]
-      - ["5.º «Libera al que gime»", "Vencer a Alarico y abrir la jaula"]
-    notas: ["Cántala o ponla de nuevo (2 min 47 s) antes de dar una pista a la fuerza."]
-  - titulo: Voces de los PNJ
-    pagina: 1
-    emoji: 🎭
-    filas:
-      - ["Alarico", "Pomposo y entusiasta. Sonríe, pero sus ojos son fríos"]
-      - ["Glitch", "Voz chillona, se ríe todo el rato"]
-      - ["Gart", "Pecho inflado; se oye crujir el relleno"]
-      - ["Zash", "Nerviosa, da saltitos y cuenta monedas"]
-      - ["Mizzen", "Obsesionado con las monedas y lo que brilla"]
-      - ["Fliflas", "Melancólico, laúd desafinado"]
-      - ["Aerion", "Tembloroso y muy agradecido"]
+    notas: ["Emboscada: Sabiduría (percepción) DC 15 para no ser sorprendidos."]
 descargas:
   - titulo: Muñecos de papel de pie
     archivo: /aventuras/la-feria-del-misterio/miniaturas/la-feria-del-misterio-munecos.pdf
     tipo: pdf
-    descripcion: 2 hojas A4 (9 muñecos por delante y por detrás, con peana plegable de 1 o 2 casillas). Imprime al 100 %.
+    descripcion: 4 hojas A4 (9 personajes de la aventura y los 20 héroes jugadores, por delante y por detrás, con peana plegable de 1 o 2 casillas). Imprime al 100 %.
   - titulo: Tokens redondos
     archivo: /aventuras/la-feria-del-misterio/miniaturas/la-feria-del-misterio-tokens.pdf
     tipo: pdf
-    descripcion: 1 hoja A4 con 7 tokens de 25 mm y 2 de 50 mm (imprime al 100 %, con regla de comprobación).
+    descripcion: "2 hojas A4: personajes de la aventura (7 de 25 mm y 2 de 50 mm) y los 20 héroes jugadores de 25 mm. Imprime al 100 %."
   - titulo: Pantalla del master
     archivo: /aventuras/la-feria-del-misterio/descargas/la-feria-del-misterio-pantalla-master.pdf
     tipo: pdf
-    descripcion: 5 hojas A4 verticales con letra grande para montar la pantalla del master (preparación, feria, tienda y cueva, combate y reglas).
+    descripcion: "6 hojas A4 verticales con letra grande: diagrama de combate, acciones, movimiento y alcance, resumen de los héroes, números y descansos, enemigos y tiradas."
   - titulo: Fichas de héroe · chico
     archivo: /descargas/fichas-de-heroe-chico.pdf
     tipo: pdf

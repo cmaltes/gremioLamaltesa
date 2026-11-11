@@ -1,6 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { clases, porSlug, DINERO_TEXTO, SUMINISTROS, TALENTOS, NIVELES, RANGO_TEXTO, USO_TEXTO, suma, vida, defensa, extraDano, ataqueArma } from '../../data/clases';
+import { clases, porSlug, DINERO_TEXTO, alcanceTexto, SUMINISTROS, equipoTexto, TALENTOS, NIVELES, RANGO_TEXTO, USO_TEXTO, suma, vida, defensa, extraDano, ataqueArma } from '../../data/clases';
 
 export function getStaticPaths() { return clases.map((c) => ({ params: { slug: c.slug }, props: { c } })); }
 const { c } = Astro.props;
@@ -61,6 +61,7 @@ const mas = (n: number) => `+${n}`;
               <div><small>2º Si aciertas</small><strong>{a.dado} <b>+<span {...por((n) => extraDano(n))}>{extraDano(1)}</span></b></strong></div>
             </div>
             <p class="nota">{a.nota}</p>
+                <p class="alcance">🎯 {alcanceTexto(a)}</p>
           </article>
         );
       })}
@@ -92,16 +93,16 @@ const mas = (n: number) => `+${n}`;
     </div>
 
     <h2 style="margin-top:28px">Tu equipo</h2>
-    <ul class="equipo">{c.equipo.map((e) => <li>{e}</li>)}<li class="dinero">💰 {DINERO_TEXTO(c)} al empezar</li></ul>
+    <ul class="equipo">{c.equipo.map((e) => <li class="eq">{equipoTexto(e)}</li>)}<li class="dinero">💰 {DINERO_TEXTO(c)} al empezar</li></ul>
     <h3 style="margin-top:14px">Suministros <small class="meta">(para curarte y descansar)</small></h3>
     <ul class="equipo sumin">
       {SUMINISTROS.map((x) => <li title={x.regla}>{x.emoji} {x.nombre}</li>)}
-      <li>⛺ {c.descanso}</li>
+      <li class="desc">⛺ {c.descanso}</li>
     </ul>
     <p class="meta">{SUMINISTROS.map((x) => `${x.emoji} ${x.regla}`).join(' · ')}</p>
 
     <h3 style="margin-top:20px">Mis vidas <small class="meta">(tacha al perderlas)</small></h3>
-    <div class="casillas solo-imprimir">{Array.from({ length: vida(c, 5) }).map(() => <i />)}</div>
+    <div class="casillas solo-imprimir">{Array.from({ length: Math.ceil(vida(c, 5) / 5) }).map((_, g) => <span class="g">{Array.from({ length: Math.min(5, vida(c, 5) - g * 5) }).map(() => <i />)}</span>)}</div>
 
     <div class="fila no-imprimir" style="margin-top:24px">
       <button class="boton" type="button" data-imprimir>🖨️ Imprimir esta ficha</button>
