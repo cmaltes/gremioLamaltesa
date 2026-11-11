@@ -30,6 +30,7 @@ const secciones = [
   ['descargas', 'Descargas'],
 ];
 const gancho = d.gancho ?? d.resumen;
+const masterPdf = (x: { archivo: string }) => /-guion\.pdf$|pantalla-master\.pdf$/.test(x.archivo);
 const mini = (r: { archivo: string; miniatura?: string }) => r.miniatura ?? r.archivo;
 ---
 <Base titulo={d.titulo} descripcion={gancho} imagen={d.portada} clase="aventura">
@@ -97,8 +98,9 @@ const mini = (r: { archivo: string; miniatura?: string }) => r.miniatura ?? r.ar
       <button class="chip" type="button" data-letra="-" aria-label="Letra más pequeña">A−</button>
       <button class="chip" type="button" data-letra="+" aria-label="Letra más grande">A+</button>
       <button class="chip" type="button" data-pantalla aria-pressed="false">☀️ Pantalla encendida</button>
-      {pdf && <a class="chip" href={pdf.archivo} download>📄 PDF</a>}
+      {pdf && <a class="chip" href={pdf.archivo} download>📄 Guion en PDF</a>}
       {d.pantalla.length > 0 && <a class="chip" href={`/aventuras/${a.id}/pantalla/`}>🖨️ Pantalla del master</a>}
+      {d.descargas.filter((x) => /pantalla-master\.pdf$/.test(x.archivo)).map((x) => <a class="chip" href={x.archivo} download>📄 Pantalla en PDF</a>)}
     </div>
     <details class="indice no-imprimir">
       <summary>Índice del guion</summary>
@@ -207,7 +209,7 @@ const mini = (r: { archivo: string; miniatura?: string }) => r.miniatura ?? r.ar
   <section id="descargas" class="seccion panel" data-panel>
     <h2><span>⤓</span> Descargas</h2>
     <ul class="descargas">
-      {d.descargas.map((x) => (
+      {d.descargas.filter((x) => !masterPdf(x)).map((x) => (
         <li><a href={x.archivo} download><span class="ico">{ICONO[x.tipo.toLowerCase()] ?? '📎'}</span><span><strong>{x.titulo}</strong>{x.descripcion && <small>{x.descripcion}</small>}</span><span class="tipo">{x.tipo.toUpperCase()}</span></a></li>
       ))}
       {d.mapas.map((m) => (
