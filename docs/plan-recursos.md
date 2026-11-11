@@ -76,11 +76,14 @@ Estado: **Pasos 0 y 1 hechos, 2 a medias**; el resto pendiente (solo existen el 
 ## Hecho aparte (10-nov-2026)
 - Pantalla del master: 5 hojas A4 **verticales** con letra grande (12,5 pt), un panel por hoja, y 2 tarjetas nuevas («Los cinco objetos clave» y «Si se atascan, que cante Fliflas»). El campo `pagina` de cada tarjeta decide su hoja. Se pueden añadir más tarjetas mientras quepan en 5 páginas.
 
-## Imágenes con modelo local (en curso, 10-nov-2026)
+## Imágenes con modelo local (HECHO, 11-nov-2026)
+Los 5 personajes (Alarico, Aerion, Fliflas, Guiverno, Oso Lechuza) ya están recortados, con retrato y en `pnj` de `aventura.md` (script `tools/personajes_ia.py`). El paso 2 queda completo; siguiente: paso 3 (tokens y muñecos).
+
 Entorno `tools/.venv-ia` (torch 2.6 + diffusers, ~5,5 GB, ignorado) con **DreamShaper 8 + IP-Adapter** (modelos en `~/.cache/huggingface`). Scripts: `tools/ia_personaje.py` (genera; env `REF=glitch|gart|mizzen` para la referencia de cuerpo entero, `H=896` para más alto), `tools/ia_lote.sh` (tanda de 4), `tools/ia_extender.py` (outpainting: **no funciona, descartado**).
 - GTX 1650: el fp16 da NaN (imágenes negras) → va en **fp32 con offload secuencial** (~75 s por imagen 512×768).
 - Lo que mejor funciona: referencia = recorte de Glitch a cuerpo entero, escala IP-Adapter **0,65-0,75** y prompt con «oil painting style, visible brushwork, painterly textures, slightly caricatured expressive face, storybook illustration, wide shot, full length figure from hat to shoes, small figure centered with empty space around». Alarico y Aerion humano quedan bien de estilo.
 - Problemas abiertos: salen **cortados por las rodillas** (probar figura más pequeña, lienzo 512×896+, o usarlos como retrato y recorte a media altura); **Guiverno y Oso Lechuza** salen vestidos de persona (bajar la escala IP a 0,3-0,4, no usar la ropa de los kobolds como referencia, prompt «quadruped, no clothes»); Fliflas sin laúd; Aerion sin el verde y dorado gastado.
+- Tanda 2 (11-nov, escala IP 0,3 para criaturas, H=896 para Fliflas): guardada en `_originales/personajes/*v2_*.png`. Fliflas ya sale de cuerpo entero (v2_2 sostiene algo parecido a un laúd); Guiverno v2_2 y Oso Lechuza v2_2 son los mejores y sin ropa evidente. Pendiente: elegir, recortar con rembg y retratos.
 - Pruebas hechas en `/tmp/claude-1000/ia/` (se pierden al reiniciar; las buenas hay que copiarlas a `_originales/personajes/`).
 - Después: recortar con rembg (`tools/personajes.py`), retratos (`tools/retratos.py`), añadir a `pnj` en `aventura.md`.
 

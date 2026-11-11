@@ -16,9 +16,11 @@ pnj:
   - nombre: Maestro Alarico
     rol: Villano (en realidad, Lord Silas Malvado)
     descripcion: Hechicero corrupto de terciopelo morado. Sonríe mucho, pero sus ojos son fríos. Destruirlo rompe la maldición del príncipe.
+    imagen: /aventuras/la-feria-del-misterio/personajes/alarico-retrato.jpg
   - nombre: Príncipe Aerion
     rol: La Bestia de las Escamas
     descripcion: Heredero del Valle Verde, convertido en guiverno por una maldición. Pide ayuda sin que nadie lo escuche.
+    imagen: /aventuras/la-feria-del-misterio/personajes/aerion-retrato.jpg
   - nombre: Glitch, la Listilla
     rol: Kobold · Pista 1
     descripcion: Dirige la Diana del Saber. Entrega la Poción Solvente Místico. Acompaña a Alarico al final.
@@ -38,6 +40,15 @@ pnj:
   - nombre: Fliflas, el Juglar
     rol: Pista sutil
     descripcion: Humano melancólico con un laúd desafinado. Canta «La Balada del Señor Perdido», que resume la trama.
+    imagen: /aventuras/la-feria-del-misterio/personajes/fliflas-retrato.jpg
+  - nombre: La Bestia (Aerion como guiverno)
+    rol: Prisionero de la jaula
+    descripcion: Guiverno esmeralda con una cadena rota al cuello. Asustado, no ataca; solo quiere que lo liberen.
+    imagen: /aventuras/la-feria-del-misterio/personajes/guiverno-retrato.jpg
+  - nombre: Oso Lechuza
+    rol: Monstruo de la Boca del Búho
+    descripcion: Mitad oso, mitad búho, guarda el cofre del tesoro en su cueva. Amenazador, pero apto para niños.
+    imagen: /aventuras/la-feria-del-misterio/personajes/oso-lechuza-retrato.jpg
 mapas:
   - titulo: La feria
     archivo: /aventuras/la-feria-del-misterio/mapas/feria.jpg
