@@ -62,6 +62,7 @@ const aventuras = defineCollection({
           archivo: z.string(),
           caratula: z.string().optional(),
           cuando: z.string().optional(),
+          bucle: z.boolean().optional(), // se reproduce en bucle
           letra: z.array(z.string()).optional(),
         }),
       )

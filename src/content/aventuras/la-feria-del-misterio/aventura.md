@@ -109,6 +109,18 @@ ilustraciones:
     miniatura: /aventuras/la-feria-del-misterio/img/tienda-mizzen-min.jpg
     nota: Pista 4 · Mizzen
 musica:
+  - titulo: Fondo · Capítulo 1 · La feria
+    archivo: /aventuras/la-feria-del-misterio/musica/fondo-capitulo-1.mp3
+    bucle: true
+    cuando: "Para el festival (capítulo 1): polca alegre de órgano de feria con campanillas, y por encima risas, silbatos, ruleta, globos y fanfarrias de circo. 10 min en bucle, sin corte."
+  - titulo: Fondo · Capítulo 2 · La cueva del Oso Lechuza
+    archivo: /aventuras/la-feria-del-misterio/musica/fondo-capitulo-2.mp3
+    bucle: true
+    cuando: "Para el camino y la cueva (capítulo 2): melodía suave de flauta, búhos constantes, grillos, ranas, pájaros nocturnos y goteo. 10 min en bucle, sin corte."
+  - titulo: Fondo · Capítulo 3 · El rescate
+    archivo: /aventuras/la-feria-del-misterio/musica/fondo-capitulo-3.mp3
+    bucle: true
+    cuando: "Para el combate final (capítulo 3): tétrica y solemne, con órgano de iglesia, coro grave, campana fúnebre, piano inquietante y timbales lentos. 10 min en bucle, sin corte."
   - titulo: La Balada del Señor Perdido
     archivo: /aventuras/la-feria-del-misterio/musica/balada-del-senor-perdido.mp3
     caratula: /aventuras/la-feria-del-misterio/musica/balada-del-senor-perdido.jpg

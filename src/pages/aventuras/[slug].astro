@@ -192,7 +192,7 @@ const mini = (r: { archivo: string; miniatura?: string }) => r.miniatura ?? r.ar
             {m.caratula ? <img src={m.caratula} alt="" width="72" height="72" loading="lazy"> : <div class="sin-foto" style="font-size:2rem;text-align:center">🎵</div>}
             <div><h3>{m.titulo}</h3>{m.cuando && <p>{m.cuando}</p>}</div>
           </div>
-          <audio controls preload="none" src={m.archivo} data-titulo={m.titulo} data-caratula={m.caratula}></audio>
+          <audio controls loop={m.bucle} preload="none" src={m.archivo} data-titulo={m.titulo} data-caratula={m.caratula}></audio>
           {m.letra && (
             <details class="letra">
               <summary>Ver la letra</summary>
