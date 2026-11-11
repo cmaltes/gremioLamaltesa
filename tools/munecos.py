@@ -19,6 +19,8 @@ ALIADO = ENEMIGO = (150, 112, 45)   # un solo color neutro: no delata quién es 
 MUNECOS = [
     ("alarico", "Alarico", 44, 1, ENEMIGO), ("glitch", "Glitch", 32, 1, ENEMIGO), ("gart", "Gart", 34, 1, ENEMIGO),
     ("zash", "Zash", 32, 1, ENEMIGO), ("mizzen", "Mizzen", 36, 1, ENEMIGO), ("oso-lechuza", "Oso Lechuza", 62, 2, ENEMIGO),
+    ("glitch-malvado", "Glitch (mala)", 32, 1, ENEMIGO), ("gart-malvado", "Gart (malo)", 34, 1, ENEMIGO),
+    ("zash-malvado", "Zash (mala)", 32, 1, ENEMIGO), ("mizzen-malvado", "Mizzen (malo)", 36, 1, ENEMIGO),
     ("aerion", "Aerion", 42, 1, ALIADO), ("fliflas", "Fliflas", 42, 1, ALIADO), ("guiverno", "Guiverno", 62, 2, ALIADO),
 ]
 FUENTE = "/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf"

@@ -50,6 +50,22 @@ pnj:
     rol: Monstruo de la Boca del Búho
     descripcion: Mitad oso, mitad búho, guarda el cofre del tesoro en su cueva. Amenazador, pero apto para niños.
     imagen: /aventuras/la-feria-del-misterio/personajes/oso-lechuza-retrato.jpg
+  - nombre: Glitch, corrompida (malvada)
+    rol: Kobold · combate final
+    descripcion: Su versión sin disfraz de feria, cuando Alarico da la orden en el clímax (capítulo 3). Ojos rojos y sonrisa afilada. Sostiene la jaula y ataca junto al Farsante.
+    imagen: /aventuras/la-feria-del-misterio/personajes/glitch-malvado-retrato.jpg
+  - nombre: Mizzen, corrupto (malvado)
+    rol: Kobold · combate final
+    descripcion: Su versión sin disfraz de feria, en el clímax (capítulo 3). Famélico y codicioso, ataca junto a Alarico y Glitch.
+    imagen: /aventuras/la-feria-del-misterio/personajes/mizzen-malvado-retrato.jpg
+  - nombre: Gart, corrupto (malvado)
+    rol: Kobold · emboscada
+    descripcion: Su versión sin disfraz de feria, para la emboscada del bosque (capítulo 2). Mucho más fuerte y torpe que enfadado.
+    imagen: /aventuras/la-feria-del-misterio/personajes/gart-malvado-retrato.jpg
+  - nombre: Zash, corrompida (malvada)
+    rol: Kobold · emboscada
+    descripcion: Su versión sin disfraz de feria, para la emboscada del bosque (capítulo 2). Rápida, nerviosa y con chispas verdes en las manos.
+    imagen: /aventuras/la-feria-del-misterio/personajes/zash-malvado-retrato.jpg
 mapas:
   - titulo: La feria
     archivo: /aventuras/la-feria-del-misterio/mapas/feria.jpg
@@ -59,14 +75,14 @@ mapas:
     a4: { archivo: /aventuras/la-feria-del-misterio/mapas/feria-A4.pdf, hojas: 12 }
     a3: { archivo: /aventuras/la-feria-del-misterio/mapas/feria-A3.pdf, hojas: 4 }
     nota: Diana, noria, carrusel, tienda y la jaula de la Bestia
-  - titulo: La feria (variante)
-    archivo: /aventuras/la-feria-del-misterio/mapas/feria-variante.jpg
-    miniatura: /aventuras/la-feria-del-misterio/mapas/feria-variante-min.jpg
+  - titulo: La feria maldita
+    archivo: /aventuras/la-feria-del-misterio/mapas/feria-maldita.jpg
+    miniatura: /aventuras/la-feria-del-misterio/mapas/feria-maldita-min.jpg
     casillas: "34 × 16"
     tamano: "85 × 40 cm"
-    a4: { archivo: /aventuras/la-feria-del-misterio/mapas/feria-variante-A4.pdf, hojas: 12 }
-    a3: { archivo: /aventuras/la-feria-del-misterio/mapas/feria-variante-A3.pdf, hojas: 4 }
-    nota: Otra distribución de los puestos
+    a4: { archivo: /aventuras/la-feria-del-misterio/mapas/feria-maldita-A4.pdf, hojas: 12 }
+    a3: { archivo: /aventuras/la-feria-del-misterio/mapas/feria-maldita-A3.pdf, hojas: 4 }
+    nota: Misma feria al volver de la cueva (capítulo 3), cuando se rompe el engaño y todo se vuelve tenebroso
   - titulo: La Boca del Búho
     archivo: /aventuras/la-feria-del-misterio/mapas/cueva-oso-lechuza.jpg
     miniatura: /aventuras/la-feria-del-misterio/mapas/cueva-oso-lechuza-min.jpg

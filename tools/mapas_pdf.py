@@ -12,7 +12,7 @@ SLUG = sys.argv[1] if len(sys.argv) > 1 else "la-feria-del-misterio"
 DIR = Path(__file__).resolve().parent.parent / "public/aventuras" / SLUG / "mapas"
 # id: (casillas ancho, casillas alto, paso aprox. de la rejilla de la IA en px)
 # id: (paso aprox. de la rejilla de la IA en px, imagen base repintada sin rejilla o None). Las casillas se miden solas.
-MAPAS = {"feria": (84, None), "feria-variante": (84, None), "encrucijada": (84, None), "cueva-oso-lechuza": (84, None), "bosque-emboscada": (172, "_originales/mapas/bosque-emboscada-ia-sin-rejilla.png")}
+MAPAS = {"feria": (84, None), "feria-maldita": (84, "_originales/mapas/feria-maldita-ia-sin-rejilla.png"), "encrucijada": (84, None), "cueva-oso-lechuza": (84, None), "bosque-emboscada": (172, "_originales/mapas/bosque-emboscada-ia-sin-rejilla.png")}
 PAPEL = {"A4": (210, 297), "A3": (297, 420)}
 MARGEN = 8            # mm mínimos sin imprimir
 PX_CASILLA = 170      # resolución objetivo (≈170 ppp): se amplía con Lanczos solo lo que esté por debajo
@@ -78,7 +78,7 @@ if __name__ == "__main__":
         origen = DIR / f"{mid}.jpg"
         if base: origen = Path(__file__).resolve().parent.parent / "_originales/mapas" / f"{mid}-antes-arboles.jpg"   # la rejilla se mide en el original; el repintado va como base
         im, cols, rows, P, info = procesar(str(origen), str(Path(__file__).resolve().parent.parent / base) if base else None, p0)
-        if base: im.save(DIR / f"{mid}.jpg", quality=90); im.resize((640, 640), Image.LANCZOS).save(DIR / f"{mid}-min.jpg", quality=82)
+        if base: im.save(DIR / f"{mid}.jpg", quality=90); (lambda m: (m.thumbnail((640, 640), Image.LANCZOS), m.save(DIR / f"{mid}-min.jpg", quality=82)))(im.copy())
         print(mid, info)
         up = max(1, PX_CASILLA / P)
         limpio = im.resize((round(cols * P * up), round(rows * P * up)), Image.LANCZOS)

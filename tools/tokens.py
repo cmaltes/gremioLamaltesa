@@ -21,6 +21,8 @@ ALIADO = ENEMIGO = (150, 112, 45)   # latón
 TOKENS = [
     ("alarico", "Alarico", 25, ENEMIGO), ("glitch", "Glitch", 25, ENEMIGO), ("gart", "Gart", 25, ENEMIGO),
     ("zash", "Zash", 25, ENEMIGO), ("mizzen", "Mizzen", 25, ENEMIGO),
+    ("glitch-malvado", "Glitch (mala)", 25, ENEMIGO), ("gart-malvado", "Gart (malo)", 25, ENEMIGO),
+    ("zash-malvado", "Zash (mala)", 25, ENEMIGO), ("mizzen-malvado", "Mizzen (malo)", 25, ENEMIGO),
     ("aerion", "Aerion", 25, ALIADO), ("fliflas", "Fliflas", 25, ALIADO),
     ("guiverno", "Guiverno", 50, ALIADO), ("oso-lechuza", "Oso Lechuza", 50, ENEMIGO),
 ]
