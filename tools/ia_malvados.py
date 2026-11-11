@@ -22,13 +22,14 @@ def cuerpo(n, fondo=(200, 200, 205)):
     r = Image.open(REF / f"{n}.png").convert("RGBA"); r.thumbnail((470, 730))
     l = Image.new("RGB", (512, 768), fondo); l.paste(r, ((512 - r.width) // 2, 768 - r.height - 15), r); return l
 
-BASE = ("full body character illustration, corrupted evil goblin kobold, grey-green sickly skin, glowing red eyes, wicked sharp-toothed grin, "
+BASE = ("full body character illustration, corrupted evil character, grey-green sickly skin, glowing red eyes, wicked sharp-toothed grin, "
         "long pointed ears, dark purple sinister glow around him, same pose, ragged dark version of the same clothes, "
         "warm detailed digital painting, storybook fairground style, standing facing viewer, feet visible, plain light grey background, no ground shadow, menacing but kid friendly")
 EXTRA = {
     "glitch": "dark violet velvet waistcoat with torn sleeves, tiny dark cap, cunning smirk",
     "gart": "big strong brute, dark patchwork vest stuffed and ripped, scowling",
     "zash": "small and fast, dark green cap and torn vest, nervous manic grin, jumpy",
+    "alarico": "tall elegant sorcerer ringmaster in dark violet velvet coat with torn tails, sinister cracked mask-like grin, cold cruel stare, crackling dark magic in his hands",
     "mizzen": "thin hoarder, dark green cap, greedy hungry stare, shiny stolen trinkets",
 }
 neg = "close-up, portrait, bust, cropped, 3d render, cgi, plastic, anime, flat cartoon, photo, text, watermark, frame, blurry, lowres, deformed hands, extra fingers, extra limbs, gore, blood, photo background, ground, shadow, nsfw"

@@ -58,6 +58,10 @@ pnj:
     rol: Kobold · combate final
     descripcion: Su versión sin disfraz de feria, en el clímax (capítulo 3). Famélico y codicioso, ataca junto a Alarico y Glitch.
     imagen: /aventuras/la-feria-del-misterio/personajes/mizzen-malvado-retrato.jpg
+  - nombre: Maestro Alarico, corrompido (malvado)
+    rol: Villano · combate final
+    descripcion: Su verdadera forma (Lord Silas Malvado) cuando el disfraz de feria se rompe en el clímax (capítulo 3). Piel grisácea, ojos rojos, sonrisa afilada y un cetro de luz verdosa. Usa las mismas estadísticas que Alarico.
+    imagen: /aventuras/la-feria-del-misterio/personajes/alarico-malvado-retrato.jpg
   - nombre: Gart, corrupto (malvado)
     rol: Kobold · emboscada
     descripcion: Su versión sin disfraz de feria, para la emboscada del bosque (capítulo 2). Mucho más fuerte y torpe que enfadado.
