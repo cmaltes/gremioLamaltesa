@@ -21,7 +21,7 @@ ALIADO = ENEMIGO = (150, 112, 45)   # latón
 TOKENS = [
     ("alarico", "Alarico", 25, ENEMIGO), ("glitch", "Glitch", 25, ENEMIGO), ("gart", "Gart", 25, ENEMIGO),
     ("zash", "Zash", 25, ENEMIGO), ("mizzen", "Mizzen", 25, ENEMIGO),
-    ("alarico-malvado", "Alarico (corrompido)", 25, ENEMIGO), ("glitch-malvado", "Glitch (mala)", 25, ENEMIGO), ("gart-malvado", "Gart (malo)", 25, ENEMIGO),
+    ("alarico-malvado", "Alarico (malo)", 25, ENEMIGO), ("glitch-malvado", "Glitch (mala)", 25, ENEMIGO), ("gart-malvado", "Gart (malo)", 25, ENEMIGO),
     ("zash-malvado", "Zash (mala)", 25, ENEMIGO), ("mizzen-malvado", "Mizzen (malo)", 25, ENEMIGO),
     ("aerion", "Aerion", 25, ALIADO), ("fliflas", "Fliflas", 25, ALIADO),
     ("guiverno", "Guiverno", 50, ALIADO), ("oso-lechuza", "Oso Lechuza", 50, ENEMIGO),
@@ -82,7 +82,12 @@ NOMBRES = {"guerrero": "Guerrero", "barbaro": "Bárbaro", "explorador": "Explora
 NOMBRES_F = {"guerrero": "Guerrera", "barbaro": "Bárbara", "explorador": "Exploradora", "picaro": "Pícara", "mago": "Maga", "clerigo": "Clériga", "druida": "Druida", "bardo": "Barda", "monje": "Monja", "paladin": "Paladina"}
 HEROES = [(RAIZ / f"public/fichas/heroes/{c}-{x}.jpg", (NOMBRES_F[c] if x == "chica" else n), 25, ALIADO) for c, n in NOMBRES.items() for x in ("chico", "chica")]
 titulo = "Tokens · La Feria del Misterio" if SLUG == "la-feria-del-misterio" else "Tokens · " + SLUG.replace("-", " ").capitalize()
-h1 = hacer_hoja(titulo, TOKENS, None)
+MALOS = [t for t in TOKENS if t[0].endswith("-malvado")]   # versiones corrompidas: hoja aparte (spoiler, solo master)
+h1 = hacer_hoja(titulo, [t for t in TOKENS if t not in MALOS], None)
+hm = hacer_hoja("Tokens · Versiones corrompidas", MALOS, None)
+hm.save(SAL / f"{SLUG}-tokens-malvados.png", dpi=(DPI, DPI), optimize=True)
+hm.save(SAL / f"{SLUG}-tokens-malvados.pdf", "PDF", resolution=DPI)
+_m = hm.copy(); _m.thumbnail((700, 990)); _m.save(SAL / f"{SLUG}-tokens-malvados-min.jpg", quality=85)
 h2 = hacer_hoja("Tokens · Héroes (chicos y chicas)", HEROES, None) if all(t[0].exists() for t in HEROES) else None
 hoja = h1
 hoja.save(SAL / f"{SLUG}-tokens.png", dpi=(DPI, DPI), optimize=True)

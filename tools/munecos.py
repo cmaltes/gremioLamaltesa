@@ -19,7 +19,7 @@ ALIADO = ENEMIGO = (150, 112, 45)   # un solo color neutro: no delata quién es 
 MUNECOS = [
     ("alarico", "Alarico", 44, 1, ENEMIGO), ("glitch", "Glitch", 32, 1, ENEMIGO), ("gart", "Gart", 34, 1, ENEMIGO),
     ("zash", "Zash", 32, 1, ENEMIGO), ("mizzen", "Mizzen", 36, 1, ENEMIGO), ("oso-lechuza", "Oso Lechuza", 62, 2, ENEMIGO),
-    ("alarico-malvado", "Alarico (corrompido)", 44, 1, ENEMIGO), ("glitch-malvado", "Glitch (mala)", 32, 1, ENEMIGO), ("gart-malvado", "Gart (malo)", 34, 1, ENEMIGO),
+    ("alarico-malvado", "Alarico (malo)", 44, 1, ENEMIGO), ("glitch-malvado", "Glitch (mala)", 32, 1, ENEMIGO), ("gart-malvado", "Gart (malo)", 34, 1, ENEMIGO),
     ("zash-malvado", "Zash (mala)", 32, 1, ENEMIGO), ("mizzen-malvado", "Mizzen (malo)", 36, 1, ENEMIGO),
     ("aerion", "Aerion", 42, 1, ALIADO), ("fliflas", "Fliflas", 42, 1, ALIADO), ("guiverno", "Guiverno", 62, 2, ALIADO),
 ]
@@ -100,8 +100,10 @@ CUERPOS = Path(__file__).resolve().parent.parent / "public/fichas/heroes"
 def heroes(sexo):   # los héroes jugadores: todos de 42 mm, peana de 1 casilla
     return [(CUERPOS / f"{c}-{sexo}-cuerpo.png", (NOMBRES_F[c] if sexo == "chica" else n), 42, 1, ALIADO, True) for c, n in NOMBRES.items() if (CUERPOS / f"{c}-{sexo}-cuerpo.png").exists()]
 
-paginas = [("Muñecos · Pequeños y medianos (peana 1 casilla)", [m for m in MUNECOS if m[3] == 1]),
-           ("Muñecos · Grandes (peana 2 casillas)", [m for m in MUNECOS if m[3] == 2])]
+MALOS = [m for m in MUNECOS if m[0].endswith("-malvado")]   # versiones corrompidas: hoja aparte (spoiler, solo master)
+BUENOS = [m for m in MUNECOS if m not in MALOS]
+paginas = [("Muñecos · Pequeños y medianos (peana 1 casilla)", [m for m in BUENOS if m[3] == 1]),
+           ("Muñecos · Grandes (peana 2 casillas)", [m for m in BUENOS if m[3] == 2])]
 for sexo, tit in (("chico", "chicos"), ("chica", "chicas")):
     h = heroes(sexo)
     if h: paginas.append((f"Muñecos · Héroes jugadores, {tit} (peana 1 casilla)", h))
@@ -111,4 +113,8 @@ print("hojas:", len(imgs), "alto usado (mm):", [round(r[1] / mm(1)) for r in res
 imgs[0].save(SAL / f"{SLUG}-munecos.pdf", "PDF", resolution=DPI, save_all=True, append_images=imgs[1:])
 for i, p in enumerate(imgs, 1):
     p.save(SAL / f"{SLUG}-munecos-{i}.png", dpi=(DPI, DPI), optimize=True)
+hm, _ = hoja("Muñecos · Versiones corrompidas (peana 1 casilla)", MALOS)
+hm.save(SAL / f"{SLUG}-munecos-malvados.png", dpi=(DPI, DPI), optimize=True)
+hm.save(SAL / f"{SLUG}-munecos-malvados.pdf", "PDF", resolution=DPI)
+mm_ = hm.copy(); mm_.thumbnail((700, 990)); mm_.save(SAL / f"{SLUG}-munecos-malvados-min.jpg", quality=85)
 m = imgs[0].copy(); m.thumbnail((700, 990)); m.save(SAL / f"{SLUG}-munecos-min.jpg", quality=85)

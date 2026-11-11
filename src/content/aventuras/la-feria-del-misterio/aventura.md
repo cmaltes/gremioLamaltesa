@@ -169,6 +169,14 @@ miniaturas:
   - titulo: Muñecos de papel · héroes chicas
     archivo: /aventuras/la-feria-del-misterio/miniaturas/la-feria-del-misterio-munecos-4.png
     nota: Los 10 héroes jugadores, versión chica
+  - titulo: Tokens de las versiones corrompidas (solo master)
+    archivo: /aventuras/la-feria-del-misterio/miniaturas/la-feria-del-misterio-tokens-malvados.png
+    miniatura: /aventuras/la-feria-del-misterio/miniaturas/la-feria-del-misterio-tokens-malvados-min.jpg
+    nota: "Spoiler: los 5 villanos con su aspecto corrupto (25 mm). Sácalos cuando caiga el disfraz de feria"
+  - titulo: Muñecos de papel · versiones corrompidas (solo master)
+    archivo: /aventuras/la-feria-del-misterio/miniaturas/la-feria-del-misterio-munecos-malvados.png
+    miniatura: /aventuras/la-feria-del-misterio/miniaturas/la-feria-del-misterio-munecos-malvados-min.jpg
+    nota: "Spoiler: Alarico, Glitch, Gart, Zash y Mizzen corrompidos (peana de 1 casilla)"
   - titulo: Tokens de los héroes
     archivo: /aventuras/la-feria-del-misterio/miniaturas/la-feria-del-misterio-tokens-heroes.png
     nota: 20 redondos de 25 mm (10 clases, chico y chica)
@@ -187,7 +195,15 @@ descargas:
   - titulo: Muñecos de papel de pie
     archivo: /aventuras/la-feria-del-misterio/miniaturas/la-feria-del-misterio-munecos.pdf
     tipo: pdf
-    descripcion: 4 hojas A4 (9 personajes de la aventura y los 20 héroes jugadores, por delante y por detrás, con peana plegable de 1 o 2 casillas). Imprime al 100 %.
+    descripcion: 4 hojas A4 (7 personajes de la aventura, sin sus versiones corrompidas, y los 20 héroes jugadores, por delante y por detrás, con peana plegable de 1 o 2 casillas). Imprime al 100 %.
+  - titulo: Muñecos de papel · versiones corrompidas (solo master)
+    archivo: /aventuras/la-feria-del-misterio/miniaturas/la-feria-del-misterio-munecos-malvados.pdf
+    tipo: pdf
+    descripcion: "Spoiler. 1 hoja A4 con Alarico, Glitch, Gart, Zash y Mizzen en su versión corrompida, por delante y por detrás. Imprime al 100 %."
+  - titulo: Tokens redondos · versiones corrompidas (solo master)
+    archivo: /aventuras/la-feria-del-misterio/miniaturas/la-feria-del-misterio-tokens-malvados.pdf
+    tipo: pdf
+    descripcion: "Spoiler. 1 hoja A4 con los 5 villanos corrompidos en tokens de 25 mm. Imprime al 100 %."
   - titulo: Tokens redondos
     archivo: /aventuras/la-feria-del-misterio/miniaturas/la-feria-del-misterio-tokens.pdf
     tipo: pdf
