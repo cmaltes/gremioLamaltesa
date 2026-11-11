@@ -53,22 +53,42 @@ mapas:
   - titulo: La feria
     archivo: /aventuras/la-feria-del-misterio/mapas/feria.jpg
     miniatura: /aventuras/la-feria-del-misterio/mapas/feria-min.jpg
+    casillas: "34 × 16"
+    tamano: "85 × 40 cm"
+    a4: { archivo: /aventuras/la-feria-del-misterio/mapas/feria-A4.pdf, hojas: 12 }
+    a3: { archivo: /aventuras/la-feria-del-misterio/mapas/feria-A3.pdf, hojas: 4 }
     nota: Diana, noria, carrusel, tienda y la jaula de la Bestia
   - titulo: La feria (variante)
     archivo: /aventuras/la-feria-del-misterio/mapas/feria-variante.jpg
     miniatura: /aventuras/la-feria-del-misterio/mapas/feria-variante-min.jpg
+    casillas: "34 × 16"
+    tamano: "85 × 40 cm"
+    a4: { archivo: /aventuras/la-feria-del-misterio/mapas/feria-variante-A4.pdf, hojas: 12 }
+    a3: { archivo: /aventuras/la-feria-del-misterio/mapas/feria-variante-A3.pdf, hojas: 4 }
     nota: Otra distribución de los puestos
   - titulo: La Boca del Búho
     archivo: /aventuras/la-feria-del-misterio/mapas/cueva-oso-lechuza.jpg
     miniatura: /aventuras/la-feria-del-misterio/mapas/cueva-oso-lechuza-min.jpg
+    casillas: "24 × 23"
+    tamano: "60 × 57,5 cm"
+    a4: { archivo: /aventuras/la-feria-del-misterio/mapas/cueva-oso-lechuza-A4.pdf, hojas: 12 }
+    a3: { archivo: /aventuras/la-feria-del-misterio/mapas/cueva-oso-lechuza-A3.pdf, hojas: 6 }
     nota: Cueva del Oso Lechuza, con el cofre del tesoro
   - titulo: Camino del bosque
     archivo: /aventuras/la-feria-del-misterio/mapas/bosque-emboscada.jpg
     miniatura: /aventuras/la-feria-del-misterio/mapas/bosque-emboscada-min.jpg
+    casillas: "12 × 12"
+    tamano: "30 × 30 cm"
+    a4: { archivo: /aventuras/la-feria-del-misterio/mapas/bosque-emboscada-A4.pdf, hojas: 4 }
+    a3: { archivo: /aventuras/la-feria-del-misterio/mapas/bosque-emboscada-A3.pdf, hojas: 2 }
     nota: Para la emboscada de los kobolds
   - titulo: Encrucijada del bosque
     archivo: /aventuras/la-feria-del-misterio/mapas/encrucijada.jpg
     miniatura: /aventuras/la-feria-del-misterio/mapas/encrucijada-min.jpg
+    casillas: "34 × 17"
+    tamano: "85 × 42,5 cm"
+    a4: { archivo: /aventuras/la-feria-del-misterio/mapas/encrucijada-A4.pdf, hojas: 12 }
+    a3: { archivo: /aventuras/la-feria-del-misterio/mapas/encrucijada-A3.pdf, hojas: 6 }
     nota: Para el viaje hasta la cueva
 ilustraciones:
   - titulo: La Diana del Saber
@@ -98,6 +118,18 @@ musica:
       - "Hay palabras que son reverso, y acertijos de luz,\nQue abren la cerradura, y terminan la cruz.\nY un mapa de búhos sabios, que lleva al rincón,\nDonde el grito nocturno, espera en su mansión."
       - "Cuidado, amigo, del cofre dorado y su trampa mortal,\nQue la piedra es eterna, y el oro es fatal.\nSolo el golpe final, y el dulce perdón,\nPueden traer de vuelta la verdadera nación."
       - "Si el Farsante te ataca, no luches con miedo,\nPues su magia es de barro, su corazón es de pedo.\nLibera al que gime, regresa al hogar,\nY la luz de la Luna te vendrá a guiar."
+miniaturas:
+  - titulo: Hoja de tokens (25 y 50 mm)
+    archivo: /aventuras/la-feria-del-misterio/miniaturas/la-feria-del-misterio-tokens.png
+    miniatura: /aventuras/la-feria-del-misterio/miniaturas/la-feria-del-misterio-tokens-min.jpg
+    nota: 9 redondos con retrato; rojo enemigos, turquesa aliados. PNG a 300 ppp
+  - titulo: Muñecos de papel · pequeños y medianos
+    archivo: /aventuras/la-feria-del-misterio/miniaturas/la-feria-del-misterio-munecos-1.png
+    miniatura: /aventuras/la-feria-del-misterio/miniaturas/la-feria-del-misterio-munecos-min.jpg
+    nota: Para recortar, doblar y poner de pie (peana de 1 casilla). PNG a 300 ppp
+  - titulo: Muñecos de papel · grandes
+    archivo: /aventuras/la-feria-del-misterio/miniaturas/la-feria-del-misterio-munecos-2.png
+    nota: Oso Lechuza y Guiverno (peana de 2 casillas)
 pantalla:
   - titulo: Orden de la aventura
     pagina: 1
@@ -201,14 +233,34 @@ pantalla:
       - ["Fliflas", "Melancólico, laúd desafinado"]
       - ["Aerion", "Tembloroso y muy agradecido"]
 descargas:
+  - titulo: Muñecos de papel de pie
+    archivo: /aventuras/la-feria-del-misterio/miniaturas/la-feria-del-misterio-munecos.pdf
+    tipo: pdf
+    descripcion: 2 hojas A4 (9 muñecos por delante y por detrás, con peana plegable de 1 o 2 casillas). Imprime al 100 %.
+  - titulo: Tokens redondos
+    archivo: /aventuras/la-feria-del-misterio/miniaturas/la-feria-del-misterio-tokens.pdf
+    tipo: pdf
+    descripcion: 1 hoja A4 con 7 tokens de 25 mm y 2 de 50 mm (imprime al 100 %, con regla de comprobación).
   - titulo: Pantalla del master
     archivo: /aventuras/la-feria-del-misterio/descargas/la-feria-del-misterio-pantalla-master.pdf
     tipo: pdf
     descripcion: 5 hojas A4 verticales con letra grande para montar la pantalla del master (preparación, feria, tienda y cueva, combate y reglas).
+  - titulo: Fichas de héroe · chico
+    archivo: /descargas/fichas-de-heroe-chico.pdf
+    tipo: pdf
+    descripcion: 11 hojas A4 (reglas + 10 héroes con retrato de chico, los cinco niveles y el dinero inicial).
+  - titulo: Fichas de héroe · chica
+    archivo: /descargas/fichas-de-heroe-chica.pdf
+    tipo: pdf
+    descripcion: Las mismas 11 hojas con el retrato de la heroína.
+  - titulo: Fichas de héroe · para dibujar
+    archivo: /descargas/fichas-de-heroe-dibujo.pdf
+    tipo: pdf
+    descripcion: Las mismas fichas con un cuadro vacío para que cada niño dibuje a su héroe.
   - titulo: Guion completo
     archivo: /aventuras/la-feria-del-misterio/descargas/la-feria-del-misterio-guion.pdf
     tipo: pdf
-    descripcion: 18 páginas con mapas e ilustraciones, para imprimir o leer sin conexión.
+    descripcion: 26 páginas A4 con portada, personajes con retrato, guion, mapas, escenas y la letra de la canción, para imprimir o leer sin conexión.
 ---
 
 ## 1. Configuración de la aventura

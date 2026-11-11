@@ -17,6 +17,15 @@ const recurso = z.object({
   nota: z.string().optional(),
 });
 
+const hojas = z.object({ archivo: z.string(), hojas: z.number().int() });
+// Mapa con ficha de impresión: 1 casilla = 25 mm, en mosaico A4 y A3
+const mapa = recurso.extend({
+  casillas: z.string().optional(), // «34 × 17»
+  tamano: z.string().optional(), // «85 × 42,5 cm»
+  a4: hojas.optional(),
+  a3: hojas.optional(),
+});
+
 // Cada aventura vive en src/content/aventuras/<slug>/aventura.md:
 // la cabecera (frontmatter) son los datos y el cuerpo es el guion que se lee online.
 // Los archivos (PDF, mapas, audio…) van en public/aventuras/<slug>/.
@@ -43,7 +52,7 @@ const aventuras = defineCollection({
     pnj: z
       .array(z.object({ nombre: z.string(), rol: z.string(), descripcion: z.string(), imagen: z.string().optional() }))
       .default([]),
-    mapas: z.array(recurso).default([]),
+    mapas: z.array(mapa).default([]),
     ilustraciones: z.array(recurso).default([]),
     musica: z
       .array(

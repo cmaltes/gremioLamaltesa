@@ -50,12 +50,14 @@ Estado: **Pasos 0 y 1 hechos, 2 a medias**; el resto pendiente (solo existen el 
 - Hoja de tokens con el retrato de cada personaje: redondos de **25 mm** (pequeños y medianos) y **50 mm** (Oso Lechuza, Guiverno), con borde de color según sean aliados o enemigos y el nombre.
 - Descarga en PNG y PDF. Rellenar la sección Miniaturas de la web (el issue #1 ya existe).
 - **Hecho cuando:** se pueden imprimir y recortar a la medida exacta, y salen en la web y en Descargas.
+- **HECHO (11-nov-2026):** `tools/tokens.py <slug>` genera `public/aventuras/<slug>/miniaturas/<slug>-tokens.{png,pdf}` (A4 a 300 ppp, 7 de 25 mm + 2 de 50 mm, regla de 125 mm). Ya está en Miniaturas y Descargas. Pendiente: comprobar con regla al imprimir.
 
 ### Paso 4 · Muñecos imprimibles (de pie, de papel)
 - PDF A4 con cada personaje por delante y por detrás (espejo), peana plegable con pestaña y líneas de corte.
 - Altura según el tamaño: el ancho de la peana es 1 casilla (25 mm) para pequeños y medianos, 2 casillas para grandes.
 - Una hoja por grupo (enemigos, aliados) para aprovechar papel. Probar imprimiendo al 100 % y comprobar con una regla.
 - **Hecho cuando:** un PDF se imprime, se recorta y se tiene de pie sobre un mapa.
+- **HECHO (11-nov-2026):** `tools/munecos.py <slug>` → `miniaturas/<slug>-munecos.pdf` (2 hojas: peana de 1 casilla y de 2 casillas, agrupadas por tamaño y no por bando). Pendiente: imprimir y probar que se aguantan de pie.
 
 ### Paso 5 · Mapas en A4 y A3 con la cuadrícula bien
 - **Antes de la cuadrícula: unificar la estética de los árboles (decidido: usar los árboles de la feria como referencia).** Ahora son muy distintos en cada mapa (bosque-emboscada: árboles de pixel-art grandes y coloridos; feria y encrucijada: copas de acuarela con contorno; cueva: sin árboles). Elegir un estilo de referencia (probablemente el de la feria, que es el de las atracciones), y o bien (a) repintar las copas de los mapas discrepantes con prompts de IA («mismo estilo que feria.jpg») y retocar, o (b) pedir a Gemini una versión del bosque en ese estilo; comprobar que las copas encajan en cuadrícula de 25 mm (un árbol = 2-3 casillas).
@@ -65,6 +67,8 @@ Estado: **Pasos 0 y 1 hechos, 2 a medias**; el resto pendiente (solo existen el 
 - Incluir una regla de 5 casillas (125 mm) impresa en cada hoja para comprobar la escala.
 - Tener en cuenta el margen no imprimible (5-10 mm).
 - **Hecho cuando:** cada mapa tiene sus PDFs, con una ficha de «tamaño, casillas y hojas», y se comprueba que 25 mm miden 25 mm al imprimir.
+- **HECHO (11-nov-2026), conservando la rejilla de la IA:** `tools/mapas_rejilla.py` detecta las líneas de la IA, borra las sobrantes (a media casilla, dobles), **deforma la imagen por tramos** para que todas las casillas midan lo mismo (los pasos iban de 71 a 93 px), dibuja las que faltan con el mismo estilo y recorta/completa los bordes a casillas enteras. `tools/mapas_pdf.py <slug>` hace los PDFs (sin dibujar otra cuadrícula encima). Casillas (ancho×alto): feria 34×16, variante 34×16, encrucijada 34×17, cueva 24×23, bosque 12×12. Mosaico con 1 casilla de solape, marcas de corte, letras/números de casilla, regla de 125 mm y mini-índice. Ficha de tamaño y enlaces en la web (campos `casillas`, `tamano`, `a4`, `a3`).
+- **Árboles (hecho para el bosque):** el bosque estaba en pixel-art; se repintó por teselas con `tools/ia_arboles.py` (SD1.5 img2img fuerza 0,45 + IP-Adapter con un recorte de la feria como referencia, ~15 min) y luego se le pone la rejilla. Originales en `_originales/mapas/bosque-emboscada-antes-arboles.jpg` y `-ia-sin-rejilla.png`. Feria y encrucijada ya compartían estilo (copas oscuras con contorno), no se tocaron. Pendiente: imprimir y medir 25 mm con regla.
 
 ### Paso 6 · PDFs finales y Descargas
 - Guion completo: nueva vista imprimible `/aventuras/<slug>/imprimir/` (con imágenes y bloques del master) → PDF. Sustituir el PDF original de 3,6 MB.
@@ -72,6 +76,7 @@ Estado: **Pasos 0 y 1 hechos, 2 a medias**; el resto pendiente (solo existen el 
 - Reunir en `descargas` del frontmatter: guion, pantalla del master, fichas, mapas (A4/A3), tokens, muñecos.
 - Ampliar `scripts/generar-pdfs.sh` (los PDF se suben al repo).
 - **Hecho cuando:** todo se descarga desde la página de la aventura y coincide con la versión actual de la web.
+- **HECHO (11-nov-2026):** vista `/aventuras/<slug>/imprimir/` (portada, personajes con retrato, guion, mapas, escenas y canción; 26 págs A4) y `/fichas/imprimir/` (hoja de reglas + una A4 por héroe con los 5 niveles; 11 págs). `scripts/generar-pdfs.sh` genera pantalla del master, guion y fichas (`public/descargas/fichas-de-heroe.pdf`). Descargas de la aventura: fichas, guion, pantalla, muñecos, tokens y, por mapa, A4 y A3. Tras cambiar guion, fichas o pantalla: `npm run build && ./scripts/generar-pdfs.sh`. Pendiente de revisar a ojo: saltos de página del guion (sale con algún hueco).
 
 ## Hecho aparte (10-nov-2026)
 - Pantalla del master: 5 hojas A4 **verticales** con letra grande (12,5 pt), un panel por hoja, y 2 tarjetas nuevas («Los cinco objetos clave» y «Si se atascan, que cante Fliflas»). El campo `pagina` de cada tarjeta decide su hoja. Se pueden añadir más tarjetas mientras quepan en 5 páginas.

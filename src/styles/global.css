@@ -308,3 +308,86 @@ tr.actual td { background: color-mix(in srgb, var(--c) 18%, transparent); font-w
   .pantalla-v .m-card thead th { font-size: 9.5pt; }
   .pantalla-v .m-card th, .pantalla-v .m-card td { padding: 1.2mm 2mm; }
 }
+
+.ficha-mapa { margin: 6px 4px 0; font-size: .85rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; }
+.ficha-mapa b { color: var(--text); font-weight: 600; }
+.ficha-mapa a { font: .78rem 'JetBrains Mono', monospace; }
+
+/* ---------- Guion para imprimir ---------- */
+.gi-portada img { width: 100%; border-radius: 14px; margin-bottom: 14px; }
+.gi-bloque { margin-top: 32px; }
+.gi-pnj-rejilla { display: grid; gap: 12px; grid-template-columns: 1fr; }
+@media (min-width: 700px) { .gi-pnj-rejilla { grid-template-columns: 1fr 1fr; } }
+.gi-pnj-rejilla article { display: grid; grid-template-columns: 78px 1fr; gap: 12px; align-items: start; break-inside: avoid; }
+.gi-pnj-rejilla img { width: 78px; height: 78px; object-fit: cover; border-radius: 50%; }
+.gi-pnj-rejilla h3 { margin: 0; font-size: 1.05rem; } .gi-pnj-rejilla p { margin: 2px 0 0; font-size: .92rem; } .gi-pnj-rejilla .rol { color: var(--accent); font: .72rem 'JetBrains Mono', monospace; text-transform: uppercase; }
+.gi-galeria { display: grid; gap: 14px; grid-template-columns: 1fr; }
+@media (min-width: 700px) { .gi-galeria { grid-template-columns: 1fr 1fr; } }
+.gi-galeria figure { margin: 0; break-inside: avoid; } .gi-galeria img { width: 100%; border-radius: 10px; display: block; }
+.gi-galeria figcaption { font-size: .9rem; margin-top: 4px; } .gi-galeria small { display: block; color: var(--muted); }
+.gi-musica .estrofa { margin: 0 0 .8em; font-style: italic; }
+@media print {
+  .guion-imprimir { page: guioni; }
+  @page guioni { size: A4 portrait; margin: 14mm; }
+  .guion-imprimir main > section { max-width: none; padding: 0; }
+  .guion-imprimir body, .guion-imprimir { font-size: 11pt; }
+  .gi-portada { break-after: page; }
+  .gi-portada h1 { font-size: 28pt; margin: 2mm 0; }
+  .gi-portada img { max-height: 120mm; object-fit: cover; }
+  .gi-pnj { break-after: page; margin-top: 0; }
+  .gi-pnj-rejilla { grid-template-columns: 1fr 1fr; gap: 6mm; }
+  .gi-guion h2 { break-after: avoid; border-top: 0; margin-top: 8mm; padding-top: 0; }
+  .gi-guion h3, .gi-guion h4 { break-after: avoid; }
+  .gi-guion .bloque, .gi-guion tr, .gi-guion table { break-inside: avoid; }
+  .gi-guion table { display: table; }
+  .gi-bloque { break-before: page; margin-top: 0; }
+  .gi-galeria { grid-template-columns: 1fr 1fr; gap: 6mm; }
+  .gi-musica { break-before: auto; margin-top: 10mm; break-inside: avoid; }
+  .bloque { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* ---------- Fichas: retrato del héroe y dinero ---------- */
+.equipo.sumin li { background: #ecfdf5; border-color: #34d399; color: #064e3b; }
+.reglas-simple { padding-left: 1.2em; } .reglas-simple li { margin-bottom: .5em; }
+.fi-sumin-reglas { padding-left: 1.2em; margin: 0; } .fi-sumin-reglas li { margin-bottom: 1.5mm; }
+.equipo .dinero { background: #fef3c7; border-color: #f59e0b; color: #78350f; font-weight: 700; }
+.heroe-foto { width: min(240px, 60%); margin: 0 0 12px auto; }
+.heroe-foto img { width: 100%; border-radius: 16px; display: none; aspect-ratio: 4 / 5; object-fit: cover; }
+.heroe-foto img.on { display: block; }
+.sexo-sel { display: flex; gap: 6px; margin: 8px 0 0; justify-content: flex-end; }
+.sexo-sel button { font: 700 .8rem Nunito, system-ui, sans-serif; border: 1px solid var(--border); background: var(--surface); color: var(--text); border-radius: 999px; padding: 6px 12px; cursor: pointer; }
+.sexo-sel button[aria-pressed="true"] { background: var(--c, var(--accent)); color: #fff; border-color: var(--c, var(--accent)); }
+.fi-cabecera { display: grid; grid-template-columns: 1fr; gap: 14px; }
+.fi-retrato { width: 100%; max-width: 260px; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 14px; display: block; }
+.fi-dibujo { border: 2px dashed var(--muted); display: grid; place-items: end center; padding-bottom: 8px; color: var(--muted); font-size: .85rem; }
+@media (min-width: 700px) { .fi-cabecera { grid-template-columns: 1fr 230px; align-items: start; } }
+
+/* ---------- Fichas para imprimir (todas) ---------- */
+.fi-hoja { margin-top: 36px; padding-top: 24px; border-top: 2px dashed var(--border); }
+.fi-hoja h1 { margin: 0; color: var(--c, var(--accent)); }
+.fi-armas { display: grid; gap: 10px; grid-template-columns: 1fr; } @media (min-width: 700px) { .fi-armas { grid-template-columns: 1fr 1fr; } }
+.fi-tirada { margin: 4px 0; }
+.fi-niveles { font-size: .85rem; } .fi-niveles th, .fi-niveles td { padding: 6px 4px; text-align: center; } .fi-niveles td:last-child, .fi-niveles th:last-child { text-align: left; }
+@media print {
+  .fichas-imp { page: fichasi; }
+  @page fichasi { size: A4 portrait; margin: 9mm 10mm; }
+  .fichas-imp main > section { max-width: none; padding: 0; }
+  .fichas-imp body, .fichas-imp { font-size: 10pt; }
+  .fi-hoja { break-after: page; margin: 0; padding: 0; border: 0; }
+  .fi-hoja:last-child { break-after: auto; }
+  .fi-hoja h1 { font-size: 24pt; } .fi-hoja h2 { font-size: 12.5pt; margin: 4mm 0 2mm; } .fi-hoja h3 { font-size: 11pt; margin: 0; }
+  .fi-hoja p { margin: 0 0 2mm; }
+  .fi-niveles { font-size: 8.5pt; } .fi-niveles th, .fi-niveles td { padding: .9mm 1mm; white-space: nowrap; }
+  .fi-armas { grid-template-columns: 1fr 1fr; gap: 4mm; }
+  .fi-reglas h1 { font-size: 18pt; margin: 0 0 1mm; } .fi-reglas p, .fi-reglas li { line-height: 1.3; } .fi-reglas .reglas-lista { font-size: 10pt; } .fi-reglas .tabla-sencilla { font-size: 9.5pt; } .fi-reglas .tabla-sencilla td, .fi-reglas .tabla-sencilla th { padding: .8mm 1.5mm; }
+  .fi-cabecera { grid-template-columns: 1fr 36mm; gap: 5mm; } .fi-retrato { width: 36mm; max-width: none; border-radius: 3mm; -webkit-print-color-adjust: exact; print-color-adjust: exact; } .fi-dibujo { border: 0.5mm dashed #555; font-size: 8pt; padding-bottom: 2mm; }
+  .equipo.sumin li { -webkit-print-color-adjust: exact; print-color-adjust: exact; } .fi-hoja .equipo { gap: 1.5mm; margin: 0 0 1mm; } .fi-hoja h3 { margin: 1mm 0 1mm; }
+  .fi-sumin-reglas { font-size: 9.5pt; }
+  .fi-nombre { margin: 0 0 2.5mm; } .equipo .dinero { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .fi-hoja .hoja-cab .gran { font-size: 30pt; } .fi-hoja .hoja-cab { margin-bottom: 2mm; }
+  .fi-hoja .poder { padding: 1.5mm 3mm; margin-bottom: 2mm; border-radius: 2mm; } .fi-hoja .poder p { margin: 0; } .fi-hoja .poder h3 { font-size: 10.5pt; }
+  .fi-hoja .arma { padding: 2mm 3mm; } .fi-hoja .arma p { margin: 0 0 1mm; }
+  .fi-hoja .equipo li { padding: 1mm 3mm; font-size: 9.5pt; } .fi-hoja .casillas i { width: 4.6mm; height: 4.6mm; border-width: .4mm; }
+  .fi-reglas .reglas-lista { gap: 1.2mm; margin: 0; } .fi-reglas .reglas-lista li { padding: 1.4mm 3mm 1.4mm 12mm; margin: 0; font-size: 9.5pt; line-height: 1.3; } .fi-reglas .reglas-lista li::before { left: 3mm; top: 2mm; width: 6mm; height: 6mm; font-size: 9pt; } .fi-reglas h2 { margin: 3mm 0 1.5mm; }
+  .arma, .poder { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}

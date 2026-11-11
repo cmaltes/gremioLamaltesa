@@ -69,6 +69,10 @@ export interface Clase {
   armas: [Arma, Arma];
   poderes: [Poder, Poder, Poder];
   equipo: string[];
+  /** monedas de oro (PO) con las que empieza el héroe */
+  dinero: number;
+  /** objeto propio de la clase para el descanso (además de los suministros comunes) */
+  descanso: string;
 }
 
 export const clases: Clase[] = [
@@ -88,6 +92,8 @@ export const clases: Clase[] = [
       { nivel: 5, nombre: '¡Grito de valor!', texto: 'Todos tus amigos suman +2 a su siguiente tirada.', uso: 'combate' },
     ],
     equipo: ['Armadura de metal', 'Escudo redondo', 'Mochila con comida'],
+    dinero: 10,
+    descanso: 'Manta de campaña y kit de remiendos',
   },
   {
     slug: 'barbaro', nombre: 'Bárbaro', emoji: '🪓', color: '#ef4444', rol: 'Gran golpeador', dificultad: 1,
@@ -105,6 +111,8 @@ export const clases: Clase[] = [
       { nivel: 5, nombre: 'Furia imparable', texto: 'Si te quedas a 0 vidas, no caes: te levantas con 5 vidas.', uso: 'aventura' },
     ],
     equipo: ['Chaleco de pieles', 'Cuerno de beber', 'Cuerda larga'],
+    dinero: 5,
+    descanso: 'Odre de agua fresca y pellejo para dormir',
   },
   {
     slug: 'explorador', nombre: 'Explorador', emoji: '🏹', color: '#16a34a', rol: 'Tirador', dificultad: 2,
@@ -122,6 +130,8 @@ export const clases: Clase[] = [
       { nivel: 5, nombre: 'Lluvia de flechas', texto: 'Con una sola acción disparas a 3 enemigos distintos.', uso: 'combate' },
     ],
     equipo: ['Capa verde', 'Carcaj con flechas', 'Mapa y brújula'],
+    dinero: 10,
+    descanso: 'Yesca y pedernal para hacer fuego',
   },
   {
     slug: 'picaro', nombre: 'Pícaro', emoji: '🗡️', color: '#6366f1', rol: 'Sigilo y trucos', dificultad: 3,
@@ -139,6 +149,8 @@ export const clases: Clase[] = [
       { nivel: 5, nombre: 'Esquiva loca', texto: 'Un golpe que te iba a dar falla, sin tirada. ¡Te escurres!', uso: 'combate' },
     ],
     equipo: ['Capucha oscura', 'Ganzúas', 'Bolsa de bolitas para tropezar'],
+    dinero: 15,
+    descanso: 'Dados de la suerte (para jugar mientras se descansa)',
   },
   {
     slug: 'mago', nombre: 'Mago', emoji: '🔮', color: '#a855f7', rol: 'Hechizos', dificultad: 3,
@@ -156,6 +168,8 @@ export const clases: Clase[] = [
       { nivel: 5, nombre: 'Sueño profundo', texto: 'Hasta 3 enemigos con pocas vidas (10 o menos) se quedan dormidos.', uso: 'aventura' },
     ],
     equipo: ['Túnica con estrellas', 'Libro de hechizos', 'Gato negro (opcional)'],
+    dinero: 10,
+    descanso: 'Tetera de viaje y té de hierbas',
   },
   {
     slug: 'clerigo', nombre: 'Clérigo', emoji: '✨', color: '#f59e0b', rol: 'Sanador y apoyo', dificultad: 2,
@@ -173,6 +187,8 @@ export const clases: Clase[] = [
       { nivel: 5, nombre: 'Luz que despierta', texto: 'Un amigo dormido (a 0 vidas) se levanta con la mitad de su vida.', uso: 'aventura' },
     ],
     equipo: ['Túnica blanca', 'Símbolo de sol', 'Vendas y pociones de manzanilla'],
+    dinero: 10,
+    descanso: 'Vendas bendecidas',
   },
   {
     slug: 'druida', nombre: 'Druida', emoji: '🌿', color: '#65a30d', rol: 'Magia de la naturaleza', dificultad: 3,
@@ -190,6 +206,8 @@ export const clases: Clase[] = [
       { nivel: 5, nombre: 'Muro de zarzas', texto: 'Hasta 3 enemigos se enredan y pierden su siguiente turno.', uso: 'combate' },
     ],
     equipo: ['Capa de hojas', 'Flauta de madera', 'Bolsa de bayas'],
+    dinero: 5,
+    descanso: 'Bolsita de bayas curativas',
   },
   {
     slug: 'bardo', nombre: 'Bardo', emoji: '🎶', color: '#ec4899', rol: 'Músico y animador', dificultad: 2,
@@ -207,6 +225,8 @@ export const clases: Clase[] = [
       { nivel: 5, nombre: '¡Gran final!', texto: 'Todos tus amigos recuperan 5 vidas y repiten una tirada que hayan fallado.', uso: 'aventura' },
     ],
     equipo: ['Laúd', 'Sombrero con pluma', 'Cuaderno de canciones'],
+    dinero: 15,
+    descanso: 'Cuaderno para componer canciones junto al fuego',
   },
   {
     slug: 'monje', nombre: 'Monje', emoji: '🥋', color: '#0d9488', rol: 'Luchador veloz', dificultad: 2,
@@ -224,6 +244,8 @@ export const clases: Clase[] = [
       { nivel: 5, nombre: 'Mil puños', texto: 'Atacas 3 veces seguidas en una sola acción.', uso: 'combate' },
     ],
     equipo: ['Cinta en la frente', 'Ropa cómoda', 'Cantimplora'],
+    dinero: 5,
+    descanso: 'Esterilla de meditación',
   },
   {
     slug: 'paladin', nombre: 'Paladín', emoji: '⚜️', color: '#eab308', rol: 'Caballero de la luz', dificultad: 2,
@@ -241,8 +263,19 @@ export const clases: Clase[] = [
       { nivel: 5, nombre: 'Juramento de luz', texto: 'Un amigo recupera 10 vidas y tú recuperas 5.', uso: 'aventura' },
     ],
     equipo: ['Armadura plateada', 'Escudo con un sol', 'Capa blanca'],
+    dinero: 10,
+    descanso: 'Pequeño altar plegable para rezar',
   },
 ];
+
+/** Suministros que tienen TODOS los héroes al empezar (reglas en la hoja de reglas de las fichas). */
+export const SUMINISTROS = [
+  { emoji: '🧪', nombre: '1 poción de curación', regla: 'Gasta tu acción: tú o un amigo cercano recuperáis 5 vidas.' },
+  { emoji: '🍖', nombre: '2 raciones de viaje', regla: 'Si comes una en un descanso corto (1 hora), recuperas todas tus vidas en vez de la mitad.' },
+];
+
+/** Texto del dinero inicial: «10 PO» */
+export const DINERO_TEXTO = (c: Clase) => `${c.dinero} PO`;
 
 export const porSlug = (slug: string) => clases.find((c) => c.slug === slug);
 

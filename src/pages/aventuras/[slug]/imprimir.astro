@@ -1,0 +1,86 @@
+---
+// Vista imprimible del guion completo (portada, personajes, guion, mapas, escenas y canción). Se convierte en PDF con scripts/generar-pdfs.sh.
+import { getCollection, render } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const todas = await getCollection('aventuras');
+  return todas.map((a) => ({ params: { slug: a.id }, props: { a } }));
+}
+const { a } = Astro.props;
+const d = a.data;
+const { Content } = await render(a);
+const PUBLICO = { ninos: 'Niños', adultos: 'Adultos', familia: 'Toda la familia' } as const;
+---
+<Base titulo={`Guion para imprimir · ${d.titulo}`} descripcion={`Guion completo de ${d.titulo} listo para imprimir o guardar en PDF.`} clase="guion-imprimir">
+  <section>
+    <p class="meta no-imprimir"><a href={`/aventuras/${a.id}/`}>← {d.titulo}</a></p>
+    <div class="fila no-imprimir" style="margin-bottom:20px">
+      <button class="boton" type="button" data-imprimir>🖨️ Imprimir o guardar en PDF</button>
+      <a class="boton fantasma" href={`/aventuras/${a.id}/descargas/${a.id}-guion.pdf`} download>📄 Descargar el PDF</a>
+    </div>
+
+    <div class="gi-portada">
+      <img src={d.portada} alt="" />
+      <p class="meta">{PUBLICO[d.publico]} · {d.edad}</p>
+      <h1>{d.titulo}</h1>
+      {d.subtitulo && <p class="lead">{d.subtitulo}</p>}
+      <dl class="ficha-datos">
+        <div><dt>Nivel</dt><dd>{d.nivel}</dd></div>
+        <div><dt>Jugadores</dt><dd>{d.jugadores}</dd></div>
+        <div><dt>Duración</dt><dd>{d.duracion}</dd></div>
+        <div><dt>Edad</dt><dd>{d.edad}</dd></div>
+      </dl>
+      <p>{d.resumen}</p>
+      <p><strong>Ambientación:</strong> {d.ambientacion}</p>
+      <p class="nota-reglas">🎲 <strong>Reglas:</strong> las seis habilidades (Fuerza, Destreza, Constitución, Inteligencia, Sabiduría y Carisma) son las de las fichas del Gremio. Dificultades (DC): 5 fácil, 10 normal, 15 difícil, 20 heroico.</p>
+    </div>
+
+    {d.pnj.length > 0 && (
+      <div class="gi-bloque gi-pnj">
+        <h2>Personajes</h2>
+        <div class="gi-pnj-rejilla">
+          {d.pnj.map((p) => (
+            <article>
+              {p.imagen && <img src={p.imagen} alt="" />}
+              <div><h3>{p.nombre}</h3><p class="rol">{p.rol}</p><p>{p.descripcion}</p></div>
+            </article>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <div class="guion gi-guion"><Content /></div>
+
+    {d.mapas.length > 0 && (
+      <div class="gi-bloque">
+        <h2>Mapas</h2>
+        <p class="meta">miniaturas de referencia; los mapas a escala real están en sus PDFs (A4 y A3)</p>
+        <div class="gi-galeria">
+          {d.mapas.map((m) => (
+            <figure><img src={m.miniatura ?? m.archivo} alt={m.titulo} /><figcaption><strong>{m.titulo}</strong>{m.casillas && <> · {m.casillas} casillas ({m.tamano})</>}{m.nota && <small>{m.nota}</small>}</figcaption></figure>
+          ))}
+        </div>
+      </div>
+    )}
+
+    {d.ilustraciones.length > 0 && (
+      <div class="gi-bloque">
+        <h2>Escenas</h2>
+        <div class="gi-galeria">
+          {d.ilustraciones.map((m) => (
+            <figure><img src={m.archivo} alt={m.titulo} /><figcaption><strong>{m.titulo}</strong>{m.nota && <small>{m.nota}</small>}</figcaption></figure>
+          ))}
+        </div>
+      </div>
+    )}
+
+    {d.musica.map((m) => (
+      <div class="gi-bloque gi-musica">
+        <h2>Canción · {m.titulo}</h2>
+        {m.cuando && <p class="meta">{m.cuando}</p>}
+        {m.letra?.map((e) => <p class="estrofa" set:html={e.replace(/\n/g, '<br>')} />)}
+      </div>
+    ))}
+  </section>
+</Base>

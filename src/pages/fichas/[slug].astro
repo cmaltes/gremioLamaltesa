@@ -1,6 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { clases, porSlug, TALENTOS, NIVELES, RANGO_TEXTO, USO_TEXTO, suma, vida, defensa, extraDano, ataqueArma } from '../../data/clases';
+import { clases, porSlug, DINERO_TEXTO, SUMINISTROS, TALENTOS, NIVELES, RANGO_TEXTO, USO_TEXTO, suma, vida, defensa, extraDano, ataqueArma } from '../../data/clases';
 
 export function getStaticPaths() { return clases.map((c) => ({ params: { slug: c.slug }, props: { c } })); }
 const { c } = Astro.props;
@@ -14,6 +14,14 @@ const mas = (n: number) => `+${n}`;
     <div class="hoja-cab">
       <span class="gran" aria-hidden="true">{c.emoji}</span>
       <div><h1>{c.nombre}</h1><p class="meta" style="margin:0">{c.rol} · “{c.frase}”</p></div>
+    </div>
+    <div class="heroe-foto" data-heroe>
+      <img class="on" src={`/fichas/heroes/${c.slug}-chico.jpg`} alt={`${c.nombre}, versión chico`} data-sexo="chico" width="640" height="800" />
+      <img src={`/fichas/heroes/${c.slug}-chica.jpg`} alt={`${c.nombre}, versión chica`} data-sexo="chica" width="640" height="800" />
+      <div class="sexo-sel no-imprimir" role="group" aria-label="Elige tu héroe">
+        <button type="button" data-sexo-btn="chico" aria-pressed="true">🧑 Chico</button>
+        <button type="button" data-sexo-btn="chica" aria-pressed="false">👩 Chica</button>
+      </div>
     </div>
     <p>{c.resumen}</p>
     <p class="solo-imprimir"><strong>Nombre del héroe:</strong> ______________________________ <strong>Nivel:</strong> ____</p>
@@ -84,7 +92,13 @@ const mas = (n: number) => `+${n}`;
     </div>
 
     <h2 style="margin-top:28px">Tu equipo</h2>
-    <ul class="equipo">{c.equipo.map((e) => <li>{e}</li>)}</ul>
+    <ul class="equipo">{c.equipo.map((e) => <li>{e}</li>)}<li class="dinero">💰 {DINERO_TEXTO(c)} al empezar</li></ul>
+    <h3 style="margin-top:14px">Suministros <small class="meta">(para curarte y descansar)</small></h3>
+    <ul class="equipo sumin">
+      {SUMINISTROS.map((x) => <li title={x.regla}>{x.emoji} {x.nombre}</li>)}
+      <li>⛺ {c.descanso}</li>
+    </ul>
+    <p class="meta">{SUMINISTROS.map((x) => `${x.emoji} ${x.regla}`).join(' · ')}</p>
 
     <h3 style="margin-top:20px">Mis vidas <small class="meta">(tacha al perderlas)</small></h3>
     <div class="casillas solo-imprimir">{Array.from({ length: vida(c, 5) }).map(() => <i />)}</div>
@@ -93,5 +107,24 @@ const mas = (n: number) => `+${n}`;
       <button class="boton" type="button" data-imprimir>🖨️ Imprimir esta ficha</button>
       <a class="boton fantasma" href="/fichas/">Elegir otro héroe</a>
     </div>
+    <p class="meta no-imprimir" style="margin-top:12px">Todas las fichas en PDF: <a href="/descargas/fichas-de-heroe-chico.pdf" download>chico</a> · <a href="/descargas/fichas-de-heroe-chica.pdf" download>chica</a> · <a href="/descargas/fichas-de-heroe-dibujo.pdf" download>para dibujar tú el héroe</a></p>
   </section>
 </Base>
+
+<script>
+  // Chico o chica: cambia el retrato y se acuerda de la elección (solo en este navegador).
+  const caja = document.querySelector<HTMLElement>('[data-heroe]');
+  if (caja) {
+    const poner = (sexo: string) => {
+      caja.querySelectorAll<HTMLImageElement>('img[data-sexo]').forEach((i) => i.classList.toggle('on', i.dataset.sexo === sexo));
+      caja.querySelectorAll<HTMLButtonElement>('[data-sexo-btn]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.sexoBtn === sexo)));
+    };
+    let guardado = 'chico';
+    try { guardado = localStorage.getItem('gremio-sexo') || 'chico'; } catch {}
+    poner(guardado);
+    caja.querySelectorAll<HTMLButtonElement>('[data-sexo-btn]').forEach((b) => b.addEventListener('click', () => {
+      poner(b.dataset.sexoBtn!);
+      try { localStorage.setItem('gremio-sexo', b.dataset.sexoBtn!); } catch {}
+    }));
+  }
+</script>

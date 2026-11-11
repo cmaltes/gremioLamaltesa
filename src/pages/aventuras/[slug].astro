@@ -79,6 +79,13 @@ const mini = (r: { archivo: string; miniatura?: string }) => r.miniatura ?? r.ar
           <figure>
             <a class="ver" href={m.archivo} data-zoom data-titulo={m.titulo}><img src={mini(m)} alt={m.titulo} loading="lazy"><span class="lupa">🔍 zoom</span></a>
             <figcaption><span>{m.titulo}{m.nota && <small>{m.nota}</small>}</span><a href={m.archivo} download aria-label={`Descargar ${m.titulo}`}>⤓</a></figcaption>
+            {m.casillas && (
+              <p class="ficha-mapa">
+                <b>{m.casillas} casillas · {m.tamano}</b> (1 casilla = 25 mm)
+                {m.a4 && <a href={m.a4.archivo} download>⤓ A4 · {m.a4.hojas} hojas</a>}
+                {m.a3 && <a href={m.a3.archivo} download>⤓ A3 · {m.a3.hojas} hojas</a>}
+              </p>
+            )}
           </figure>
         ))}
       </div>
@@ -157,7 +164,11 @@ const mini = (r: { archivo: string; miniatura?: string }) => r.miniatura ?? r.ar
         <li><a href={x.archivo} download><span class="ico">{ICONO[x.tipo.toLowerCase()] ?? '📎'}</span><span><strong>{x.titulo}</strong>{x.descripcion && <small>{x.descripcion}</small>}</span><span class="tipo">{x.tipo.toUpperCase()}</span></a></li>
       ))}
       {d.mapas.map((m) => (
+        <>
         <li><a href={m.archivo} download><span class="ico">🗺️</span><span><strong>{m.titulo}</strong><small>Mapa para imprimir</small></span><span class="tipo">JPG</span></a></li>
+        {m.a4 && <li><a href={m.a4.archivo} download><span class="ico">🖨️</span><span><strong>{m.titulo} · A4</strong><small>{m.casillas} casillas a escala real (25 mm): {m.a4.hojas} hojas, con 1 casilla de solape</small></span><span class="tipo">PDF</span></a></li>}
+        {m.a3 && <li><a href={m.a3.archivo} download><span class="ico">🖨️</span><span><strong>{m.titulo} · A3</strong><small>{m.casillas} casillas a escala real (25 mm): {m.a3.hojas} hojas, con 1 casilla de solape</small></span><span class="tipo">PDF</span></a></li>}
+        </>
       ))}
       {d.musica.map((m) => (
         <li><a href={m.archivo} download><span class="ico">🎵</span><span><strong>{m.titulo}</strong></span><span class="tipo">MP3</span></a></li>

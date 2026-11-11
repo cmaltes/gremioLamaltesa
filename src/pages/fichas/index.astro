@@ -1,6 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { clases, TALENTOS, SUMA, EXTRA_DANO, NIVELES, RANGO_TEXTO, vida } from '../../data/clases';
+import { clases, SUMINISTROS, TALENTOS, SUMA, EXTRA_DANO, NIVELES, RANGO_TEXTO, vida } from '../../data/clases';
 ---
 <Base titulo="Fichas de héroe" descripcion="10 héroes sencillos del nivel 1 al 5 con dos armas fáciles cada uno y el número exacto que sumar en cada tirada. Para niños que empiezan a jugar a rol." clase="fichas-pag">
   <section class="hero">
@@ -43,12 +43,22 @@ import { clases, TALENTOS, SUMA, EXTRA_DANO, NIVELES, RANGO_TEXTO, vida } from '
   </section>
 
   <section>
+    <h2>Suministros y descansos</h2>
+    <p>Todos los héroes empiezan con dinero (monedas de oro, <strong>PO</strong>) y con estos suministros:</p>
+    <ul class="reglas-simple">
+      {SUMINISTROS.map((x) => <li><strong>{x.emoji} {x.nombre}.</strong> {x.regla}</li>)}
+      <li><strong>⛺ Objeto de descanso.</strong> Cada clase tiene el suyo (una manta, yesca, un té, un cuaderno…): sirve para ambientar el descanso.</li>
+    </ul>
+  </section>
+
+  <section>
     <h2>Subir de nivel</h2>
     <p>Los héroes empiezan en <strong>nivel 1</strong> y suben <strong>un nivel al terminar cada aventura</strong> (o cuando el master diga, por ejemplo tras un combate importante). Al subir, tus números mejoran, tienes más vidas y, en los niveles 3 y 5, <strong>aprendes un poder nuevo</strong>. En el nivel 4 tu Defensa sube +1.</p>
   </section>
 
   <section>
     <h2>Elige tu héroe</h2>
+    <p class="fila"><a class="boton fantasma" href="/descargas/fichas-de-heroe-chico.pdf" download>📄 PDF con héroe chico</a> <a class="boton fantasma" href="/descargas/fichas-de-heroe-chica.pdf" download>📄 PDF con heroína chica</a> <a class="boton fantasma" href="/descargas/fichas-de-heroe-dibujo.pdf" download>✏️ PDF para dibujar tu héroe</a> <a class="boton fantasma" href="/fichas/imprimir/chico/">🖨️ Verlas para imprimir</a></p>
     <div class="rejilla">
       {clases.map((c) => (
         <a class="tarjeta clase-card" href={`/fichas/${c.slug}/`} style={`--c:${c.color}`}>

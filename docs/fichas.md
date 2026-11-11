@@ -7,6 +7,9 @@ Todo está en `src/data/clases.ts`. Las páginas `/fichas/` y `/fichas/<clase>/`
 - **Extra de daño** (`EXTRA_DANO`): 0/1/1/2/2 para cualquier arma.
 - **Vidas:** `base + porNivel × (nivel − 1)`. **Defensa:** fija, +1 desde el nivel 4.
 - **Poderes:** tres por clase, en los niveles 1, 3 y 5.
+- **Dinero inicial** (`dinero`, en monedas de oro «PO»): 5 PO (Bárbaro, Druida, Monje), 10 PO (Guerrero, Explorador, Mago, Clérigo, Paladín) o 15 PO (Pícaro, Bardo). Las atracciones de la feria cuestan 1 PO por intento.
+- **Suministros** (`SUMINISTROS`, iguales para todos): 1 poción de curación (5 vidas) y 2 raciones de viaje (en un descanso corto, recuperas todas las vidas en vez de la mitad). Cada clase tiene además un `descanso` (objeto de ambientación).
+- **Retratos:** `public/fichas/heroes/<clase>-<chico|chica>.jpg` (generados con `tools/ia_heroes.py` y `tools/heroes.py`). Fichas para imprimir: `/fichas/imprimir/{chico,chica,dibujo}/`.
 - **Armas:** dos por clase; cada una usa una habilidad y un dado (d4, d6, d8 o d10).
 
 Para añadir una clase, copia una entrada de `clases`, cambia los datos y ejecuta `npm run build`.
