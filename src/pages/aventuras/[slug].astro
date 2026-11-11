@@ -13,13 +13,20 @@ const indice = headings.filter((h) => h.depth <= 3);
 const PUBLICO = { ninos: 'Niños', adultos: 'Adultos', familia: 'Toda la familia' } as const;
 const pdf = d.descargas.find((x) => x.tipo.toLowerCase() === 'pdf' && /guion/i.test(x.titulo));
 const ICONO: Record<string, string> = { pdf: '📄', imagen: '🖼️', audio: '🎵', zip: '📦', stl: '🧸' };
+const esHeroe = (r: { titulo: string }) => /héroes/i.test(r.titulo);
+const fichasPdf = d.descargas.filter((x) => /fichas-de-heroe/.test(x.archivo));
+const minisHeroes = d.miniaturas.filter(esHeroe);
+const minisOtras = d.miniaturas.filter((m) => !esHeroe(m));
+const hayHeroes = fichasPdf.length > 0 || minisHeroes.length > 0;
+const hayGaleria = d.ilustraciones.length > 0 || minisOtras.length > 0;
 const secciones = [
-  ['resumen', 'Resumen'], ['guion', 'Guía del master'],
+  ['resumen', 'Resumen'],
+  ...(hayHeroes ? [['heroes', 'Héroes']] : []),
+  ['guion', '🔒 Guía'],
+  ...(d.pnj.length ? [['personajes', '🔒 Personajes']] : []),
   ...(d.mapas.length ? [['mapas', 'Mapas']] : []),
-  ...(d.pnj.length ? [['personajes', 'Personajes']] : []),
-  ...(d.ilustraciones.length ? [['escenas', 'Escenas']] : []),
+  ...(hayGaleria ? [['galeria', 'Galería']] : []),
   ...(d.musica.length ? [['musica', 'Música']] : []),
-  ...(d.miniaturas.length ? [['miniaturas', 'Miniaturas']] : []),
   ['descargas', 'Descargas'],
 ];
 const gancho = d.gancho ?? d.resumen;
@@ -37,16 +44,11 @@ const mini = (r: { archivo: string; miniatura?: string }) => r.miniatura ?? r.ar
       <div><dt>Duración</dt><dd>{d.duracion}</dd></div>
       <div><dt>Edad</dt><dd>{d.edad}</dd></div>
     </dl>
-    <div class="fila no-imprimir">
-      <a class="boton" href="#guion">📜 Guía del master</a>
-      {pdf && <a class="boton fantasma" href={pdf.archivo} download>📄 Guion en PDF</a>}
-      {d.pantalla.length > 0 && <a class="boton fantasma" href={`/aventuras/${a.id}/pantalla/`}>🖨️ Pantalla del master</a>}
-    </div>
   </div>
 
-  <nav class="pestanas no-imprimir" aria-label="Secciones de la aventura" style="margin-top:20px" data-pestanas>
+  <div class="pestanas-caja no-imprimir"><nav class="pestanas" aria-label="Secciones de la aventura" data-pestanas>
     <ul>{secciones.map(([id, nombre]) => <li><a href={`#${id}`}>{nombre}</a></li>)}</ul>
-  </nav>
+  </nav></div>
 
   <section id="resumen" class="seccion panel" data-panel>
     <h2><span>🎪</span> Resumen</h2>
@@ -56,7 +58,39 @@ const mini = (r: { archivo: string; miniatura?: string }) => r.miniatura ?? r.ar
     <p class="nota-reglas" style="margin-top:16px">🎲 <strong>Para jugar con las <a href="/fichas/">fichas del Gremio</a>:</strong> las habilidades de esta aventura (Fuerza, Destreza, Constitución, Inteligencia, Sabiduría y Carisma) son las mismas de las fichas. Dificultades (DC): 5 fácil, 10 normal, 15 difícil, 20 heroico.</p>
   </section>
 
-  <section id="guion" class="seccion panel" data-panel>
+  {hayHeroes && (
+    <section id="heroes" class="seccion panel" data-panel>
+      <h2><span>🛡️</span> Héroes</h2>
+      <p class="lead">Elige a tu héroe antes de empezar: ficha, dibujo y muñeco de papel para la mesa.</p>
+      <div class="fila"><a class="boton" href="/fichas/">Ver las fichas del Gremio</a></div>
+      {fichasPdf.length > 0 && <>
+        <h3>Fichas para imprimir</h3>
+        <ul class="descargas">
+          {fichasPdf.map((x) => <li><a href={x.archivo} download><span class="ico">📄</span><span><strong>{x.titulo}</strong>{x.descripcion && <small>{x.descripcion}</small>}</span><span class="tipo">PDF</span></a></li>)}
+        </ul>
+      </>}
+      {minisHeroes.length > 0 && <>
+        <h3>Muñecos y tokens de los héroes</h3>
+        <div class="galeria">
+          {minisHeroes.map((m) => (
+            <figure>
+              <a class="ver" href={m.archivo} data-zoom data-titulo={m.titulo}><img src={mini(m)} alt={m.titulo} loading="lazy"></a>
+              <figcaption><span>{m.titulo}{m.nota && <small>{m.nota}</small>}</span><a href={m.archivo} download aria-label={`Descargar ${m.titulo}`}>⤓</a></figcaption>
+            </figure>
+          ))}
+        </div>
+      </>}
+    </section>
+  )}
+
+  <section id="guion" class="seccion panel" data-panel data-master>
+    <div class="puerta no-imprimir" hidden>
+      <p class="puerta-ico" aria-hidden="true">🔒</p>
+      <h2>Solo para el master</h2>
+      <p>La guía cuenta la trama, quién es el villano y cómo se resuelven los acertijos. Si vas a jugar como héroe, mejor no mires.</p>
+      <div class="fila"><button class="boton" type="button" data-soy-master>Soy el master, entrar</button><a class="boton fantasma" href="#resumen">Volver al resumen</a></div>
+    </div>
+    <div class="contenido-master">
     <h2><span>📜</span> Guía del master</h2>
     <p class="nota-reglas no-imprimir">⚠️ <strong>Con spoilers.</strong> Esta guía revela la trama, los villanos y las soluciones: léela tú antes de jugar y no se la enseñes a los jugadores.</p>
     <div class="barra-lector no-imprimir">
@@ -64,12 +98,14 @@ const mini = (r: { archivo: string; miniatura?: string }) => r.miniatura ?? r.ar
       <button class="chip" type="button" data-letra="+" aria-label="Letra más grande">A+</button>
       <button class="chip" type="button" data-pantalla aria-pressed="false">☀️ Pantalla encendida</button>
       {pdf && <a class="chip" href={pdf.archivo} download>📄 PDF</a>}
+      {d.pantalla.length > 0 && <a class="chip" href={`/aventuras/${a.id}/pantalla/`}>🖨️ Pantalla del master</a>}
     </div>
     <details class="indice no-imprimir">
       <summary>Índice del guion</summary>
       <ol>{indice.map((h) => <li class={`h${h.depth}`}><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol>
     </details>
     <div class="guion"><Content /></div>
+    </div>
   </section>
 
   {d.mapas.length > 0 && (
@@ -95,9 +131,15 @@ const mini = (r: { archivo: string; miniatura?: string }) => r.miniatura ?? r.ar
   )}
 
   {d.pnj.length > 0 && (
-    <section id="personajes" class="seccion panel" data-panel>
+    <section id="personajes" class="seccion panel" data-panel data-master>
+      <div class="puerta no-imprimir" hidden>
+      <p class="puerta-ico" aria-hidden="true">🔒</p>
+      <h2>Solo para el master</h2>
+      <p>Aquí se dice quién es quién de verdad, y eso destripa la historia. Si vas a jugar como héroe, mejor no mires.</p>
+      <div class="fila"><button class="boton" type="button" data-soy-master>Soy el master, entrar</button><a class="boton fantasma" href="#resumen">Volver al resumen</a></div>
+    </div>
+    <div class="contenido-master">
       <h2><span>🧙</span> Personajes</h2>
-      <p class="nota-reglas no-imprimir">⚠️ <strong>Con spoilers:</strong> aquí se dice quién es quién de verdad. Solo para el master.</p>
       <div class="pnj">
         {d.pnj.map((p) => (
           <article>
@@ -106,21 +148,36 @@ const mini = (r: { archivo: string; miniatura?: string }) => r.miniatura ?? r.ar
           </article>
         ))}
       </div>
+      </div>
     </section>
   )}
 
-  {d.ilustraciones.length > 0 && (
-    <section id="escenas" class="seccion panel" data-panel>
-      <h2><span>🖼️</span> Escenas</h2>
-      <p class="meta">enséñalas en la mesa cuando llegue la escena</p>
-      <div class="galeria">
-        {d.ilustraciones.map((m) => (
-          <figure>
-            <a class="ver" href={m.archivo} data-zoom data-titulo={m.titulo}><img src={mini(m)} alt={m.titulo} loading="lazy"><span class="lupa">🔍</span></a>
-            <figcaption><span>{m.titulo}{m.nota && <small>{m.nota}</small>}</span><a href={m.archivo} download aria-label={`Descargar ${m.titulo}`}>⤓</a></figcaption>
-          </figure>
-        ))}
-      </div>
+  {hayGaleria && (
+    <section id="galeria" class="seccion panel" data-panel>
+      <h2><span>🖼️</span> Galería</h2>
+      {d.ilustraciones.length > 0 && <>
+        <h3>Escenas</h3>
+        <p class="meta">enséñalas en la mesa cuando llegue la escena</p>
+        <div class="galeria">
+          {d.ilustraciones.map((m) => (
+            <figure>
+              <a class="ver" href={m.archivo} data-zoom data-titulo={m.titulo}><img src={mini(m)} alt={m.titulo} loading="lazy"><span class="lupa">🔍</span></a>
+              <figcaption><span>{m.titulo}{m.nota && <small>{m.nota}</small>}</span><a href={m.archivo} download aria-label={`Descargar ${m.titulo}`}>⤓</a></figcaption>
+            </figure>
+          ))}
+        </div>
+      </>}
+      {minisOtras.length > 0 && <>
+        <h3>🧸 Miniaturas y tokens</h3>
+        <div class="galeria">
+          {minisOtras.map((m) => (
+            <figure>
+              <a class="ver" href={m.archivo} data-zoom data-titulo={m.titulo}><img src={mini(m)} alt={m.titulo} loading="lazy"></a>
+              <figcaption><span>{m.titulo}{m.nota && <small>{m.nota}</small>}</span><a href={m.archivo} download aria-label={`Descargar ${m.titulo}`}>⤓</a></figcaption>
+            </figure>
+          ))}
+        </div>
+      </>}
     </section>
   )}
 
@@ -144,20 +201,6 @@ const mini = (r: { archivo: string; miniatura?: string }) => r.miniatura ?? r.ar
           <a class="boton fantasma" href={m.archivo} download>⤓ Descargar MP3</a>
         </div>
       ))}
-    </section>
-  )}
-
-  {d.miniaturas.length > 0 && (
-    <section id="miniaturas" class="seccion panel" data-panel>
-      <h2><span>🧸</span> Miniaturas</h2>
-      <div class="galeria">
-        {d.miniaturas.map((m) => (
-          <figure>
-            <a class="ver" href={m.archivo} data-zoom data-titulo={m.titulo}><img src={mini(m)} alt={m.titulo} loading="lazy"></a>
-            <figcaption><span>{m.titulo}{m.nota && <small>{m.nota}</small>}</span><a href={m.archivo} download aria-label={`Descargar ${m.titulo}`}>⤓</a></figcaption>
-          </figure>
-        ))}
-      </div>
     </section>
   )}
 

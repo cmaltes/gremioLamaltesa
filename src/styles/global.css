@@ -421,3 +421,16 @@ tr.actual td { background: color-mix(in srgb, var(--c) 18%, transparent); font-w
 
 .arma .alcance { font-size: .85rem; color: var(--muted); margin: 6px 0 0; line-height: 1.3; }
 @media print { .fi-hoja .arma .alcance { font-size: 8pt; margin: 0; } }
+
+/* Pestañas: degradado que avisa de que se desliza; puerta del master */
+.pestanas-caja { position: sticky; top: 0; z-index: 20; margin-top: 20px; }
+.pestanas-caja .pestanas { position: static; }
+.pestanas-caja::after { content: ""; position: absolute; top: 0; right: 0; bottom: 1px; width: 36px; pointer-events: none; background: linear-gradient(to right, transparent, var(--bg)); }
+.puerta { text-align: center; padding: 28px 8px 8px; }
+.puerta-ico { font-size: 3rem; margin: 0; }
+.puerta .fila { justify-content: center; }
+.con-pestanas [data-master]:not(.confirmado) .contenido-master { display: none; }
+.con-pestanas [data-master]:not(.confirmado) .puerta { display: block; }
+.puerta[hidden] { display: none; }
+@media print { .puerta { display: none !important; } .con-pestanas [data-master] .contenido-master { display: block !important; } }
+.panel h3 { margin-top: 22px; }

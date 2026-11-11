@@ -55,6 +55,11 @@ function filtros() {
 }
 
 /* ---------- Pestañas de la aventura: un panel a la vez, con #hash ---------- */
+const alPrincipio = () => {
+  const caja = document.querySelector<HTMLElement>('.pestanas-caja');
+  if (caja && caja.getBoundingClientRect().top < 0) window.scrollTo({ top: caja.offsetTop, behavior: 'instant' as ScrollBehavior });
+};
+const esMaster = () => { try { return sessionStorage.getItem('gremio-master') === '1'; } catch { return false; } };
 function seccionActiva() {
   const links = [...document.querySelectorAll<HTMLAnchorElement>('[data-pestanas] a')];
   const paneles = [...document.querySelectorAll<HTMLElement>('[data-panel]')];
@@ -62,12 +67,13 @@ function seccionActiva() {
   document.documentElement.classList.add('con-pestanas');
   const mostrar = (id: string, mover: boolean) => {
     paneles.forEach((p) => p.classList.toggle('activo', p.id === id));
+    document.querySelectorAll<HTMLElement>('[data-master]').forEach((p) => { if (esMaster()) p.classList.add('confirmado'); });
     links.forEach((l) => {
       const on = l.hash.slice(1) === id;
       if (on) { l.setAttribute('aria-current', 'true'); l.scrollIntoView({ inline: 'center', block: 'nearest' }); }
       else l.removeAttribute('aria-current');
     });
-    if (mover) document.querySelector('[data-pestanas]')?.scrollIntoView({ block: 'start' });
+    if (mover) alPrincipio();
   };
   const desdeHash = (primera: boolean) => {
     const id = decodeURIComponent(location.hash.slice(1));
@@ -77,8 +83,14 @@ function seccionActiva() {
       mostrar(panel.id, false);
       if (destino !== panel) destino!.scrollIntoView();
     } else mostrar(paneles[0].id, false);
-    if (!primera && panel && destino === panel) document.querySelector('[data-pestanas]')?.scrollIntoView({ block: 'start' });
+    if (!primera && panel && destino === panel) alPrincipio();
   };
+  document.querySelectorAll<HTMLElement>('[data-soy-master]').forEach((b) =>
+    b.addEventListener('click', () => {
+      try { sessionStorage.setItem('gremio-master', '1'); } catch {}
+      document.querySelectorAll('[data-master]').forEach((p) => p.classList.add('confirmado'));
+    }),
+  );
   window.addEventListener('hashchange', () => desdeHash(false));
   desdeHash(true);
 }
