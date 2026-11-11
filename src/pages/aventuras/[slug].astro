@@ -18,16 +18,14 @@ const fichasPdf = d.descargas.filter((x) => /fichas-de-heroe/.test(x.archivo));
 const minisHeroes = d.miniaturas.filter(esHeroe);
 const minisOtras = d.miniaturas.filter((m) => !esHeroe(m));
 const hayHeroes = fichasPdf.length > 0 || minisHeroes.length > 0;
-const hayGaleria = d.ilustraciones.length > 0 || minisOtras.length > 0;
+const hayGaleria = d.mapas.length > 0 || d.ilustraciones.length > 0 || minisOtras.length > 0 || d.musica.length > 0;
 const secciones = [
   ['resumen', 'Resumen'],
   ...(hayHeroes ? [['heroes', 'Héroes']] : []),
   ['guion', '🔒 Guía'],
   ...(d.pnj.length ? [['personajes', '🔒 Personajes']] : []),
-  ...(d.mapas.length ? [['mapas', 'Mapas']] : []),
-  ...(hayGaleria ? [['galeria', 'Galería']] : []),
-  ...(d.musica.length ? [['musica', 'Música']] : []),
-  ['descargas', 'Descargas'],
+  ...(hayGaleria ? [['galeria', '🔒 Galería']] : []),
+  ['descargas', '🔒 Descargas'],
 ];
 const gancho = d.gancho ?? d.resumen;
 const masterPdf = (x: { archivo: string }) => /-guion\.pdf$|pantalla-master\.pdf$/.test(x.archivo);
@@ -110,27 +108,6 @@ const mini = (r: { archivo: string; miniatura?: string }) => r.miniatura ?? r.ar
     </div>
   </section>
 
-  {d.mapas.length > 0 && (
-    <section id="mapas" class="seccion panel" data-panel>
-      <h2><span>🗺️</span> Mapas</h2>
-      <p class="meta">toca un mapa para verlo grande y hacer zoom</p>
-      <div class="galeria">
-        {d.mapas.map((m) => (
-          <figure>
-            <a class="ver" href={m.archivo} data-zoom data-titulo={m.titulo}><img src={mini(m)} alt={m.titulo} loading="lazy"><span class="lupa">🔍 zoom</span></a>
-            <figcaption><span>{m.titulo}{m.nota && <small>{m.nota}</small>}</span><a href={m.archivo} download aria-label={`Descargar ${m.titulo}`}>⤓</a></figcaption>
-            {m.casillas && (
-              <p class="ficha-mapa">
-                <b>{m.casillas} casillas · {m.tamano}</b> (1 casilla = 25 mm)
-                {m.a4 && <a href={m.a4.archivo} download>⤓ A4 · {m.a4.hojas} hojas</a>}
-                {m.a3 && <a href={m.a3.archivo} download>⤓ A3 · {m.a3.hojas} hojas</a>}
-              </p>
-            )}
-          </figure>
-        ))}
-      </div>
-    </section>
-  )}
 
   {d.pnj.length > 0 && (
     <section id="personajes" class="seccion panel" data-panel data-master>
@@ -155,8 +132,34 @@ const mini = (r: { archivo: string; miniatura?: string }) => r.miniatura ?? r.ar
   )}
 
   {hayGaleria && (
-    <section id="galeria" class="seccion panel" data-panel>
+    <section id="galeria" class="seccion panel" data-panel data-master>
+      <div class="puerta no-imprimir" hidden>
+        <p class="puerta-ico" aria-hidden="true">🔒</p>
+        <h2>Solo para el master</h2>
+        <p>La galería incluye mapas, escenas y la canción, que cuentan cómo avanza la historia. Si vas a jugar como héroe, mejor no mires.</p>
+        <div class="fila"><button class="boton" type="button" data-soy-master>Soy el master, entrar</button><a class="boton fantasma" href="#resumen">Volver al resumen</a></div>
+      </div>
+      <div class="contenido-master">
       <h2><span>🖼️</span> Galería</h2>
+      {d.mapas.length > 0 && <>
+        <h3>🗺️ Mapas</h3>
+        <p class="meta">toca un mapa para verlo grande y hacer zoom</p>
+        <div class="galeria">
+          {d.mapas.map((m) => (
+          <figure>
+              <a class="ver" href={m.archivo} data-zoom data-titulo={m.titulo}><img src={mini(m)} alt={m.titulo} loading="lazy"><span class="lupa">🔍 zoom</span></a>
+              <figcaption><span>{m.titulo}{m.nota && <small>{m.nota}</small>}</span><a href={m.archivo} download aria-label={`Descargar ${m.titulo}`}>⤓</a></figcaption>
+              {m.casillas && (
+                <p class="ficha-mapa">
+                  <b>{m.casillas} casillas · {m.tamano}</b> (1 casilla = 25 mm)
+                  {m.a4 && <a href={m.a4.archivo} download>⤓ A4 · {m.a4.hojas} hojas</a>}
+                  {m.a3 && <a href={m.a3.archivo} download>⤓ A3 · {m.a3.hojas} hojas</a>}
+                </p>
+              )}
+            </figure>
+          ))}
+        </div>
+      </>}
       {d.ilustraciones.length > 0 && <>
         <h3>Escenas</h3>
         <p class="meta">enséñalas en la mesa cuando llegue la escena</p>
@@ -180,14 +183,10 @@ const mini = (r: { archivo: string; miniatura?: string }) => r.miniatura ?? r.ar
           ))}
         </div>
       </>}
-    </section>
-  )}
-
-  {d.musica.length > 0 && (
-    <section id="musica" class="seccion panel" data-panel>
-      <h2><span>🎵</span> Música</h2>
-      <p class="meta">la letra de la canción cuenta la trama: ¡no la leas a los jugadores antes de tiempo!</p>
-      {d.musica.map((m) => (
+      {d.musica.length > 0 && <>
+        <h3>🎵 Música</h3>
+        <p class="meta">la letra de la canción cuenta la trama: ¡no la leas a los jugadores antes de tiempo!</p>
+        {d.musica.map((m) => (
         <div class="pista">
           <div class="pista-cab">
             {m.caratula ? <img src={m.caratula} alt="" width="72" height="72" loading="lazy"> : <div class="sin-foto" style="font-size:2rem;text-align:center">🎵</div>}
@@ -202,11 +201,20 @@ const mini = (r: { archivo: string; miniatura?: string }) => r.miniatura ?? r.ar
           )}
           <a class="boton fantasma" href={m.archivo} download>⤓ Descargar MP3</a>
         </div>
-      ))}
+        ))}
+      </>}
+      </div>
     </section>
   )}
 
-  <section id="descargas" class="seccion panel" data-panel>
+  <section id="descargas" class="seccion panel" data-panel data-master>
+    <div class="puerta no-imprimir" hidden>
+      <p class="puerta-ico" aria-hidden="true">🔒</p>
+      <h2>Solo para el master</h2>
+      <p>Las descargas incluyen mapas, fichas y material de la partida. Si vas a jugar como héroe, mejor no mires.</p>
+      <div class="fila"><button class="boton" type="button" data-soy-master>Soy el master, entrar</button><a class="boton fantasma" href="#resumen">Volver al resumen</a></div>
+    </div>
+    <div class="contenido-master">
     <h2><span>⤓</span> Descargas</h2>
     <ul class="descargas">
       {d.descargas.filter((x) => !masterPdf(x)).map((x) => (
@@ -223,5 +231,6 @@ const mini = (r: { archivo: string; miniatura?: string }) => r.miniatura ?? r.ar
         <li><a href={m.archivo} download><span class="ico">🎵</span><span><strong>{m.titulo}</strong></span><span class="tipo">MP3</span></a></li>
       ))}
     </ul>
+    </div>
   </section>
 </Base>
