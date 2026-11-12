@@ -59,7 +59,9 @@ Cierre: build, relectura, commit. No tocar capítulos 2-3.
 
 Cierre: build, regenerar PDF del guion y de la pantalla (`scripts/generar-pdfs.sh`), commit.
 
-## Fase 3 · Material físico imprimible
+## Fase 3 · Material físico imprimible (HECHA el 12-nov-2026)
+
+Generado con `tools/material_fisico.py` (HTML + Chrome) en `public/aventuras/la-feria-del-misterio/material/`: cartas de objeto (+ master con Llave de la Jaula y carta sellada), acertijos (+ master con soluciones) y tarjetas del Loro Pregonero. Los dibujos de las cartas son emojis; se pueden cambiar por ilustraciones.
 
 Scripts en `tools/` (venv `tools/.venv`), salida en `public/aventuras/la-feria-del-misterio/` y enlaces en `descargas` del front matter.
 

@@ -196,6 +196,26 @@ pantalla:
       - "Alarico: Rayo gris cada ronda (Destreza DC 12; si falla, 1d6 y pies de piedra hasta su siguiente turno). Con 15 vidas o menos, el rayo golpea a 2 héroes."
       - "La jaula solo se abre con la Llave de la Jaula (Alarico la suelta). Al girar la llave, Aerion vuelve a ser humano."
 descargas:
+  - titulo: Cartas de objeto
+    archivo: /aventuras/la-feria-del-misterio/material/la-feria-del-misterio-cartas-objeto.pdf
+    tipo: pdf
+    descripcion: "6 hojas A4 para recortar: Poción, Mapa, Pergamino, Llave del Cofre, 3 baratijas de Mizzen, Escama de Aerion y 4 carteles del festival (uno por héroe). El frente es lo que ven; el dorso, el texto de éxito al superar la tirada. Imprime al 100 %, a doble cara por el borde largo."
+  - titulo: Cartas de objeto · Llave de la Jaula y carta sellada (solo master)
+    archivo: /aventuras/la-feria-del-misterio/material/la-feria-del-misterio-cartas-objeto-master.pdf
+    tipo: pdf
+    descripcion: "Spoiler. 2 hojas A4 con la Llave de la Jaula (botín de Alarico) y la carta sellada de la Dama de los Mil Velos (gancho final)."
+  - titulo: Material de los acertijos
+    archivo: /aventuras/la-feria-del-misterio/material/la-feria-del-misterio-acertijos.pdf
+    tipo: pdf
+    descripcion: "3 hojas A4: la diana con las letras R, D, E, P, A, I; los 8 carteles de la noria (uno por cabina) y los 5 carteles del carrusel con la palabra oculta en gris claro. Imprime al 100 % y recorta."
+  - titulo: Material de los acertijos · con soluciones (solo master)
+    archivo: /aventuras/la-feria-del-misterio/material/la-feria-del-misterio-acertijos-master.pdf
+    tipo: pdf
+    descripcion: "Spoiler. Las mismas 3 hojas con el orden de la diana (PIEDRA), el orden de los versos de la noria y los antónimos del carrusel."
+  - titulo: Tarjetas del Loro Pregonero
+    archivo: /aventuras/la-feria-del-misterio/material/la-feria-del-misterio-preguntas.pdf
+    tipo: pdf
+    descripcion: "2 hojas A4: 10 tarjetas de pregunta y sus respuestas por el dorso (cada acierto da 1 PO)."
   - titulo: Muñecos de papel de pie
     archivo: /aventuras/la-feria-del-misterio/miniaturas/la-feria-del-misterio-munecos.pdf
     tipo: pdf
@@ -240,7 +260,7 @@ descargas:
 - **Número de jugadores:** 4. Va bien un grupo equilibrado: guerrero (Guerrero o Bárbaro), pícaro o explorador (Pícaro o Explorador), mago o hechicero (Mago) y clérigo o druida (Clérigo o Druida).
 - **Ambientación:** una feria misteriosa, «El Festival de los Mil Velos», montada cerca de un pueblo junto a un bosque.
 - **Duración estimada:** 2-3 horas.
-- **Inventario inicial:** además de su equipo, cada héroe lleva el **Cartel del Festival de los Mil Velos** (ver «Apertura: el cartel»). Hay una carta imprimible para entregar a cada jugador.
+- **Inventario inicial:** además de su equipo, cada héroe lleva el **Cartel del Festival de los Mil Velos** (ver «Apertura: el cartel»). Hay una carta imprimible para entregar a cada jugador (descarga «Cartas de objeto»).
 
 > [!REGLA]
 > **Monedas.** Los héroes empiezan con 5, 10 o 15 PO según su ficha (unos 40 PO en un grupo de 4). Las atracciones cuestan 1 PO por intento y la llave de Mizzen 10 PO, así que el dinero se acaba si fallan mucho. Pueden ganar más con los **concursos de la feria** (ver «Ganar monedas») y perder alguna si intentan robar y los pillan.
