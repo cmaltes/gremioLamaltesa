@@ -315,10 +315,14 @@ El objetivo es que los héroes visiten las cuatro atracciones principales para r
 
 ### Apertura: el cartel
 
-Cada héroe encuentra el mismo cartel, pero en un sitio distinto y en el momento que prefiera contar: clavado en la puerta de casa, pegado en el posadero, doblado dentro de una bota. Es un cartel dorado, caliente al tacto, que huele a algodón de azúcar. Pídeles que cuenten en una frase dónde lo encontraron y por qué decidieron seguirlo.
+Lee esto en voz alta para empezar:
+
+> Es el atardecer de un día cualquiera en la plaza de un pueblecito del Valle Verde, y cuando levantáis la vista os dais cuenta de que todos, uno por uno y sin conoceros de nada, os habéis quedado parados delante del mismo cartel: un cartel dorado, clavado en el tablón de anuncios, que huele a algodón de azúcar y brilla un poquito más cada vez que alguien lo mira. Las letras se mueven despacio, como si respirasen, y entonces, sin que nadie lo toque, el cartel se desprende de la madera, se multiplica con un suave tintineo de campanillas y cae en las manos de cada uno de vosotros, todavía caliente. Al fondo, más allá de las últimas casas, se encienden solas unas farolas sin vela que dibujan un camino hacia el bosque… y de allí llega, flotando en el aire, una música lejana de órgano de feria.
+
+Después, pídeles que cuenten en una frase quién es su héroe, qué hacía en la plaza y por qué decide seguir las farolas.
 
 > [!DM]
-> Que cada jugador describa cómo apareció su cartel es la presentación del grupo. Si alguno se queda callado, dale una idea: «¿En qué bolsillo apareció?». Después, lee el texto del cartel y deja que sigan las farolas.
+> Que cada jugador cuente qué hacía en la plaza es la presentación del grupo. Si alguno se queda callado, dale una idea: «¿Qué buscabas en el pueblo?». Después, lee el texto del cartel y deja que sigan las farolas.
 
 > **FESTIVAL DE LOS MIL VELOS.** ¡Ven y juega! Premios para valientes, acertijos para curiosos y mil luces que brillan sin vela. Entrada: una sonrisa. Cierre: cuando se apaguen las farolas.
 
