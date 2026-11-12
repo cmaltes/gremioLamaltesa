@@ -236,6 +236,10 @@ descargas:
 - **Número de jugadores:** 4. Va bien un grupo equilibrado: guerrero (Guerrero o Bárbaro), pícaro o explorador (Pícaro o Explorador), mago o hechicero (Mago) y clérigo o druida (Clérigo o Druida).
 - **Ambientación:** una feria misteriosa, «El Festival de los Mil Velos», montada cerca de un pueblo junto a un bosque.
 - **Duración estimada:** 2-3 horas.
+- **Inventario inicial:** además de su equipo, cada héroe lleva el **Cartel del Festival de los Mil Velos** (ver «Apertura: el cartel»). Hay una carta imprimible para entregar a cada jugador.
+
+> [!REGLA]
+> **Monedas.** Los héroes empiezan con 5, 10 o 15 PO según su ficha (unos 40 PO en un grupo de 4). Las atracciones cuestan 1 PO por intento y la llave de Mizzen 10 PO, así que el dinero se acaba si fallan mucho. Pueden ganar más con los **concursos de la feria** (ver «Ganar monedas») y perder alguna si intentan robar y los pillan.
 
 > [!DM]
 > **La aventura en un minuto.** Los héroes visitan las cuatro atracciones de la feria. Cada kobold guarda un objeto: una Poción, un Mapa, un Pergamino y una Llave. Con el mapa salen al bosque, se enfrentan a dos kobolds en una emboscada y a un Oso Lechuza en su cueva, y abren el cofre del tesoro (con trampa de petrificación). Al volver, el Maestro Alarico los ataca: al derrotarlo, el dragón enjaulado vuelve a ser el Príncipe Aerion.
@@ -262,12 +266,31 @@ El objetivo es que los héroes visiten las cuatro atracciones principales para r
 > [!REGLA]
 > **Examinar objetos.** Cada objeto que reciben puede examinarlo cada héroe una vez. Las dificultades están pensadas para que un solo héroe de nivel 1 lo logre con suerte, pero con todo el grupo probando suele salir. Si supera la tirada, léele el texto de éxito; si falla, el de fallo (y otro héroe puede intentarlo). Ningún fallo bloquea la aventura: los objetos funcionan igual aunque no sepan para qué sirven.
 
+### Apertura: el cartel
+
+Cada héroe encuentra el mismo cartel, pero en un sitio distinto y en el momento que prefiera contar: clavado en la puerta de casa, pegado en el posadero, doblado dentro de una bota. Es un cartel dorado, caliente al tacto, que huele a algodón de azúcar. Pídeles que cuenten en una frase dónde lo encontraron y por qué decidieron seguirlo.
+
+> [!DM]
+> Que cada jugador describa cómo apareció su cartel es la presentación del grupo. Si alguno se queda callado, dale una idea: «¿En qué bolsillo apareció?». Después, lee el texto del cartel y deja que sigan las farolas.
+
+> **FESTIVAL DE LOS MIL VELOS.** ¡Ven y juega! Premios para valientes, acertijos para curiosos y mil luces que brillan sin vela. Entrada: una sonrisa. Cierre: cuando se apaguen las farolas.
+
+Al seguir el camino que marcan unas farolas que brillan sin velas, los héroes se van encontrando por el camino y llegan juntos a la entrada del festival.
+
+**Examinar el Cartel** · Sabiduría (percepción) **DC 13**
+
+> Las letras doradas se mueven despacio, como si respirasen. Al girar el cartel hacia la feria, brilla más fuerte; hacia el bosque, se apaga. Es un cartel hechizado que lleva a quien lo tiene hasta el festival.
+
+**Si falla:** es un cartel brillante y caliente. Parece que no se rompe aunque lo arrugues.
+
 ### Bienvenida del Maestro Alarico
 
 Al entrar en la zona principal de la feria, una figura alta y elegante vestida con terciopelo morado, el Maestro Alarico, se alza sobre un pequeño escenario. Se dirige a la multitud, y directamente a los héroes.
 
 > [!DM]
 > Interpreta a Alarico con tono entusiasta y pomposo. Al terminar, sonríe ampliamente, pero sus ojos parecen un poco fríos.
+>
+> **Mientras habla**, en la jaula tapada de detrás algo gruñe y golpea las barras. Cuando Alarico nombra a la Bestia, la tela tiembla y se oye un bramido. Alarico sigue sonriendo, pero lanza una mirada de reojo y la jaula se calla.
 
 > «¡Bienvenidos, bienvenidos, al Festival de los Mil Velos! Soy vuestro anfitrión, Alarico, y os aseguro que este es el lugar donde los sueños más locos se hacen realidad… o se convierten en una leyenda divertida. Una pequeña advertencia, amigos: no os acerquéis a la "Bestia de las Escamas" en la jaula, ni os fiéis de su aspecto de dragón. Es una criatura peligrosa y mentirosa, ¡y está bajo llave por una buena razón! Olvidad vuestros problemas y vuestras dudas, ¡porque hoy solo importa una cosa: divertirse! ¡Adelante, probad vuestra suerte, desafiad lo imposible y que la alegría os guíe!»
 
@@ -289,6 +312,71 @@ Un hombre llamado Fliflas toca un laúd desafinado cerca de la jaula de la Besti
 > (IV) Cuidado, amigo, del cofre dorado y su trampa mortal, Que la piedra es eterna, y el oro es fatal. Solo el golpe final, y el dulce perdón, Pueden traer de vuelta la verdadera nación.
 >
 > (V) Si el Farsante te ataca, no luches con miedo, Pues su magia es de barro, su corazón es de pedo. Libera al que gime, regresa al hogar, Y la luz de la Luna te vendrá a guiar.
+
+### La Bestia de la jaula
+
+La jaula está tapada con una tela, pero se oye respirar. Los héroes pueden acercarse en cualquier momento; la Bestia reacciona a lo que pasa a su alrededor.
+
+- **Si se acercan sin más:** la tela se mueve y se oye un gruñido bajo. No ataca. Si alguien levanta la tela, ve un guiverno esmeralda con una cadena rota al cuello, que se encoge y esconde la cabeza.
+- **Si Alarico habla cerca de la jaula** (la bienvenida o cuando pasa por la feria): la Bestia gruñe, golpea las barras y agita las alas. Alarico la mira y las barras chisporrotean; se calla.
+- **Si suena la balada de Fliflas** (o la cantan los héroes cerca de la jaula): la Bestia se calma, deja de golpear y apoya la cabeza entre las barras, con ojos tristes y muy atentos. Cuando termina la canción, suelta un suspiro largo.
+
+> [!REGLA]
+> **Aerion calmado.** Cada héroe que escuche la balada con la Bestia calmada gana una **inspiración**: una vez durante la aventura puede repetir una tirada de dado o tirar con ventaja, a su elección.
+
+### Ganar monedas
+
+Si se quedan sin monedas, la feria ofrece dos maneras de ganar más. Ninguna es obligatoria; son el colchón del grupo.
+
+**El Loro Pregonero (juego de preguntas).** Un loro de trapo en un tubo de madera suelta preguntas a quien se pone delante. Cada héroe puede jugar una vez, hasta **3 preguntas**, y cada acierto da **1 PO**. Elige las preguntas según la edad.
+
+| Pregunta | Respuesta |
+|---|---|
+| ¿Cuántas patas tiene una araña? | 8 |
+| ¿De qué color sale si mezclas azul y amarillo? | Verde |
+| ¿Qué planeta es el planeta rojo? | Marte |
+| ¿En qué estación del año se caen las hojas de los árboles? | Otoño |
+| ¿Cuántos lados tiene un triángulo? | 3 |
+| ¿Qué mamífero vuela por la noche? | El murciélago |
+| ¿Cuántos días tiene una semana? | 7 |
+| ¿Cuántos dedos hay en las dos manos? | 10 |
+| ¿Qué tiene dientes pero no muerde? | Un peine |
+| ¿De qué color es la nieve? | Blanco |
+
+**El Escenario de los Valientes (retos de clase).** Una tarima de madera con carteles. Cada héroe puede intentar **un reto** de la tabla, el de su clase. Éxito: **2 PO**. Fallo: nada, aplausos de consolación. Dificultad **12** salvo indicación.
+
+| Clase | Reto | Tirada |
+|---|---|---|
+| Guerrero | Levantar el yunque de feria sobre la cabeza | Fuerza (atletismo) |
+| Bárbaro | Romper un cacahuete gigante de madera | Fuerza (atletismo) |
+| Explorador | Dar a un blanco que se mueve | Destreza (juego de manos) |
+| Pícaro | Adivinar bajo qué vaso está la bolita | Destreza (juego de manos) |
+| Mago | Hacer un truco de luces para la gente | Inteligencia (arcanos) |
+| Clérigo | Curar a un muñeco de trapo «herido» | Sabiduría (medicina) |
+| Druida | Convencer a un pony de feria de que salte el aro | Sabiduría (trato con animales) |
+| Bardo | Cantar una copla improvisada | Carisma (actuación) |
+| Monje | Cruzar la cuerda floja | Destreza (acrobacias) |
+| Paladín | Aguantar con el escudo una lluvia de pelotas | Constitución |
+
+### Momentos de lucimiento de clase
+
+Cada clase tiene **una tirada especial** en esta feria. Solo puede intentarla un héroe de esa clase (si hay dos de la misma, deciden cuál). Si no hay nadie de esa clase, esa escena no ocurre. No dependen de la tirada para avanzar: son premios.
+
+| Clase | Dónde | Tirada | Éxito | Fallo |
+|---|---|---|---|---|
+| Guerrero | Noria (Gart) | Fuerza (atletismo) **DC 14**: pulso con Gart | Gart pierde, se queja y regala una vuelta gratis y 2 PO | Risas; sin consecuencias |
+| Bárbaro | Tienda (Mizzen) | Carisma (intimidación) **DC 14**: rugirle encima | Mizzen traga saliva y deja la llave a **3 PO** | Mizzen te mira feo; el precio sigue igual |
+| Explorador | Diana (Glitch) | Sabiduría (percepción) **DC 14**: mide el viento y la distancia | Elige un tiro del grupo: lo hace con ventaja | Se te cruza una mosca; sin ventaja |
+| Pícaro | Carrusel (Zash) | Destreza (acrobacias) **DC 13**: saltar al carrusel en marcha | Dos búsquedas gratis, sin pagar | Te caes con gracia; pagas como siempre |
+| Mago | Al recibir un objeto | Inteligencia (arcanos) **DC 13**: usar un hechizo de detectar magia | Un objeto, a elección del grupo, se examina con ventaja | El hechizo se apaga; no pasa nada |
+| Clérigo | Antes de salir de la feria | Sabiduría (religión) **DC 13**: bendecir la llave o la poción | Ventaja en la salvación contra la trampa del cofre | La bendición se escapa; sin efecto |
+| Druida | Jaula de la Bestia | Sabiduría (trato con animales) **DC 13**: calmar al guiverno con un gesto | La Bestia deja caer una **Escama de Aerion** (ver abajo) | La Bestia se encoge y no se deja mirar |
+| Bardo | Fliflas (laúd) | Carisma (actuación) **DC 13**: tocar con él | Fliflas toca bien, el público da **3 PO** y la balada calma a la Bestia | Fliflas desafina de nuevo; sin propinas |
+| Monje | Noria | Destreza (acrobacias) **DC 13**: subir a una cabina en marcha | Lee una cabina extra gratis, sin pagar | Resbalas; pagas la vuelta |
+| Paladín | Diana (Glitch) | Carisma (persuasión) **DC 13**: juramento de honor | Glitch te fía un tiro gratis | Glitch no se lo cree; pagas |
+
+> [!REGLA]
+> **Escama de Aerion.** Una escama verde, muy suave y caliente. Una sola vez, en el combate final, el héroe que la tenga puede recuperar **1d6 + 2 vidas** como acción adicional.
 
 ### Pista 1: la Diana del Saber (la Poción Solvente Místico)
 
@@ -473,7 +561,7 @@ Un hombre llamado Fliflas toca un laúd desafinado cerca de la jaula de la Besti
 > Es una bota roja con alas bordadas que te queda enorme. Al ponértela, ¡das un salto gigante! Pero como solo hay una… ¡giras y giras en círculos hasta marearte! Con la otra bota sería otra historia.
 
 > [!REGLA]
-> **Fallo al robar:** Mizzen lo ve y grita «¡Ladrón! ¡Llamaré al Maestro Alarico!». Si el héroe no huye de inmediato (Destreza, acrobacias, DC 12), Mizzen atrae a otros kobolds y el héroe tiene **desventaja** en sus próximas tiradas de interacción.
+> **Fallo al robar:** Mizzen lo ve y grita «¡Ladrón! ¡Esto te cuesta una multa!». El héroe pierde **2 PO** (o todos los que lleve, si tiene menos) y no se lleva el objeto. Si intenta escapar (Destreza, acrobacias, DC 12), pierde solo **1 PO**. Aun así puede comprar lo que quiera con el dinero que le quede.
 
 **Recompensa:** Llave del Cofre del Tesoro (por compra o con un robo de DC 15 o más).
 
@@ -488,6 +576,21 @@ Un hombre llamado Fliflas toca un laúd desafinado cerca de la jaula de la Besti
   > Mirando de cerca el extremo de la llave ves un polvo gris pegado. Huele a piedra mojada: es polvo de petrificación. El cofre que abra esta llave puede convertir en estatua a quien lo abra. Convendría tener un remedio a mano…
 
 **Si falla:** es una llave dorada muy brillante. Sirve para abrir algo.
+
+### ¿Qué pasa en la feria?
+
+Cuando la mesa se atasca, se dispersa o hay un hueco, tira **1d8** (o elige uno). Cada suceso dura un minuto y se puede dejar caer una sola vez.
+
+| 1d8 | Qué pasa |
+|---|---|
+| 1 | **El globo morado.** Un niño pierde un globo que flota hacia la jaula. Si alguien lo atrapa (Destreza, atletismo, **DC 10**), el niño le da **1 PO** de agradecimiento. |
+| 2 | **Los malabares.** Un payaso de trapo deja caer tres bolas y una rueda rodando hacia la atracción que los héroes aún no han visitado. |
+| 3 | **Las farolas.** Las farolas se encienden solas y por un segundo forman una sombra de búho en el suelo. Todos ven algo, nadie sabe qué. |
+| 4 | **El pastel de nubes.** Una vendedora regala un pastel a quien le dé una sonrisa. Quien lo coma recupera **1d4 vidas** o gana ventaja en su próxima tirada de Carisma. |
+| 5 | **El adivino.** Un viejo de turbante cobra 1 PO y dice una frase misteriosa sobre la atracción que aún no han probado: «Donde la rueda gira, mira donde nadie mira». |
+| 6 | **El Maestro de paso.** Alarico cruza la feria con prisa. Pasa junto a la jaula y la Bestia gruñe; él pregunta en voz alta quién la ha molestado. |
+| 7 | **El concurso del sombrero.** Un puesto premia el sombrero más ridículo. Quien se lo pone y lo presume (Carisma, actuación, **DC 11**) gana **2 PO**. |
+| 8 | **El perro que aúlla.** Fliflas desafina y un perro de feria aúlla con él. Todos se ríen; si el Bardo toca algo, Fliflas se anima y pide una canción. |
 
 ### Encuentro de transición: emboscada kobold
 
@@ -538,6 +641,7 @@ Una vez que los héroes tienen los cuatro objetos (Poción Solvente Místico, Ma
 - **Cofre:** se abre con la Llave del Cofre del Tesoro.
 - **Trampa:** al abrir, la llave activa un chorro de polvo de petrificación. Salvación de Destreza **DC 12**; si falla, el héroe queda petrificado.
 - **Curación:** usar la Poción Solvente Místico sobre la víctima.
+- **Bendición:** si el Clérigo bendijo la llave o la poción en el festival, la salvación se hace con **ventaja**.
 - **Contenido del tesoro (botín de nivel 2):**
   - 200 piezas de oro (PO)
   - Espada Larga +1
