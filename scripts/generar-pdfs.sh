@@ -18,6 +18,7 @@ for dir in src/content/aventuras/*/; do
   mkdir -p "public/aventuras/$slug/descargas"
   [ -f "dist/aventuras/$slug/pantalla/index.html" ] && pdf "/aventuras/$slug/pantalla/" "public/aventuras/$slug/descargas/$slug-pantalla-master.pdf"
   [ -f "dist/aventuras/$slug/imprimir/index.html" ] && pdf "/aventuras/$slug/imprimir/" "public/aventuras/$slug/descargas/$slug-guion.pdf"
+  [ -f "dist/aventuras/$slug/seguimiento/index.html" ] && pdf "/aventuras/$slug/seguimiento/" "public/aventuras/$slug/descargas/$slug-seguimiento.pdf"
 done
 mkdir -p public/descargas
 for v in chico chica dibujo; do

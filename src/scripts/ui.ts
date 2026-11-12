@@ -133,6 +133,46 @@ function musica() {
   });
 }
 
+/* ---------- Reproductor fijo de música por escena (solo master, carga bajo demanda) ---------- */
+function reproductor() {
+  const r = document.querySelector<HTMLElement>('[data-reproductor]');
+  if (!r) return;
+  const audio = r.querySelector<HTMLAudioElement>('audio')!;
+  const play = r.querySelector<HTMLButtonElement>('[data-repro-play]')!;
+  const titulo = r.querySelector<HTMLElement>('[data-repro-titulo]')!;
+  const botones = [...r.querySelectorAll<HTMLButtonElement>('[data-escena]')];
+  const html = document.documentElement;
+  const mostrar = () => { if (esMaster()) html.classList.add('con-reproductor'); };
+  mostrar();
+  document.querySelectorAll('[data-soy-master]').forEach((b) => b.addEventListener('click', () => setTimeout(mostrar, 0)));
+  const icono = () => { play.textContent = audio.paused ? '▶' : '⏸'; };
+  audio.addEventListener('play', icono); audio.addEventListener('pause', icono);
+  const poner = (b: HTMLButtonElement) => {
+    const nueva = audio.dataset.archivo !== b.dataset.archivo;
+    botones.forEach((x) => x.setAttribute('aria-pressed', String(x === b && (nueva || audio.paused))));
+    if (nueva) {
+      audio.dataset.archivo = b.dataset.archivo;
+      audio.src = b.dataset.archivo!;
+      audio.loop = b.dataset.bucle === '1';
+      audio.dataset.titulo = b.dataset.titulo || '';
+      if (b.dataset.caratula) audio.dataset.caratula = b.dataset.caratula; else delete audio.dataset.caratula;
+      titulo.textContent = b.dataset.titulo || '';
+      play.disabled = false;
+      audio.play().catch(() => {});
+    } else if (audio.paused) audio.play().catch(() => {});
+    else { audio.pause(); botones.forEach((x) => x.setAttribute('aria-pressed', 'false')); }
+  };
+  botones.forEach((b) => b.addEventListener('click', () => poner(b)));
+  play.addEventListener('click', () => {
+    if (audio.paused) audio.play().catch(() => {}); else audio.pause();
+    const actual = botones.find((x) => x.dataset.archivo === audio.dataset.archivo);
+    botones.forEach((x) => x.setAttribute('aria-pressed', String(x === actual && !audio.paused)));
+  });
+  audio.addEventListener('ended', () => botones.forEach((x) => x.setAttribute('aria-pressed', 'false')));
+  // si suena una pista de la galería, el reproductor se queda en pausa (y viceversa lo hace musica())
+  audio.addEventListener('pause', () => botones.forEach((x) => x.setAttribute('aria-pressed', 'false')));
+}
+
 /* ---------- Fichas: elegir nivel y ver todos los números a la vez ---------- */
 function fichas() {
   const ficha = document.querySelector<HTMLElement>('[data-ficha]');
@@ -152,4 +192,4 @@ function fichas() {
   document.querySelector('[data-imprimir]')?.addEventListener('click', () => window.print());
 }
 
-visor(); filtros(); seccionActiva(); lector(); musica(); fichas();
+visor(); filtros(); seccionActiva(); lector(); musica(); reproductor(); fichas();

@@ -62,6 +62,7 @@ const aventuras = defineCollection({
           archivo: z.string(),
           caratula: z.string().optional(),
           cuando: z.string().optional(),
+          escena: z.string().optional(), // etiqueta corta para el reproductor fijo (con emoji)
           bucle: z.boolean().optional(), // se reproduce en bucle
           letra: z.array(z.string()).optional(),
         }),
@@ -69,6 +70,13 @@ const aventuras = defineCollection({
       .default([]),
     miniaturas: z.array(recurso).default([]),
     pantalla: z.array(tarjeta).default([]),
+    // Hoja de seguimiento del master (PDF A4): objetos de la aventura y enemigos con sus vidas
+    seguimiento: z
+      .object({
+        objetos: z.array(z.string()).default([]),
+        enemigos: z.array(z.object({ nombre: z.string(), vidas: z.number().int() })).default([]),
+      })
+      .optional(),
     descargas: z
       .array(z.object({ titulo: z.string(), archivo: z.string(), tipo: z.string(), descripcion: z.string().optional() }))
       .default([]),

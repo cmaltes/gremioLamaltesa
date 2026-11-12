@@ -1,0 +1,83 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const todas = await getCollection('aventuras');
+  return todas.filter((a) => a.data.seguimiento).map((a) => ({ params: { slug: a.id }, props: { a } }));
+}
+const { a } = Astro.props;
+const seg = a.data.seguimiento!;
+
+// Tablas del guion (se leen del propio guion para no duplicarlas)
+const limpiar = (t: string) => t.replace(/\*\*/g, '').trim();
+const tabla = (titulo: string) => {
+  const m = a.body?.split(/^### /m).find((s) => s.startsWith(titulo));
+  if (!m) return [] as string[][];
+  return m.split('\n').filter((l) => l.startsWith('|')).slice(2).map((l) => l.split('|').slice(1, -1).map(limpiar));
+};
+const lucimientos = tabla('Momentos de lucimiento de clase'); // clase, dónde, tirada…
+const sucesos = tabla('¿Qué pasa en la feria?'); // 1d8, qué pasa
+const grupos = (n: number) => Array.from({ length: Math.ceil(n / 5) }, (_, i) => Math.min(5, n - i * 5));
+const heroes = [1, 2, 3, 4, 5];
+---
+<Base titulo={`Hoja de seguimiento · ${a.data.titulo}`} descripcion={`Hoja de seguimiento del master de ${a.data.titulo}: monedas, objetos, lucimientos, combate y sucesos de la feria.`} clase="seguimiento-pag">
+  <section>
+    <p class="meta no-imprimir"><a href={`/aventuras/${a.id}/`}>← {a.data.titulo}</a></p>
+    <h1>Hoja de seguimiento</h1>
+    <p class="lead no-imprimir">{a.data.titulo}. Dos hojas A4 verticales para apuntar con lápiz durante la partida: monedas, objetos y quién los examinó, lucimientos usados, vidas del combate y los sucesos de la feria. Imprímela o rellénala en pantalla.</p>
+    <div class="fila no-imprimir" style="margin-bottom:20px">
+      <button class="boton" type="button" data-imprimir>🖨️ Imprimir o guardar en PDF</button>
+      <a class="boton fantasma" href={`/aventuras/${a.id}/descargas/${a.id}-seguimiento.pdf`} download>📄 Descargar el PDF</a>
+    </div>
+
+    <div class="seg-hoja">
+      <h2>Seguimiento <span class="seg-sub">· {a.data.titulo} · hoja 1</span></h2>
+
+      <h3>🛡️ Héroes y monedas</h3>
+      <table class="seg">
+        <thead><tr><th>Héroe</th><th>Clase</th><th>PO al empezar</th><th>PO ganadas</th><th>PO gastadas</th><th>Quedan</th></tr></thead>
+        <tbody>{heroes.map(() => <tr class="alta"><td></td><td></td><td></td><td></td><td></td><td></td></tr>)}</tbody>
+      </table>
+
+      <h3>🎒 Objetos conseguidos</h3>
+      <table class="seg">
+        <thead><tr><th>Objeto</th><th class="ch">Lo tienen</th><th>Quién lo lleva</th><th class="ch">Examinado</th><th>Quién lo examinó</th></tr></thead>
+        <tbody>{seg.objetos.map((o) => <tr class="media"><th>{o}</th><td class="ch">☐</td><td></td><td class="ch">☐</td><td></td></tr>)}</tbody>
+      </table>
+
+      <h3>✨ Lucimientos de clase usados</h3>
+      <table class="seg">
+        <thead><tr><th>Clase</th><th>Dónde</th><th class="ch">Intentado</th><th class="ch">Éxito</th></tr></thead>
+        <tbody>{lucimientos.map((l) => <tr class="baja"><th>{l[0]}</th><td>{l[1]}</td><td class="ch">☐</td><td class="ch">☐</td></tr>)}</tbody>
+      </table>
+    </div>
+
+    <div class="seg-hoja">
+      <h2>Seguimiento <span class="seg-sub">· {a.data.titulo} · hoja 2</span></h2>
+
+      <h3>⚔️ Estado del combate</h3>
+      <p class="seg-nota">Ronda: ____ &nbsp; Orden de turnos: ______________________________ &nbsp; Jugadores: ☐ 3 ☐ 4 ☐ 5</p>
+      <table class="seg">
+        <thead><tr><th>Quién</th><th>Vidas (tacha una casilla por vida perdida)</th><th>Estado</th></tr></thead>
+        <tbody>{seg.enemigos.map((e) => (
+          <tr class="media">
+            <th>{e.nombre}<small>{e.vidas} vidas</small></th>
+            <td><span class="vidas">{grupos(e.vidas).map((g) => <span class="g">{Array.from({ length: g }, () => <i></i>)}</span>)}</span></td>
+            <td></td>
+          </tr>
+        ))}</tbody>
+      </table>
+      <p class="seg-nota">Héroes: anota sus vidas actuales en la ficha de cada uno. Efectos en curso (dormido, petrificado, ventaja…): ____________________________________________</p>
+
+      {sucesos.length > 0 && <>
+        <h3>🎪 ¿Qué pasa en la feria?</h3>
+        <p class="seg-nota">Cuando la mesa se atasca, tira 1d8 (o elige). Cada suceso se usa una sola vez: tacha el que ya haya salido.</p>
+        <table class="seg">
+          <thead><tr><th class="ch">1d8</th><th>Qué pasa</th><th class="ch">Usado</th></tr></thead>
+          <tbody>{sucesos.map((s) => <tr class="baja"><th class="ch">{s[0]}</th><td>{s[1]}</td><td class="ch">☐</td></tr>)}</tbody>
+        </table>
+      </>}
+    </div>
+  </section>
+</Base>

@@ -19,6 +19,7 @@ const minisHeroes = d.miniaturas.filter(esHeroe);
 const minisOtras = d.miniaturas.filter((m) => !esHeroe(m));
 const hayHeroes = fichasPdf.length > 0 || minisHeroes.length > 0;
 const hayGaleria = d.mapas.length > 0 || d.ilustraciones.length > 0 || minisOtras.length > 0 || d.musica.length > 0;
+const hojaSeg = d.descargas.find((x) => /-seguimiento\.pdf$/.test(x.archivo));
 const secciones = [
   ['resumen', 'Resumen'],
   ...(hayHeroes ? [['heroes', 'Héroes']] : []),
@@ -98,6 +99,8 @@ const mini = (r: { archivo: string; miniatura?: string }) => r.miniatura ?? r.ar
       <button class="chip" type="button" data-pantalla aria-pressed="false">☀️ Pantalla encendida</button>
       {pdf && <a class="chip" href={pdf.archivo} download>📄 Guion en PDF</a>}
       {d.pantalla.length > 0 && <a class="chip" href={`/aventuras/${a.id}/pantalla/`}>🖨️ Pantalla del master</a>}
+      {d.seguimiento && <a class="chip" href={`/aventuras/${a.id}/seguimiento/`}>📝 Hoja de seguimiento</a>}
+      {hojaSeg && <a class="chip" href={hojaSeg.archivo} download>📄 Seguimiento en PDF</a>}
       {d.descargas.filter((x) => /pantalla-master\.pdf$/.test(x.archivo)).map((x) => <a class="chip" href={x.archivo} download>📄 Pantalla en PDF</a>)}
     </div>
     <details class="indice no-imprimir">
@@ -233,4 +236,17 @@ const mini = (r: { archivo: string; miniatura?: string }) => r.miniatura ?? r.ar
     </ul>
     </div>
   </section>
+
+  {d.musica.length > 0 && (
+    <div class="reproductor no-imprimir" data-reproductor role="region" aria-label="Música por escena">
+      <p class="repro-titulo" data-repro-titulo>Elige una escena para poner su música</p>
+      <div class="repro-fila">
+        <button class="repro-play" type="button" data-repro-play aria-label="Reproducir o pausar" disabled>▶</button>
+        <div class="repro-escenas">
+          {d.musica.map((m) => <button class="chip" type="button" aria-pressed="false" data-escena data-archivo={m.archivo} data-titulo={m.titulo} data-caratula={m.caratula} data-bucle={m.bucle ? '1' : '0'}>{m.escena ?? m.titulo}</button>)}
+        </div>
+      </div>
+      <audio data-titulo="" preload="none"></audio>
+    </div>
+  )}
 </Base>

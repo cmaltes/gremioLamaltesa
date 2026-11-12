@@ -131,18 +131,22 @@ ilustraciones:
 musica:
   - titulo: Fondo · Capítulo 1 · La feria
     archivo: /aventuras/la-feria-del-misterio/musica/fondo-capitulo-1.mp3
+    escena: "🎪 Feria"
     bucle: true
     cuando: "Para el festival (capítulo 1): polca alegre de órgano de feria con campanillas, y por encima risas, silbatos, ruleta, globos y fanfarrias de circo. 10 min en bucle, sin corte."
   - titulo: Fondo · Capítulo 2 · La cueva del Oso Lechuza
     archivo: /aventuras/la-feria-del-misterio/musica/fondo-capitulo-2.mp3
+    escena: "🌲 Bosque y cueva"
     bucle: true
     cuando: "Para el camino y la cueva (capítulo 2): melodía suave de flauta, búhos constantes, grillos, ranas, pájaros nocturnos y goteo. 10 min en bucle, sin corte."
   - titulo: Fondo · Capítulo 3 · El rescate
     archivo: /aventuras/la-feria-del-misterio/musica/fondo-capitulo-3.mp3
+    escena: "⚔️ Combate final"
     bucle: true
     cuando: "Para el combate final (capítulo 3): tétrica y solemne, con órgano de iglesia, coro grave, campana fúnebre, piano inquietante y timbales lentos. 10 min en bucle, sin corte."
   - titulo: La Balada del Señor Perdido
     archivo: /aventuras/la-feria-del-misterio/musica/balada-del-senor-perdido.mp3
+    escena: "🎶 Balada"
     caratula: /aventuras/la-feria-del-misterio/musica/balada-del-senor-perdido.jpg
     cuando: Cántala o ponla cuando los héroes den una moneda al juglar Fliflas (capítulo 1). Dura 2 min 47 s.
     letra:
@@ -180,6 +184,21 @@ miniaturas:
   - titulo: Tokens de los héroes
     archivo: /aventuras/la-feria-del-misterio/miniaturas/la-feria-del-misterio-tokens-heroes.png
     nota: 20 redondos de 25 mm (10 clases, chico y chica)
+seguimiento:
+  objetos:
+    - Poción Solvente Místico
+    - Mapa Escondido
+    - Pergamino de Dormir
+    - Llave del Cofre del Tesoro
+    - Escama de Aerion
+    - Llave de la Jaula
+  enemigos:
+    - { nombre: Kobold corrupto (Gart), vidas: 7 }
+    - { nombre: Kobold corrupto (Zash), vidas: 7 }
+    - { nombre: Oso Lechuza joven, vidas: 30 }
+    - { nombre: Maestro Alarico, vidas: 30 }
+    - { nombre: Glitch corrupto, vidas: 8 }
+    - { nombre: Mizzen corrupto, vidas: 8 }
 pantalla:
   - titulo: Enemigos
     pagina: 6
@@ -196,6 +215,10 @@ pantalla:
       - "Alarico: Rayo gris cada ronda (Destreza DC 12; si falla, 1d6 y pies de piedra hasta su siguiente turno). Con 15 vidas o menos, el rayo golpea a 2 héroes."
       - "La jaula solo se abre con la Llave de la Jaula (Alarico la suelta). Al girar la llave, Aerion vuelve a ser humano."
 descargas:
+  - titulo: Hoja de seguimiento del master
+    archivo: /aventuras/la-feria-del-misterio/descargas/la-feria-del-misterio-seguimiento.pdf
+    tipo: pdf
+    descripcion: "2 hojas A4 para apuntar a lápiz: PO de cada héroe, objetos y quién los examinó, lucimientos usados, vidas del combate final y la tabla «¿Qué pasa en la feria?»."
   - titulo: Cartas de objeto
     archivo: /aventuras/la-feria-del-misterio/material/la-feria-del-misterio-cartas-objeto.pdf
     tipo: pdf

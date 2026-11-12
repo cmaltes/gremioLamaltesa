@@ -434,3 +434,40 @@ tr.actual td { background: color-mix(in srgb, var(--c) 18%, transparent); font-w
 .puerta[hidden] { display: none; }
 @media print { .puerta { display: none !important; } .con-pestanas [data-master] .contenido-master { display: block !important; } }
 .panel h3 { margin-top: 22px; }
+
+/* Hoja de seguimiento del master (A4 vertical, 2 hojas) */
+.seg-hoja { margin-top: 24px; }
+.seg-sub { font-weight: 400; font-size: .7em; color: var(--muted); }
+.seg-nota { color: var(--muted); font-size: .9rem; margin: 6px 0 10px; }
+.seg-hoja h3 { margin: 18px 0 8px; }
+table.seg { width: 100%; border-collapse: collapse; font-size: .85rem; }
+.seg th, .seg td { border: 1px solid var(--border); padding: 4px 6px; text-align: left; vertical-align: middle; }
+.seg thead th { font: .66rem 'JetBrains Mono', monospace; text-transform: uppercase; color: var(--muted); background: var(--surface); }
+.seg tbody th { font-weight: 800; } .seg th small { display: block; font-weight: 400; color: var(--muted); }
+.seg .ch { text-align: center; width: 1%; white-space: nowrap; }
+.seg tr.alta td, .seg tr.alta th { height: 34px; } .seg tr.media td, .seg tr.media th { height: 28px; }
+.vidas { display: flex; flex-wrap: wrap; gap: 4px 8px; } .vidas .g { display: inline-flex; gap: 2px; }
+.vidas i { width: 12px; height: 12px; border: 1.5px solid var(--text); border-radius: 2px; display: inline-block; }
+@media print {
+  .seguimiento-pag { page: pantallav; }
+  .seguimiento-pag main > section { max-width: none; padding: 0; }
+  .seguimiento-pag h1 { display: none; }
+  .seg-hoja { margin: 0; break-after: page; } .seg-hoja:last-of-type { break-after: auto; }
+  .seg-hoja h2 { font-size: 18pt; margin: 0 0 3mm; } .seg-hoja h3 { font-size: 12pt; margin: 4mm 0 2mm; }
+  table.seg { font-size: 10pt; } .seg th, .seg td { padding: 1mm 2mm; border-color: #444; }
+  .seg thead th { background: #eee !important; color: #222; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .seg tr.alta td, .seg tr.alta th { height: 11mm; } .seg tr.media td, .seg tr.media th { height: 9mm; } .seg tr.baja td, .seg tr.baja th { height: 7mm; }
+  .seg-nota { font-size: 9.5pt; color: #333; } .vidas i { border-color: #000; }
+}
+
+/* Reproductor fijo de música por escena (solo master) */
+.reproductor { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; background: var(--surface); border-top: 1px solid var(--border); padding: 8px 12px calc(8px + env(safe-area-inset-bottom)); display: none; box-shadow: 0 -6px 20px rgba(0,0,0,.25); }
+.con-reproductor .reproductor { display: block; }
+.con-reproductor body { padding-bottom: 96px; }
+.repro-fila { display: flex; align-items: center; gap: 8px; max-width: 860px; margin: 0 auto; }
+.repro-escenas { display: flex; gap: 6px; overflow-x: auto; flex: 1; scrollbar-width: none; }
+.repro-escenas .chip { white-space: nowrap; flex: none; }
+.repro-play { flex: none; width: 48px; height: 48px; border-radius: 50%; border: 0; font-size: 1.3rem; background: var(--accent); color: var(--on-accent); cursor: pointer; }
+.repro-play:disabled { opacity: .4; cursor: default; }
+.repro-titulo { max-width: 860px; margin: 0 auto 4px; font-size: .75rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media print { .reproductor { display: none !important; } }
