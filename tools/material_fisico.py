@@ -248,6 +248,26 @@ def preguntas():
             pagina(rejilla(reflejar(do, 2), 2, 90, 50), "Respuestas (dorso) · cada acierto da 1 PO; 3 preguntas por héroe")]
 
 
+def nota_dama():
+    """La carta de la Dama de los Mil Velos como accesorio de mesa: sobre sellado y carta para leer (1 hoja A4)."""
+    css = (".sobre{position:absolute;left:25mm;top:18mm;width:160mm;height:90mm;border:.25mm dashed #aaa;background:#e9d8b0;"
+           "border-radius:2mm;display:flex;align-items:center;justify-content:center;flex-direction:column}"
+           ".sobre .para{font-size:15pt;font-style:italic;color:#4a2c1a;margin-bottom:6mm}"
+           ".sello{width:26mm;height:26mm;border-radius:50%;background:radial-gradient(#f3d77a,#b8891c);border:1mm solid #8a6410;"
+           "display:flex;align-items:center;justify-content:center;font-size:15mm;color:#7a5410}"
+           ".carta-h{position:absolute;left:25mm;top:122mm;width:160mm;height:150mm;border:.25mm dashed #aaa;background:#fbf3de;"
+           "padding:14mm 16mm;display:flex;flex-direction:column}"
+           ".carta-h .v{font-size:17pt;line-height:1.5;font-style:italic;color:#2b2233}"
+           ".carta-h .f{margin-top:auto;text-align:right;font-size:16pt;font-weight:700;color:#4a2c6e;font-style:italic}"
+           ".carta-h .velos{text-align:center;font-size:12pt;letter-spacing:.4em;color:#b8891c;margin-bottom:8mm}")
+    cuerpo = (f"<style>{css}</style>"
+              "<div class='sobre'><div class='para'>Para Silas</div><div class='sello'>✦</div></div>"
+              "<div class='carta-h'><div class='velos'>✦ ✦ ✦</div>"
+              "<div class='v'>«Silas:<br><br>la feria ya está montada. Mantén encendida la última farola hasta que yo llegue.<br><br>No me falles otra vez.»</div>"
+              "<div class='f'>La Dama de los Mil Velos</div></div>")
+    return [pagina(cuerpo, "Sobre y carta de la Dama de los Mil Velos (solo master) · imprime al 100 % y recorta; dobla la carta y mete en el sobre")]
+
+
 def pdf(nombre, paginas):
     with tempfile.TemporaryDirectory() as t:
         h = Path(t) / "x.html"
@@ -271,6 +291,7 @@ if __name__ == "__main__":
     salidas = [
         pdf("la-feria-del-misterio-cartas-objeto.pdf", pares(principal) + cartel_x4()),
         pdf("la-feria-del-misterio-cartas-objeto-master.pdf", pares([LLAVE_JAULA, CARTA])),
+        pdf("la-feria-del-misterio-nota-dama-master.pdf", nota_dama()),
         pdf("la-feria-del-misterio-acertijos.pdf", [diana(False), noria(False), carrusel(False)]),
         pdf("la-feria-del-misterio-acertijos-master.pdf", [diana(True), noria(True), carrusel(True)]),
         pdf("la-feria-del-misterio-preguntas.pdf", preguntas()),

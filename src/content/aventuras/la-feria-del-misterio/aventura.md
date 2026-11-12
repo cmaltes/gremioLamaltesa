@@ -227,6 +227,10 @@ descargas:
     archivo: /aventuras/la-feria-del-misterio/material/la-feria-del-misterio-cartas-objeto-master.pdf
     tipo: pdf
     descripcion: "Spoiler. 2 hojas A4 con la Llave de la Jaula (botín de Alarico) y la carta sellada de la Dama de los Mil Velos (gancho final)."
+  - titulo: Nota de la Dama de los Mil Velos · sobre y carta (solo master)
+    archivo: /aventuras/la-feria-del-misterio/material/la-feria-del-misterio-nota-dama-master.pdf
+    tipo: pdf
+    descripcion: "Spoiler. 1 hoja A4 con el sobre sellado («Para Silas») y la carta para leer en voz baja al final (gancho de continuación). Recorta, dobla la carta y mete en el sobre."
   - titulo: Material de los acertijos
     archivo: /aventuras/la-feria-del-misterio/material/la-feria-del-misterio-acertijos.pdf
     tipo: pdf
