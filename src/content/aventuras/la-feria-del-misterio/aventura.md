@@ -16,7 +16,7 @@ fecha: 2026-11-10
 pnj:
   - nombre: Maestro Alarico
     rol: Villano (en realidad, Lord Silas Malvado)
-    descripcion: Hechicero corrupto de terciopelo morado. Sonríe mucho, pero sus ojos son fríos. Destruirlo rompe la maldición del príncipe.
+    descripcion: Hechicero corrupto de terciopelo morado. Sonríe mucho, pero sus ojos son fríos. Al caer suelta la Llave de la Jaula, que rompe la maldición del príncipe.
     imagen: /aventuras/la-feria-del-misterio/personajes/alarico-retrato.jpg
   - nombre: Príncipe Aerion
     rol: La Bestia de las Escamas
@@ -52,7 +52,7 @@ pnj:
     imagen: /aventuras/la-feria-del-misterio/personajes/oso-lechuza-retrato.jpg
   - nombre: Glitch, corrompida (malvada)
     rol: Kobold · combate final
-    descripcion: Su versión sin disfraz de feria, cuando Alarico da la orden en el clímax (capítulo 3). Ojos rojos y sonrisa afilada. Sostiene la jaula y ataca junto al Farsante.
+    descripcion: Su versión sin disfraz de feria, cuando se rompe el engaño al volver de la cueva (capítulo 3). Ojos rojos y sonrisa afilada. Sostiene la jaula y ataca junto al Farsante.
     imagen: /aventuras/la-feria-del-misterio/personajes/glitch-malvado-retrato.jpg
   - nombre: Mizzen, corrupto (malvado)
     rol: Kobold · combate final
@@ -186,11 +186,15 @@ pantalla:
     emoji: 👹
     cabecera: [Quién, Def., Vidas, Ataque]
     filas:
-      - ["Kobold emboscador ×2 (Gart y Zash)", "15", "7", "Daga +4, 1d4+2. Se esconde como acción adicional"]
-      - ["Oso Lechuza joven", "13", "30", "Garra +4, 1d6+2 · Pico +4, 1d8+2"]
-      - ["Maestro Alarico", "12", "20", "Rayo +3, 1d8+1 · Daga +3, 1d4+1"]
-      - ["Glitch y Mizzen (cada uno)", "12", "5", "Lanza +3, 1d6+1. Huyen cuando cae Alarico"]
-    notas: ["Emboscada: Sabiduría (percepción) DC 15 para no ser sorprendidos."]
+      - ["Kobold corrupto ×2 (Gart y Zash)", "15", "7", "Daga +4, 1d4+2. Se esconde como acción adicional"]
+      - ["Oso Lechuza joven", "13", "30", "Garra +4, 1d6+2 · Pico +4, 1d8+2. Dormido 1 min con el Pergamino"]
+      - ["Maestro Alarico", "12", "30", "Rayo +3, 1d8+1 · Daga +3, 1d4+1 · Rayo gris (Des DC 12)"]
+      - ["Glitch y Mizzen corruptos (cada uno)", "12", "8", "Lanza +3, 1d6+1. Huyen cuando cae Alarico"]
+    notas:
+      - "Emboscada: Sabiduría (percepción) DC 15 para no ser sorprendidos. Int o Sab DC 12: «¡os suenan las caras!»."
+      - "Escalado: 3 jugadores, kobolds 5 vidas, oso 22, Alarico 22, Glitch y Mizzen 6. 5 jugadores, un tercer kobold, oso 38, Alarico 38, Glitch y Mizzen 10."
+      - "Alarico: Rayo gris cada ronda (Destreza DC 12; si falla, 1d6 y pies de piedra hasta su siguiente turno). Con 15 vidas o menos, el rayo golpea a 2 héroes."
+      - "La jaula solo se abre con la Llave de la Jaula (Alarico la suelta). Al girar la llave, Aerion vuelve a ser humano."
 descargas:
   - titulo: Muñecos de papel de pie
     archivo: /aventuras/la-feria-del-misterio/miniaturas/la-feria-del-misterio-munecos.pdf
@@ -242,7 +246,7 @@ descargas:
 > **Monedas.** Los héroes empiezan con 5, 10 o 15 PO según su ficha (unos 40 PO en un grupo de 4). Las atracciones cuestan 1 PO por intento y la llave de Mizzen 10 PO, así que el dinero se acaba si fallan mucho. Pueden ganar más con los **concursos de la feria** (ver «Ganar monedas») y perder alguna si intentan robar y los pillan.
 
 > [!DM]
-> **La aventura en un minuto.** Los héroes visitan las cuatro atracciones de la feria. Cada kobold guarda un objeto: una Poción, un Mapa, un Pergamino y una Llave. Con el mapa salen al bosque, se enfrentan a dos kobolds en una emboscada y a un Oso Lechuza en su cueva, y abren el cofre del tesoro (con trampa de petrificación). Al volver, el Maestro Alarico los ataca: al derrotarlo, el dragón enjaulado vuelve a ser el Príncipe Aerion.
+> **La aventura en un minuto.** Los héroes visitan las cuatro atracciones de la feria. Cada kobold guarda un objeto: una Poción, un Mapa, un Pergamino y una Llave. Con el mapa salen al bosque, se enfrentan a dos kobolds en una emboscada y a un Oso Lechuza en su cueva, y abren el cofre del tesoro (con trampa de petrificación). Al volver, la feria se vuelve tenebrosa y se rompe el engaño: Alarico, Glitch y Mizzen los atacan a la vez. Al derrotar a Alarico suelta la Llave de la Jaula, y al abrirla el dragón enjaulado vuelve a ser el Príncipe Aerion.
 
 > [!REGLA]
 > **Fichas del Gremio:** las habilidades de esta aventura (Fuerza, Destreza, Constitución, Inteligencia, Sabiduría y Carisma) son las mismas de las fichas de héroe. Un héroe de nivel 1 suma entre +0 y +3 a cada tirada.
@@ -251,12 +255,12 @@ descargas:
 
 | Nombre | Rol | Descripción verdadera | Pista clave / objetivo |
 |---|---|---|---|
-| Maestro Alarico | Villano principal (Lord Silas) | Hechicero corrupto o cultista de lo Aberrante | Es la fuente de la maldad. Su destrucción rompe la maldición del Príncipe Aerion y entrega la **Llave de la Jaula** |
-| Príncipe Aerion / Guiverno | Víctima (heredero del Valle Verde) | Guiverno joven bajo una maldición de festejos | Su maldición se rompe cuando Alarico es derrotado |
-| Glitch, la Listilla | Pista 1 (Diana del Saber) | Kobold supervisora | Entrega la **Poción Solvente Místico** (cura la trampa del cofre). Acompaña a Alarico en el clímax |
-| Gart, el Fuerte | Pista 2 (Noria de los Versos) | Kobold con relleno | Entrega el **Mapa Escondido** (a la cueva del Oso Lechuza). Participa en la emboscada |
-| Zash, la Rápida | Pista 3 (Carrusel) | Kobold nerviosa | Entrega el **Pergamino de Dormir**. Participa en la emboscada |
-| Mizzen, el Acaparador | Pista 4 (Curiosidades) | Kobold comerciante | Vende la **Llave del Cofre del Tesoro**. Acompaña a Alarico en el clímax |
+| Maestro Alarico | Villano principal (Lord Silas) | Hechicero corrupto o cultista de lo Aberrante | Es la fuente de la maldad. Al caer suelta la **Llave de la Jaula**, que rompe la maldición del Príncipe Aerion |
+| Príncipe Aerion / Guiverno | Víctima (heredero del Valle Verde) | Guiverno joven bajo una maldición de festejos | Su maldición se rompe al abrir la jaula con la Llave de la Jaula (Alarico la suelta al caer) |
+| Glitch, la Listilla | Pista 1 (Diana del Saber) | Kobold supervisora | Entrega la **Poción Solvente Místico** (cura la trampa del cofre). Acompaña a Alarico en el clímax, corrupta |
+| Gart, el Fuerte | Pista 2 (Noria de los Versos) | Kobold con relleno | Entrega el **Mapa Escondido** (a la cueva del Oso Lechuza). En la emboscada aparece corrupto |
+| Zash, la Rápida | Pista 3 (Carrusel) | Kobold nerviosa | Entrega el **Pergamino de Dormir**. En la emboscada aparece corrupta |
+| Mizzen, el Acaparador | Pista 4 (Curiosidades) | Kobold comerciante | Vende la **Llave del Cofre del Tesoro**. Acompaña a Alarico en el clímax, corrupto |
 | Fliflas, el Juglar | Pista sutil | Juglar humano, melancólico | Canta «La Balada del Señor Perdido» (resumen de la trama) |
 
 ## 3. Capítulo 1: el festival y las pistas
@@ -598,18 +602,30 @@ Una vez que los héroes tienen los cuatro objetos (Poción Solvente Místico, Ma
 
 ![Mapa del camino del bosque](/aventuras/la-feria-del-misterio/mapas/bosque-emboscada-min.jpg)
 
-> Os adentráis en el bosque, siguiendo el mapa. De repente, escucháis un par de gruñidos forzados y chillones. Dos figuras pequeñas saltan hacia el camino con dagas listas. Sus rostros os recuerdan a Gart, el Fuerte, y a Zash, la Rápida. ¡Parece que son los kobolds que atendían la noria y el carrusel, y han estado vigilando la salida para robar vuestro botín!
+> Os adentráis en el bosque, siguiendo el mapa. Las farolas de la feria se quedan atrás y el aire huele a humo. De repente, escucháis un par de gruñidos chillones. Dos kobolds de ojos rojos saltan al camino con dagas listas, con chispas verdes en las manos y sonrisas llenas de dientes. ¡Quieren vuestro botín!
+
+> [!DM]
+> Son **Gart y Zash corruptos**, sin su disfraz de feria. Los héroes no deben saberlo todavía: descríbelos como kobolds malvados del bosque. Si quieres, pon su token o muñeco corrupto (hoja «solo master»).
+
+**¡Os suenan las caras!** Antes de la primera ronda, cada héroe puede tirar Inteligencia (investigación) o Sabiduría (percepción), a su elección, **DC 12**. Quien lo logre, léele:
+
+> Esa voz chillona… ese modo de saltar… ¡y el relleno que cruje cuando el grande respira! ¡Os suenan las caras! Son los kobolds de la noria y del carrusel, pero con los ojos rojos y sin la pintura de la feria.
+
+Quien falle solo ve dos kobolds del bosque. Si alguno lo logra, que lo cuente al grupo (no hace falta una tirada más). No cambia el combate: es una pista de que en la feria nada es lo que parece.
 
 **Sorpresa:** para evitar ser sorprendidos, todos los héroes hacen una tirada de Sabiduría (percepción) **DC 15**. Si fallan, los kobolds actúan en la primera ronda antes que ellos.
 
-| Kobold emboscador (cada uno) | Valor |
+> [!REGLA]
+> **Escalado.** *3 jugadores:* los dos kobolds tienen **5 vidas**. *5 jugadores:* un tercer kobold corrupto (sin nombre, con las mismas cifras) se une a la emboscada.
+
+| Kobold corrupto (Gart y Zash, cada uno) | Valor |
 |---|---|
 | Defensa (CA) | 15 (armadura de cuero y escudo) |
 | Vidas (PG) | 7 |
 | Ataque (daga) | +4 a golpear, daño 1d4 + 2 |
 | Habilidad: escurrirse | Puede esconderse como acción adicional |
 
-**Consecuencias.** Después de derrotarlos, los héroes encuentran 5 piezas de cobre (PC) y 2 de plata (PP) entre los dos, además de pinturas faciales de mala calidad que demuestran la conexión con Alarico. También dejan un rastro de huellas muy claras que indican que fueron enviados desde la feria.
+**Consecuencias.** Al caer, los kobolds huyen chillando entre los árboles. Los héroes encuentran 5 piezas de cobre (PC) y 2 de plata (PP) entre los dos, además de restos de pintura de feria y un trozo de relleno de tela que demuestran la conexión con la feria. También dejan un rastro de huellas muy claras que indican que vienen del festival.
 
 **Descanso** (vital antes del Oso Lechuza). Si los héroes han gastado recursos (conjuros, vidas, habilidades), pueden descansar antes de la cueva:
 
@@ -626,7 +642,8 @@ Una vez que los héroes tienen los cuatro objetos (Poción Solvente Místico, Ma
 ### ¡Grito nocturno! (el Oso Lechuza joven)
 
 - **Ubicación:** «La Boca del Búho» (cueva).
-- **Estrategia:** los héroes pueden usar el Pergamino de Dormir para evitar el combate al instante (si lo lanzan sobre el Oso Lechuza).
+- **Estrategia:** los héroes pueden usar el Pergamino de Dormir para evitar el combate al instante. **El pergamino funciona contra el Oso Lechuza**: se queda dormido **1 minuto** (o hasta que alguien le haga daño). Es tiempo de sobra para abrir el cofre, pero no cuenta como derrotarlo: **no hay ascenso a nivel 2** si lo esquivan (sube igualmente al terminar la aventura).
+- **Escalado:** 3 jugadores, **22 vidas**. 5 jugadores, **38 vidas**.
 - **Recompensa de victoria:** ¡**ascenso a nivel 2**!
 
 | Oso Lechuza joven | Valor |
@@ -651,9 +668,21 @@ Una vez que los héroes tienen los cuatro objetos (Poción Solvente Místico, Ma
 
 ## 5. Capítulo 3: el clímax y el rescate
 
-### Vuelta a la feria: el engaño desaparece
+### Vuelta a la feria: se rompe el engaño
 
-Al salir de la cueva, el bosque parece más oscuro. El camino de vuelta a la feria está extrañamente silencioso. La alegría que antes envolvía la feria se desvanece. El Maestro Alarico está parado frente a la jaula. A su lado, Glitch, la Listilla, y Mizzen, el Acaparador, sostienen las barras de la jaula, gruñendo para mantener a la criatura dentro. Al ver el tesoro que portáis, el rostro de Alarico se tuerce de rabia.
+![La feria maldita](/aventuras/la-feria-del-misterio/mapas/feria-maldita-min.jpg)
+
+> [!DM]
+> Cambia al mapa **La feria maldita**. Saca también los tokens y muñecos de las **versiones corrompidas** (hojas «solo master»).
+
+Al salir de la cueva, el bosque parece más oscuro. El camino de vuelta está extrañamente silencioso. Las farolas ya no brillan: chisporrotean con luz verdosa. Los colores de la feria se desconchan como pintura vieja.
+
+> [!DM]
+> Lee despacio. Deja que miren el mapa nuevo antes de que aparezcan los villanos.
+
+> Al cruzar la entrada, el cartel dorado que llevabais se vuelve gris y se desmorona entre vuestros dedos. La música de órgano se atasca y se oye solo un chirrido. Los globos se pinchan uno a uno. Frente a la jaula, el Maestro Alarico se arranca el sombrero y el terciopelo: su piel es gris, sus ojos rojos y sostiene un cetro de luz verdosa. A su lado, Glitch y Mizzen sujetan las barras de la jaula con sonrisas llenas de dientes y ojos de ascuas. Sus disfraces de feria se caen a trozos.
+
+Aerion, dentro de la jaula, gime. Si alguien cantó o puso la balada antes, levanta la cabeza y mira a los héroes con esperanza.
 
 **Diálogo clave de Alarico (enfurecido)**
 
@@ -661,27 +690,35 @@ Al salir de la cueva, el bosque parece más oscuro. El camino de vuelta a la fer
 
 ### Combate final: el Farsante y sus hombres
 
-Alarico, Glitch y Mizzen atacan a los héroes.
+Alarico, Glitch y Mizzen atacan **a la vez**. Glitch y Mizzen empiezan sujetando la jaula, a un lado del mapa, y se sueltan para combatir cuando alguien se les acerca o cuando les toca el turno.
 
 | Maestro Alarico / el Farsante | Valor |
 |---|---|
 | Defensa (CA) | 12 |
-| Vidas (PG) | 20 |
+| Vidas (PG) | 30 |
 | Ataque (rayo fáustico) | +3 a golpear, daño 1d8 + 1 (rayo morado) |
 | Ataque (daga oculta) | +3 a golpear, daño 1d4 + 1 |
+| **Rayo gris (cada ronda)** | En vez de atacar, un héroe a la vista hace salvación de Destreza **DC 12**. Si falla, recibe 1d6 de daño y tiene los **pies de piedra**: no puede moverse hasta su siguiente turno. |
+| **Furia de terciopelo (con 15 vidas o menos)** | Su cetro brilla más: el Rayo gris golpea a **dos** héroes distintos. |
 
-| Glitch y Mizzen (cada uno) | Valor |
+| Glitch y Mizzen corruptos (cada uno) | Valor |
 |---|---|
 | Defensa (CA) | 12 |
-| Vidas (PG) | 5 |
+| Vidas (PG) | 8 |
 | Ataque (lanza) | +3 a golpear, daño 1d6 + 1 |
 
 > [!REGLA]
-> **Liberación.** Tan pronto como el Maestro Alarico llegue a 0 vidas y se disuelva en lodo, la energía morada que rodea al guiverno desaparece en un destello cegador. El guiverno se transforma en el Príncipe Aerion.
+> **Escalado.** *3 jugadores:* Alarico **22 vidas**, Glitch y Mizzen **6 vidas** cada uno. *5 jugadores:* Alarico **38 vidas**, Glitch y Mizzen **10 vidas** cada uno, y el Rayo gris ya golpea a dos héroes desde el principio.
+
+> [!DM]
+> **Ritmo.** Con 4 héroes de nivel 2 dura unas 3-4 rondas. Si va demasiado fácil, que Glitch y Mizzen se curen 2 vidas al empezar su turno (una vez). Si va demasiado difícil, que el Rayo gris sea DC 10. Recuerda que quien tenga la **Escama de Aerion** puede recuperar 1d6 + 2 vidas como acción adicional.
+
+> [!REGLA]
+> **Si cae un kobold.** Glitch o Mizzen, al llegar a 0 vidas, huyen chillando hacia el bosque. Con el Maestro Alarico aún en pie, el otro sigue luchando. Cuando Alarico llega a 0, el que quede huye también.
 >
-> **Huida.** Glitch y Mizzen entran en pánico, dejan caer lanzas y escudos y huyen del festival hacia el bosque, sin más combate.
+> **Cae Alarico.** Se disuelve en lodo morado y el cetro se rompe. La luz verdosa que rodea la jaula se apaga, pero **la jaula sigue cerrada y Aerion sigue siendo guiverno**: la maldición está atada a la cerradura.
 >
-> **Recompensa.** Los héroes encuentran la **Llave de la Jaula** en los restos del lodo del Farsante.
+> **Recompensa.** En los restos del lodo los héroes encuentran la **Llave de la Jaula**.
 
 ### El rescate final
 
@@ -689,11 +726,14 @@ Alarico, Glitch y Mizzen atacan a los héroes.
 
 > Es una llave pequeña de hierro oscuro con un dragón grabado en el mango. Seguro que abre la jaula de la Bestia.
 
-**Liberación:** usar la Llave de la Jaula.
+**Liberación:** hay que abrir la jaula con la Llave de la Jaula. La cerradura es de magia vieja y resiste cualquier otra cosa. Cuando la llave gira, la maldición se rompe: las barras se vuelven polvo dorado, las escamas caen como hojas y el guiverno se transforma en un chico de la edad de los héroes.
 
-El Príncipe Aerion, ya en su forma humana, tiembla dentro de la jaula.
+> [!DM]
+> Deja que el héroe que gire la llave cuente cómo lo hace. Si el grupo ya había calmado a Aerion (Druida o balada), él mismo estira la pata para que lo abran.
 
-> «¡Me habéis salvado! ¡Gracias a los cielos! Esa maldición… desapareció en el momento en que derrotasteis a Silas Malvado (Alarico). Él… me maldijo para poder usar mi linaje de dragón para sus propios rituales oscuros. La jaula estaba fortificada con mi propia magia, ¡nunca habría podido romperla! Sois verdaderos héroes, no solo para mí, sino para todo el Valle Verde. Por favor, aceptad ese tesoro. Es la fortuna de mi familia, la que Malvado planeaba usar para sus crímenes. Usadla bien, pues la habéis ganado con vuestra valentía y astucia. ¡Ahora debo irme para avisar a mi gente, pero os estaré eternamente agradecido!»
+El Príncipe Aerion, ya en su forma humana, tiembla en el suelo de la jaula abierta.
+
+> «¡Me habéis salvado! ¡Gracias a los cielos! Esa maldición… estaba atada a esa cerradura, y se rompió en cuanto la llave giró. Silas Malvado (Alarico) me maldijo para poder usar mi linaje de dragón para sus propios rituales oscuros. La jaula estaba fortificada con mi propia magia, ¡nunca habría podido romperla yo solo! Sois verdaderos héroes, no solo para mí, sino para todo el Valle Verde. Por favor, aceptad ese tesoro. Es la fortuna de mi familia, la que Malvado planeaba usar para sus crímenes. Usadla bien, pues la habéis ganado con vuestra valentía y astucia. ¡Ahora debo irme para avisar a mi gente, pero os estaré eternamente agradecido!»
 
 ### Cierre de la sesión
 
@@ -701,6 +741,13 @@ El Príncipe Aerion, ya en su forma humana, tiembla dentro de la jaula.
 > Lee esto con calma, mirando a los jugadores a los ojos. Después deja unos segundos de silencio y pregúntales qué fue lo que más les gustó de la aventura.
 
 > El sol se pone sobre el Valle Verde y el Príncipe Aerion se despide agitando la mano. Fliflas, el juglar, afina su laúd y empieza a componer una estrofa nueva… sobre vosotros. Desde lo alto de un árbol, un búho os guiña un ojo. Habéis terminado la Feria del Misterio, pero los caminos del Gremio siguen abiertos: hay mapas por descubrir, misterios por resolver y amigos que todavía no conocéis. Vuestros héroes ya son de nivel 2 y están listos para lo que venga. ¿Os apuntáis a la próxima aventura?
+
+> [!DM]
+> **Gancho de continuación: la carta del lodo.** Antes de que se vayan, cualquiera que registre los restos del lodo de Alarico (o que Aerion señale) encuentra una **carta sellada con un velo dorado**. Léela con voz baja:
+>
+> «Silas: la feria ya está montada. Mantén encendida la última farola hasta que yo llegue. No me falles otra vez. Firmado: **la Dama de los Mil Velos**».
+>
+> Cuando la leen, en lo alto del mapa, la última farola de la feria **vuelve a encenderse sola** con una luz dorada. Nadie sabe quién es la Dama. Es el hilo para la próxima aventura. Si no quieres usarlo, simplemente no lo leas.
 
 > [!DM]
 > Anima a participar: pregunta quién quiere volver a jugar, deja que cada uno guarde su ficha y diles que las próximas partidas se cuelgan en **gremio.lamaltesa.dev**. Si algún jugador se quedó callado, invítale a elegir cómo se llamará su héroe en la siguiente aventura.

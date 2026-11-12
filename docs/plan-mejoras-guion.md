@@ -20,7 +20,7 @@ Plan en 4 fases pensadas para hacer `/clear` entre ellas. Cada fase termina con 
 
 ### Estado
 - **Fase 1: hecha el 12-nov-2026** (gancho = opción A, el cartel; escrito en el guion, con tabla de lucimientos, monedas, Aerion y sucesos de la feria). Falta la carta imprimible del cartel: va en la fase 3 junto a las cartas de objeto (el cartel se entrega a cada héroe en su inventario).
-- Fase 2: pendiente. Recordar que en ella el combate final usa la **Escama de Aerion** (1d6+2 vidas) y que el cofre ya admite la bendición del Clérigo.
+- **Fase 2: hecha el 12-nov-2026.** Kobolds corruptos en la emboscada (DC 12 «os suenan las caras»), Sueño funciona con el oso, escena «se rompe el engaño» con mapa y tokens corruptos, combate final simultáneo (Alarico 30 vidas con Rayo gris y Furia de terciopelo; Glitch y Mizzen 8), la jaula solo se abre con la Llave y ahí cae la maldición, escalado 3/5 jugadores, gancho de continuación (carta de la «Dama de los Mil Velos») y pantalla del master actualizada. Falta en la fase 3 la carta de la Llave de la Jaula y la carta de la carta sellada.
 
 ### Qué es la tabla «¿Qué pasa en la feria?»
 Una lista de 8 sucesos pequeños de feria. Cuando la mesa se atasca, se dispersa o hay un hueco, el master tira 1d8 (o elige) y ocurre algo: un niño pierde un globo, un malabarista pide ayuda, un kobold gasta una broma… Sirve para improvisar sin pensar, repartir pistas y dar ambiente. Unos sucesos son pura risa; otros dan monedas o empujan hacia una atracción que no han visitado.
