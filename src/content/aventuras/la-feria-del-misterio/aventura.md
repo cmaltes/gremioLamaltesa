@@ -219,14 +219,18 @@ descargas:
     archivo: /aventuras/la-feria-del-misterio/descargas/la-feria-del-misterio-seguimiento.pdf
     tipo: pdf
     descripcion: "2 hojas A4 para apuntar a lápiz: PO de cada héroe, objetos y quién los examinó, lucimientos usados, vidas del combate final y la tabla «¿Qué pasa en la feria?»."
+  - titulo: Cartel del Festival · A4
+    archivo: /aventuras/la-feria-del-misterio/material/la-feria-del-misterio-cartel-festival.pdf
+    tipo: pdf
+    descripcion: "1 hoja A4 a todo color con las cuatro atracciones de la feria: para enseñarlo en la mesa al empezar o colgarlo."
   - titulo: Cartas de objeto
     archivo: /aventuras/la-feria-del-misterio/material/la-feria-del-misterio-cartas-objeto.pdf
     tipo: pdf
-    descripcion: "6 hojas A4 para recortar: Poción, Mapa, Pergamino, Llave del Cofre, 3 baratijas de Mizzen, Escama de Aerion y 4 carteles del festival (uno por héroe). El frente es lo que ven; el dorso, el texto de éxito al superar la tirada. Imprime al 100 %, a doble cara por el borde largo."
+    descripcion: "6 hojas A4 para recortar: Poción, Mapa, Pergamino, Llave del Cofre, 3 baratijas de Mizzen, Escama de Aerion y 4 carteles del festival (uno por héroe). El frente muestra la tirada que hace falta (o que se puede girar ya); el dorso, lo que descubren. Imprime al 100 %, a doble cara por el borde largo."
   - titulo: Cartas de objeto · Llave de la Jaula y carta sellada (solo master)
     archivo: /aventuras/la-feria-del-misterio/material/la-feria-del-misterio-cartas-objeto-master.pdf
     tipo: pdf
-    descripcion: "Spoiler. 2 hojas A4 con la Llave de la Jaula (botín de Alarico) y la carta sellada de la Dama de los Mil Velos (gancho final)."
+    descripcion: "Spoiler. 2 hojas A4 con la Llave de la Jaula (botín de Alarico), la carta sellada de la Dama de los Mil Velos (gancho final, sobre por delante y carta por detrás) y 2 fichas de iniciativa para apuntar el orden del combate."
   - titulo: Nota de la Dama de los Mil Velos · sobre y carta (solo master)
     archivo: /aventuras/la-feria-del-misterio/material/la-feria-del-misterio-nota-dama-master.pdf
     tipo: pdf

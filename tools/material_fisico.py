@@ -30,7 +30,41 @@ body { font-family: 'Noto Serif','DejaVu Serif',serif; color: #2b2233; -webkit-p
 .dibujo { width: 46mm; height: 46mm; border-radius: 50%; background: radial-gradient(#fff8e0, #ecd9a2); border: 1mm solid #9a6f1d; display: flex; align-items: center; justify-content: center; font-size: 30mm; margin: 4mm 0 }
 .nombre { font-size: 16pt; font-weight: 700; color: #4a2c6e; line-height: 1.15 }
 .desc { font-size: 10.5pt; line-height: 1.35; margin-top: 4mm }
-.precio { margin-top: auto; font-size: 10pt; font-weight: 700; color: #9a6f1d }
+.sobre-m { background: #e9d8b0; position: relative; justify-content: center; border-color: #8a6410 }
+.sobre-m .solapa { position: absolute; left: 0; right: 0; top: 0; height: 52mm; background: #d3ba80; clip-path: polygon(0 0, 100% 0, 50% 100%) }
+.sobre-m .para { font-size: 14pt; font-style: italic; color: #4a2c1a; margin-top: 62mm }
+.sobre-m .sello-m { position: absolute; top: 44mm; left: 50%; margin-left: -9mm; width: 18mm; height: 18mm; border-radius: 50%; background: radial-gradient(#f3d77a,#b8891c); border: .8mm solid #8a6410; display: flex; align-items: center; justify-content: center; font-size: 10mm; color: #7a5410 }
+.sobre-m .vuelta { position: absolute; left: 5mm; right: 5mm; bottom: 5mm; width: auto }
+.papel { background: #fbf3de repeating-linear-gradient(to bottom, transparent 0 6.4mm, #e7d7b0 6.4mm 6.7mm); border-color: #b8891c; align-items: stretch; text-align: left }
+.papel .velos { text-align: center; color: #b8891c; letter-spacing: .4em; font-size: 10pt; margin-bottom: 5mm }
+.papel .v { font-size: 12.5pt; line-height: 1.55; font-style: italic }
+.papel .f { margin-top: auto; text-align: right; font-weight: 700; font-style: italic; color: #4a2c6e; font-size: 12pt }
+.ini { background: #fff; align-items: stretch; padding: 3mm 4mm }
+.ini table { width: 100%; border-collapse: collapse; font-size: 8pt; flex: 1 }
+.ini th { font-size: 7pt; text-transform: uppercase; color: #9a6f1d; text-align: left; padding: .5mm 1mm }
+.ini td { border: .25mm solid #999 } .ini td.n { width: 6mm; text-align: center; font-weight: 700; color: #4a2c6e }
+.ini .ronda { font-size: 8pt; margin-top: 2mm; text-align: center }
+.cartel-m { background: linear-gradient(#2b1d5a, #5b2a86); border-color: #ffc93c; padding: 0 !important; overflow: hidden; color: #fff; justify-content: flex-start }
+.banderines { display: flex; width: 100%; height: auto; line-height: 0 } .banderines i { display: block; width: 0; height: 0 }
+.cartel-m .banderines { margin-bottom: 1mm }
+.cf-sup { color: #ffd966; font-size: 8pt; letter-spacing: .12em; text-transform: uppercase; font-family: 'Noto Sans',sans-serif; font-weight: 700 }
+.cf-tit { font-size: 19pt; line-height: 1.05; font-weight: 800; color: #ffe08a; text-shadow: .4mm .4mm 0 #b5367a; margin: 1mm 0 2mm }
+.cf-fotos { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2mm; padding: 0 4mm; width: 100% }
+.cf-fotos img { width: 100%; aspect-ratio: 1.35; object-fit: cover; border-radius: 2mm; border: .5mm solid #ffc93c }
+.cf-txt { font-size: 9.5pt; line-height: 1.3; margin: 2.2mm 4mm 0; font-weight: 700 }
+.cf-ent { margin-top: 1.5mm; background: #ffc93c; color: #4a2c6e; border-radius: 3mm; padding: .8mm 3mm; font-size: 9.5pt }
+.cartel-m .vuelta { margin: auto 3mm 3mm; width: calc(100% - 6mm) }
+.cartel-a4 { width: 210mm; height: 297mm; background: linear-gradient(#1f1550, #5b2a86 60%, #b5367a); color: #fff; text-align: center; position: relative; display: flex; flex-direction: column; align-items: center }
+.a4-sup { margin-top: 6mm; font-size: 16pt; letter-spacing: .15em; text-transform: uppercase; color: #ffd966; font-weight: 700; font-family: 'Noto Sans',sans-serif }
+.a4-tit { font-size: 50pt; line-height: 1.02; font-weight: 800; color: #ffe08a; text-shadow: 1.2mm 1.2mm 0 #b5367a; margin: 4mm 0 6mm }
+.a4-fotos { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; padding: 0 14mm; width: 100% }
+.a4-fotos figure { position: relative } .a4-fotos img { width: 100%; aspect-ratio: 1.25; object-fit: cover; border-radius: 5mm; border: 1.2mm solid #ffc93c }
+.a4-fotos figcaption { position: absolute; left: 4mm; bottom: 3mm; background: #ffc93c; color: #4a2c6e; font-weight: 800; font-size: 14pt; padding: .5mm 4mm; border-radius: 4mm }
+.a4-txt { margin-top: 8mm; font-size: 32pt; font-weight: 800; color: #fff }
+.a4-sub { margin-top: 2mm; font-size: 17pt; line-height: 1.35 }
+.a4-ent { margin-top: 6mm; background: #ffc93c; color: #4a2c6e; border-radius: 6mm; padding: 2mm 8mm; font-size: 14pt; font-weight: 800 }
+.banderines.abajo { position: absolute; bottom: 0; transform: rotate(180deg) }
+.precio { font-size: 10pt; font-weight: 700; color: #9a6f1d }
 .cartel-txt { font-size: 13pt; line-height: 1.3; font-weight: 700; color: #6b3d00; margin-top: 4mm }
 .dorso .cab { font-size: 12pt; font-weight: 700; color: #4a2c6e; margin-bottom: 2mm }
 .tirada { font-size: 9pt; background: #4a2c6e; color: #fff; border-radius: 3mm; padding: 1.2mm 3mm; margin: 2mm 0 3mm }
@@ -53,6 +87,10 @@ body { font-family: 'Noto Serif','DejaVu Serif',serif; color: #2b2233; -webkit-p
 .orden { width: 11mm; height: 11mm; border-radius: 50%; background: #4a2c6e; color: #fff; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 11pt; font-style: normal }
 .tira.carr { height: 44mm }
 .tira.carr .pal { flex: 1; text-align: center; font-size: 38pt; font-weight: 700; letter-spacing: .2em; color: #d9d2c3 }
+.vuelta { margin-top: auto; width: 100%; border-radius: 3mm; padding: 2mm 3mm; font-size: 9.5pt; line-height: 1.25; font-family: 'Noto Sans','DejaVu Sans',sans-serif }
+.vuelta.tir { background: #4a2c6e; color: #fff } .vuelta.tir b { color: #ffe08a }
+.vuelta.libre { background: #e6f3e0; color: #2d5a1e; border: .3mm solid #8cbf78; font-weight: 700 }
+.precio { margin-top: 3mm !important }
 .tira.carr .ant { width: 50mm; text-align: center; font-size: 11pt; color: #4a2c6e; font-weight: 700 }
 """
 
@@ -80,23 +118,62 @@ def rejilla(items, cols, w, h):
 
 
 # ---------- cartas de objeto ----------
+def aviso_vuelta(c):
+    """Cartel al pie del frente: qué tirada hace falta para dar la vuelta, o que se puede girar ya."""
+    if c.get("tirada"):
+        return f"<div class='vuelta tir'>🎲 <b>{e(c['tirada'])}</b><br>Si la superas, dale la vuelta</div>"
+    return f"<div class='vuelta libre'>↻ {e(c.get('libre', 'Puedes darle la vuelta ya'))}</div>"
+
+
 def frente(c):
+    if c.get("frente_html"):
+        return c["frente_html"](c)
     cuerpo = f"<div class=tipo>{e(c['tipo'])}</div><div class=dibujo>{c['emoji']}</div><div class=nombre>{e(c['nombre'])}</div><div class=desc>{e(c['frente'])}</div>"
     if c.get("precio"):
         cuerpo += f"<div class=precio>{e(c['precio'])}</div>"
+    cuerpo += aviso_vuelta(c)
     return f"<div class='carta'><div class='marco frente'>{cuerpo}</div></div>"
+
+
+IMG = RAIZ / "public/aventuras/la-feria-del-misterio/img"
+ATRACCIONES = [("carrusel-zash", "Carrusel"), ("noria-gart", "Noria"), ("diana-glitch", "Diana"), ("tienda-mizzen", "Tienda")]
+COLORES = ["#ff6f91", "#ffc93c", "#4fc3f7", "#7bdc8a", "#c084fc", "#ff9a4d"]
+
+
+def banderines(n, ancho_mm, alto_mm):
+    """Guirnalda de banderines de colores (triángulos con bordes CSS)."""
+    w = ancho_mm / n
+    tri = "".join(f"<i style='border-left:{w/2:.2f}mm solid transparent;border-right:{w/2:.2f}mm solid transparent;border-top:{alto_mm}mm solid {COLORES[k % len(COLORES)]}'></i>" for k in range(n))
+    return f"<div class=banderines>{tri}</div>"
 
 
 def frente_cartel(c):
-    cuerpo = (f"<div class=tipo>Festival de los Mil Velos</div><div class=dibujo>{c['emoji']}</div>"
-              f"<div class=cartel-txt>¡Ven y juega!<br>Premios para valientes, acertijos para curiosos y mil luces que brillan sin vela.<br><br>Entrada: una sonrisa.<br>Cierre: cuando se apaguen las farolas.</div>")
-    return f"<div class='carta'><div class='marco frente'>{cuerpo}</div></div>"
+    fotos = "".join(f"<img src='file://{IMG}/{f}-min.jpg'>" for f, _ in ATRACCIONES)
+    cuerpo = (banderines(9, 80, 6) +
+              "<div class=cf-sup>★ ¡Gran festival! ★</div><div class=cf-tit>Festival<br>de los Mil Velos</div>"
+              f"<div class=cf-fotos>{fotos}</div>"
+              "<div class=cf-txt>🎡 ¡Ven y juega! 🎠<br>Premios para valientes, acertijos para curiosos y mil luces que brillan sin vela.</div>"
+              "<div class=cf-ent>Entrada: <b>una sonrisa</b> 😊</div>" + aviso_vuelta(c))
+    return f"<div class='carta'><div class='marco cartel-m'>{cuerpo}</div></div>"
+
+
+def cartel_a4():
+    """Cartel grande del festival (A4) para enseñarlo en la mesa o colgarlo."""
+    fotos = "".join(f"<figure><img src='file://{IMG}/{f}.jpg'><figcaption>{n}</figcaption></figure>" for f, n in ATRACCIONES)
+    cuerpo = (f"<div class='cartel-a4'>{banderines(14, 210, 14)}"
+              "<div class=a4-sup>★ ¡Hoy, solo esta noche! ★</div><div class=a4-tit>Festival<br>de los Mil Velos</div>"
+              f"<div class=a4-fotos>{fotos}</div>"
+              "<div class=a4-txt>¡Ven y juega!</div>"
+              "<div class=a4-sub>Premios para valientes, acertijos para curiosos<br>y mil luces que brillan sin vela.</div>"
+              "<div class=a4-ent>Entrada: una sonrisa 😊 &nbsp;·&nbsp; Cierre: cuando se apaguen las farolas 🏮</div>"
+              f"{banderines(14, 210, 14).replace('banderines', 'banderines abajo')}</div>")
+    return [pagina(cuerpo)]
 
 
 def dorso(c):
+    if c.get("dorso_html"):
+        return c["dorso_html"](c)
     cuerpo = f"<div class=tipo>{e(c['nombre'])}</div><div class=cab>{e(c['dorso_titulo'])}</div>"
-    if c.get("tirada"):
-        cuerpo += f"<div class=tirada>{e(c['tirada'])}</div>"
     for sub, txt in c["dorso"]:
         if sub:
             cuerpo += f"<div class=sub>{e(sub)}</div>"
@@ -108,45 +185,72 @@ VACIA = "<div class='carta' style='border:none'></div>"
 
 POCION = dict(nombre="Poción Solvente Místico", emoji="🧪", tipo="Objeto", tirada="Inteligencia (arcanos) · DC 13",
               frente="Una poción verde que huele a hierbabuena. La etiqueta está borrosa y no se entiende.",
-              dorso_titulo="Si superas la tirada, dale la vuelta",
+              dorso_titulo="Lo que descubres",
               dorso=[("", "Es un frasquito de líquido verde que burbujea suavemente. Reconoces el brillo: es un solvente místico, un remedio contra la piedra mágica. En la etiqueta, con letra diminuta, se lee: «Si ves estatua, gris y fría, / devuélvele pronto su día». Un sorbo, o un chorrito sobre quien se haya vuelto de piedra, lo devuelve a la normalidad. Solo alcanza para una persona.")])
 MAPA = dict(nombre="Mapa Escondido", emoji="🗺️", tipo="Objeto", tirada="Sabiduría (supervivencia) · DC 13",
             frente="Un mapa lleno de rayas y dibujos de búhos. Una línea de puntos sale de la feria hacia el bosque, pero no sabéis a dónde lleva.",
-            dorso_titulo="Si superas la tirada, dale la vuelta",
+            dorso_titulo="Lo que descubres",
             dorso=[("", "Entre los garabatos reconoces una roca con forma de búho en mitad del bosque y una línea de puntos que sale de la feria. Es el camino a la Boca del Búho: con este mapa no os perderéis. Junto a la roca hay dibujadas unas garras enormes… quizá allí viva algo que no quiere visitas.")])
 PERGAMINO = dict(nombre="Pergamino de Dormir", emoji="📜", tipo="Objeto", tirada="Inteligencia (arcanos) · DC 13",
                  frente="La tinta plateada se mueve sola y huele a lavanda. Parece un hechizo, pero no sabéis cuál.",
-                 dorso_titulo="Si superas la tirada, dale la vuelta",
+                 dorso_titulo="Lo que descubres",
                  dorso=[("", "Las letras plateadas brillan al mirarlas: es un hechizo de Sueño. Si se lee en voz alta señalando a un enemigo, los que tengan pocas fuerzas caen dormidos un buen rato. Solo sirve una vez: al terminar, el pergamino se convierte en polvo.")])
-LLAVE = dict(nombre="Llave del Cofre del Tesoro", emoji="🗝️", tipo="Objeto", tirada="Inteligencia (investigación)",
+LLAVE = dict(nombre="Llave del Cofre del Tesoro", emoji="🗝️", tipo="Objeto", tirada="Inteligencia (investigación) · DC 13 (con DC 16 verás más)",
              frente="Una llave dorada muy brillante. Sirve para abrir algo.",
-             dorso_titulo="Según tu tirada, dale la vuelta",
+             dorso_titulo="Según tu tirada",
              dorso=[("Si sacas 13 o más", "Es una llave dorada con un búho grabado en el mango, de un cofre pequeño y antiguo. Pesa más de lo normal."),
                     ("Si sacas 16 o más (además)", "Mirando de cerca el extremo de la llave ves un polvo gris pegado. Huele a piedra mojada: es polvo de petrificación. El cofre que abra esta llave puede convertir en estatua a quien lo abra. Convendría tener un remedio a mano…")])
 DAGA = dict(nombre="Daga Mágica de Cocina", emoji="🍴", tipo="Baratija de Mizzen", precio="1 PO",
             frente="Un tenedor enorme que brilla como una estrella pequeña.",
-            dorso_titulo="Tuya por 1 PO", dorso=[("", "Mizzen te entrega un tenedor enorme que brilla como una estrella pequeña. Al clavarlo en una manzana, ¡la manzana hace «¡ñam, ñam!» y se corta sola en trocitos! No sirve para pelear, pero ¡qué elegante para la cena! Y en la oscuridad alumbra como una vela.")])
+            libre="Es tuya: dale la vuelta ya", dorso_titulo="Tuya por 1 PO", dorso=[("", "Mizzen te entrega un tenedor enorme que brilla como una estrella pequeña. Al clavarlo en una manzana, ¡la manzana hace «¡ñam, ñam!» y se corta sola en trocitos! No sirve para pelear, pero ¡qué elegante para la cena! Y en la oscuridad alumbra como una vela.")])
 ORBE = dict(nombre="Orbe del Vidente", emoji="🔮", tipo="Baratija de Mizzen", precio="3 PO",
             frente="Una bola de cristal muy seria y muy fría. Dice que dentro vive una predicción secretísima.",
-            dorso_titulo="Tuya por 3 PO", dorso=[("", "Es una bola de cristal muy seria y muy fría. Al mirar dentro solo ves tu propia cara, enorme y un poco torcida. Mizzen susurra: «Dentro vive una predicción secretísima… cuando la encuentres, ¡me avisas!». Seguro que da buena suerte, o al menos mucha risa.")])
+            libre="Es tuya: dale la vuelta ya", dorso_titulo="Tuya por 3 PO", dorso=[("", "Es una bola de cristal muy seria y muy fría. Al mirar dentro solo ves tu propia cara, enorme y un poco torcida. Mizzen susurra: «Dentro vive una predicción secretísima… cuando la encuentres, ¡me avisas!». Seguro que da buena suerte, o al menos mucha risa.")])
 BOTAS = dict(nombre="Botas de Siete Leguas", emoji="🥾", tipo="Baratija de Mizzen", precio="5 PO",
              frente="Una bota roja con alas bordadas. Solo hay una.",
-             dorso_titulo="Tuya por 5 PO", dorso=[("", "Es una bota roja con alas bordadas que te queda enorme. Al ponértela, ¡das un salto gigante! Pero como solo hay una… ¡giras y giras en círculos hasta marearte! Con la otra bota sería otra historia.")])
+             libre="Es tuya: dale la vuelta ya", dorso_titulo="Tuya por 5 PO", dorso=[("", "Es una bota roja con alas bordadas que te queda enorme. Al ponértela, ¡das un salto gigante! Pero como solo hay una… ¡giras y giras en círculos hasta marearte! Con la otra bota sería otra historia.")])
 ESCAMA = dict(nombre="Escama de Aerion", emoji="🐉", tipo="Premio del Druida", tirada="",
               frente="Una escama verde, muy suave y caliente. Late un poquito, como un corazón pequeño.",
               dorso_titulo="Cómo se usa", dorso=[("", "Una sola vez, en el combate final, quien la tenga puede recuperar 1d6 + 2 vidas como acción adicional.")])
 CARTEL = dict(nombre="Cartel del Festival", emoji="🪧", tipo="", tirada="Sabiduría (percepción) · DC 13",
-              dorso_titulo="Si superas la tirada, dale la vuelta",
+              dorso_titulo="Lo que descubres",
               dorso=[("", "Las letras doradas se mueven despacio, como si respirasen. Al girar el cartel hacia la feria, brilla más fuerte; hacia el bosque, se apaga. Es un cartel hechizado que lleva a quien lo tiene hasta el festival.")])
 LLAVE_JAULA = dict(nombre="Llave de la Jaula", emoji="🗝️", tipo="Objeto", tirada="Inteligencia (investigación) · DC 8",
                    frente="Una llave pequeña de hierro oscuro, con un dragón grabado en el mango.",
-                   dorso_titulo="Si superas la tirada, dale la vuelta",
+                   dorso_titulo="Lo que descubres",
                    dorso=[("", "Es una llave pequeña de hierro oscuro con un dragón grabado en el mango. Seguro que abre la jaula de la Bestia.")])
-CARTA = dict(nombre="Carta sellada", emoji="✉️", tipo="Hallazgo", tirada="",
-             frente="Una carta cerrada con un sello de velo dorado. Huele a perfume viejo.",
-             dorso_titulo="La carta dice…",
-             dorso=[("", "«Silas: la feria ya está montada. Mantén encendida la última farola hasta que yo llegue. No me falles otra vez.»"),
-                    ("Firmado", "la Dama de los Mil Velos")])
+def carta_frente(c):
+    return ("<div class='carta'><div class='marco sobre-m'><div class=solapa></div><div class=para>Para Silas</div><div class=sello-m>✦</div>"
+            "<div class='vuelta libre'>↻ Ábrela: dale la vuelta</div></div></div>")
+
+
+def carta_dorso(c):
+    return ("<div class='carta'><div class='marco papel'><div class=velos>✦ ✦ ✦</div>"
+            "<div class=v>«Silas:<br><br>la feria ya está montada. Mantén encendida la última farola hasta que yo llegue.<br><br>No me falles otra vez.»</div>"
+            "<div class=f>La Dama de los Mil Velos</div></div></div>")
+
+
+CARTA = dict(nombre="Carta sellada", frente_html=carta_frente, dorso_html=carta_dorso)
+
+# Ficha de iniciativa (master): se escribe con lápiz o rotulador borrable
+def ini_frente(c):
+    filas = "".join("<tr><td class=n>%d</td><td></td><td></td><td></td></tr>" % n for n in range(1, 11))
+    return ("<div class='carta'><div class='marco ini'><div class=tipo>Ficha del master</div><div class=nombre style='margin-bottom:2mm'>⚔️ Orden de iniciativa</div>"
+            "<table><thead><tr><th>#</th><th>Quién</th><th>Tirada</th><th>Vidas</th></tr></thead><tbody>" + filas + "</tbody></table>"
+            "<div class=ronda>Ronda: ☐1 ☐2 ☐3 ☐4 ☐5 ☐6 ☐7 ☐8</div></div></div>")
+
+
+def ini_dorso(c):
+    return ("<div class='carta'><div class='marco dorso'><div class=tipo>Ficha del master</div><div class=cab>Cómo se usa</div>"
+            "<div class=txt style='font-style:normal'>"
+            "<b>1.</b> Cada héroe tira <b>d20 + Destreza</b>. Tú tiras <b>1 d20 + 2</b> por cada tipo de enemigo.<br><br>"
+            "<b>2.</b> Apunta a todos de <b>mayor a menor</b> en la columna «Quién» (empate: primero los héroes).<br><br>"
+            "<b>3.</b> Cada turno: 1 movimiento + 1 acción (+ 1 acción adicional si la tienes). Tacha las vidas que se pierden.<br><br>"
+            "<b>4.</b> Al acabar el último de la lista, marca la ronda y vuelve a empezar por arriba.<br><br>"
+            "<span style='color:#777'>Consejo: escribe con lápiz o con rotulador borrable y plastifícala.</span></div></div></div>")
+
+
+INICIATIVA = dict(nombre="Iniciativa", frente_html=ini_frente, dorso_html=ini_dorso)
 
 
 def pares(cartas, hechas_con=frente):
@@ -280,18 +384,21 @@ def pdf(nombre, paginas):
 
 
 def miniatura(destino):
-    import fitz
-    d = fitz.open(destino)
-    pm = d[0].get_pixmap(dpi=60)
-    pm.save(str(destino.with_name(destino.stem + "-min.jpg")))
+    try:
+        import fitz
+        d = fitz.open(destino)
+        d[0].get_pixmap(dpi=60).save(str(destino.with_name(destino.stem + "-min.jpg")))
+    except ImportError:
+        subprocess.run(["pdftoppm", "-r", "60", "-jpeg", "-singlefile", str(destino), str(destino.with_name(destino.stem + "-min"))], check=True)
 
 
 if __name__ == "__main__":
     principal = [POCION, MAPA, PERGAMINO, LLAVE, DAGA, ORBE, BOTAS, ESCAMA]
     salidas = [
         pdf("la-feria-del-misterio-cartas-objeto.pdf", pares(principal) + cartel_x4()),
-        pdf("la-feria-del-misterio-cartas-objeto-master.pdf", pares([LLAVE_JAULA, CARTA])),
+        pdf("la-feria-del-misterio-cartas-objeto-master.pdf", pares([LLAVE_JAULA, CARTA, INICIATIVA, INICIATIVA])),
         pdf("la-feria-del-misterio-nota-dama-master.pdf", nota_dama()),
+        pdf("la-feria-del-misterio-cartel-festival.pdf", cartel_a4()),
         pdf("la-feria-del-misterio-acertijos.pdf", [diana(False), noria(False), carrusel(False)]),
         pdf("la-feria-del-misterio-acertijos-master.pdf", [diana(True), noria(True), carrusel(True)]),
         pdf("la-feria-del-misterio-preguntas.pdf", preguntas()),
